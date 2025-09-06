@@ -106,9 +106,9 @@ def show_success_message(project_name, project_path):
     console.print(
         f"[bold bright_red]│[/bold bright_red] [bright_yellow]>>>[/bright_yellow] [bright_white]cd {project_name}[/bright_white]")
     console.print(
-        "[bold bright_red]│[/bold bright_red] [bright_yellow]>>>[/bright_yellow] [dim]Modify www/index.html to customize[/dim]")
+        "[bold bright_red]│[/bold bright_red] [bright_yellow]>>>[/bright_yellow] [dim]Add your source files and content[/dim]")
     console.print(
-        "[bold bright_red]│[/bold bright_red] [bright_yellow]>>>[/bright_yellow] [dim]Execute 'sssstatic build' to compile[/dim]")
+        "[bold bright_red]│[/bold bright_red] [bright_yellow]>>>[/bright_yellow] [dim]Execute 'sssstatic build' to generate site[/dim]")
     console.print("[bold bright_red]╰─────────────────────────────────────────╯[/bold bright_red]")
     console.print("")
     console.print("[blink bright_blue]>>> SYSTEM STANDING BY FOR FURTHER ORDERS...[/blink bright_blue]")

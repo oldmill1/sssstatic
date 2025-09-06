@@ -8,17 +8,6 @@ def get_config_template(project_name):
     """Return the _config.yml template content."""
     return f"""# SSSStatic Configuration
 site_name: "{project_name}"
-description: "A static site generated with SSSStatic"
-author: "Your Name"
-url: ""
-
-# Build settings
-output_dir: "_site"
-source_dir: "www"
-
-# Theme settings
-theme:
-  name: "default"
 """
 
 

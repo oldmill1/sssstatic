@@ -12,7 +12,7 @@ from .display import (
     show_deployment_header, show_progress_step, show_success_message,
     show_critical_error, show_error, console
 )
-from .templates import get_config_template, get_index_html_template
+from .templates import get_config_template
 
 
 def get_project_details():
@@ -45,22 +45,11 @@ def create_project_structure(project_path, project_name):
         show_progress_step("Establishing command structure")
         project_path.mkdir(parents=True, exist_ok=True)
 
-        # Create www directory
-        show_progress_step("Initializing web interface module")
-        www_dir = project_path / "www"
-        www_dir.mkdir(exist_ok=True)
-
         # Create _config.yml
         show_progress_step("Deploying configuration matrix")
         config_content = get_config_template(project_name)
         config_file = project_path / "_config.yml"
         config_file.write_text(config_content)
-
-        # Create index.html
-        show_progress_step("Generating primary interface")
-        html_content = get_index_html_template(project_name)
-        index_file = www_dir / "index.html"
-        index_file.write_text(html_content)
 
         return True
 
