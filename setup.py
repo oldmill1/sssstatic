@@ -8,7 +8,6 @@ setup(
     author="Your Name",
     author_email="your.email@example.com",
     packages=find_packages(),
-    py_modules=["sssstatic"],
     entry_points={
         "console_scripts": [
             "sssstatic=sssstatic:main",
