@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SSSSStatic - A Simple Static Site Generator
+SSSStatic - A Simple Static Site Generator
 """
 
 from .cli import main

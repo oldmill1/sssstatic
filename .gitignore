@@ -53,7 +53,7 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# SSSSStatic specific
+# SSSStatic specific
 # Default output directories
 public/
 _site/

@@ -1,5 +1,5 @@
 """
-Display module for SSSSStatic - handles all ASCII art and console output
+Display module for SSSStatic - handles all ASCII art and console output
 """
 
 import time
@@ -41,7 +41,7 @@ def show_main_header():
     console.print("")
     console.print("[bold bright_green]╔════════════════════════════════════╗[/bold bright_green]")
     console.print(
-        "[bold bright_green]║[/bold bright_green] [bold bright_cyan]🐍 SSSSStatic ONLINE 🐍[/bold bright_cyan] [bold bright_green]║[/bold bright_green]")
+        "[bold bright_green]║[/bold bright_green] [bold bright_cyan]🐍 SSSStatic ONLINE 🐍[/bold bright_cyan] [bold bright_green]║[/bold bright_green]")
     console.print("[bold bright_green]╚════════════════════════════════════╝[/bold bright_green]")
     console.print("[dim bright_blue]>>> Static site generator ready for deployment[/dim bright_blue]")
     console.print("[dim]>>> Execute 'sssstatic create new' to begin mission[/dim]")

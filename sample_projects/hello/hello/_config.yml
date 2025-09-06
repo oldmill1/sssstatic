@@ -1,6 +1,6 @@
-# SSSSStatic Configuration
-site_name: "nnn"
-description: "A static site generated with SSSSStatic"
+# SSSStatic Configuration
+site_name: "hello"
+description: "A static site generated with SSSStatic"
 author: "Your Name"
 url: ""
 

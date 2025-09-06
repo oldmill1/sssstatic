@@ -1,6 +1,6 @@
 # sssstatic/project.py
 """
-Project module for SSSSStatic - handles project creation and file operations
+Project module for SSSStatic - handles project creation and file operations
 """
 
 import os
