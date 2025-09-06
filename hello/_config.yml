@@ -1,0 +1,35 @@
+# SSSStatic Configuration
+site_name: "hello"
+
+projects:
+  - name: "douglas"
+    url: "https://oldmill1.github.io/douglas/"
+    description: "chain together multiple agents (a work in progress)"
+
+  - name: "cmtmsg"
+    url: "https://oldmill1.github.io/cmtmsg/"
+    description: "auto-mates your commit workflow"
+
+  - name: "fitbod-web"
+    url: "https://oldmill1.github.io/fitbod-web/"
+    description: "a web-app for fellow Fitbod-ers"
+
+  - name: "svelte-pi"
+    url: "https://oldmill1.github.io/svelte-pi/"
+    description: "quickly spin-up svelte-kit apps in your terminal"
+
+  - name: "sssstatic"
+    url: "https://github.com/oldmill1/sssstatic"
+    description: "python-flavored ssg"
+
+about:
+  bio: "I build tools and web applications that make development workflows smoother."
+  location: "Building things on the internet"
+  contact: "https://github.com/oldmill1"
+
+skills:
+  - "Python"
+  - "JavaScript"
+  - "Svelte"
+  - "Static Site Generation"
+  - "Developer Tools"
