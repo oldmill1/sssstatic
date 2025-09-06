@@ -16,6 +16,6 @@ setup(
     },
     python_requires=">=3.6",
     install_requires=[
-        # We'll add dependencies here as we need them
+        "rich>=10.0.0",
     ],
 )
