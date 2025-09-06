@@ -5,6 +5,7 @@ CLI module for SSSStatic - handles command line interface and argument parsing
 
 import argparse
 from .project import create_new_project
+from .server import start_dev_server
 from .display import show_main_header
 
 
@@ -17,11 +18,18 @@ def main():
     create_parser = subparsers.add_parser("create", help="Create a new project")
     create_parser.add_argument("type", choices=["new"], help="Type of project to create")
 
+    # Serve command
+    serve_parser = subparsers.add_parser("serve", help="Start development server")
+    serve_parser.add_argument("--port", "-p", type=int, default=8000, help="Port to serve on (default: 8000)")
+    serve_parser.add_argument("--directory", "-d", default="www", help="Directory to serve (default: www)")
+
     # Parse arguments
     args = parser.parse_args()
 
     if args.command == "create" and args.type == "new":
         create_new_project()
+    elif args.command == "serve":
+        start_dev_server(args.directory, args.port)
     elif args.command is None:
         show_main_header()
     else:

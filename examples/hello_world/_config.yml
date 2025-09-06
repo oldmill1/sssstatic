@@ -1,5 +1,5 @@
 # SSSStatic Configuration
-site_name: "hello"
+site_name: "hello_world"
 description: "A static site generated with SSSStatic"
 author: "Your Name"
 url: ""
