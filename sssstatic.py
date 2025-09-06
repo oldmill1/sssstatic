@@ -16,20 +16,47 @@ console = Console()
 
 def create_new_project():
     """Create a new static site project with wizard."""
-    console.print("\n[bold blue]🚀 SSSSStatic Project Creator[/bold blue]")
-    console.print("Let's create your new static site!\n")
 
-    # Get project name
-    project_name = Prompt.ask("What is the name of your project?")
+    # Epic ASCII art header
+    console.print("")
+    console.print(
+        "[bold bright_green]╔══════════════════════════════════════════════════════════════╗[/bold bright_green]")
+    console.print(
+        "[bold bright_green]║[/bold bright_green] [bold bright_cyan]███████╗███████╗███████╗███████╗███████╗████████╗ █████╗ ████████╗██╗ ██████╗[/bold bright_cyan] [bold bright_green]║[/bold bright_green]")
+    console.print(
+        "[bold bright_green]║[/bold bright_green] [bold bright_cyan]██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██║██╔════╝[/bold bright_cyan] [bold bright_green]║[/bold bright_green]")
+    console.print(
+        "[bold bright_green]║[/bold bright_green] [bold bright_cyan]███████╗███████╗███████╗███████╗███████╗   ██║   ███████║   ██║   ██║██║     [/bold bright_cyan] [bold bright_green]║[/bold bright_green]")
+    console.print(
+        "[bold bright_green]║[/bold bright_green] [bold bright_cyan]╚════██║╚════██║╚════██║╚════██║╚════██║   ██║   ██╔══██║   ██║   ██║██║     [/bold bright_cyan] [bold bright_green]║[/bold bright_green]")
+    console.print(
+        "[bold bright_green]║[/bold bright_green] [bold bright_cyan]███████║███████║███████║███████║███████║   ██║   ██║  ██║   ██║   ██║╚██████╗[/bold bright_cyan] [bold bright_green]║[/bold bright_green]")
+    console.print(
+        "[bold bright_green]║[/bold bright_green] [bold bright_cyan]╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝[/bold bright_cyan] [bold bright_green]║[/bold bright_green]")
+    console.print(
+        "[bold bright_green]╚══════════════════════════════════════════════════════════════╝[/bold bright_green]")
+    console.print("")
+    console.print("[bold bright_red]    ▼ ▼ ▼  STATIC SITE GENERATOR DEPLOYMENT PROTOCOL  ▼ ▼ ▼[/bold bright_red]")
+    console.print("")
+    console.print("[blink bright_yellow]>>> SYSTEM INITIALIZING...[/blink bright_yellow]")
+    console.print("[dim bright_blue]>>> Awaiting operator input...[/dim bright_blue]")
+    console.print("")
+
+    # Get project name with dramatic styling
+    project_name = Prompt.ask(
+        "[bold bright_cyan]╭─[/bold bright_cyan][bold bright_white] PROJECT CODENAME[/bold bright_white][bold bright_cyan] ──────────────────────╮\n│[/bold bright_cyan] [bold bright_yellow]>>>[/bold bright_yellow]")
     if not project_name.strip():
-        console.print("[red]Error: Project name cannot be empty[/red]")
+        console.print("[bold red]╭─[ CRITICAL ERROR ]─────────────────────╮[/bold red]")
+        console.print("[bold red]│ INVALID CODENAME - ABORT SEQUENCE     │[/bold red]")
+        console.print("[bold red]╰────────────────────────────────────────╯[/bold red]")
         return
 
     # Get project location
     current_dir = os.getcwd()
-    console.print(f"[dim]Default location: {current_dir}[/dim]")
+    console.print("")
+    console.print(f"[dim bright_blue]>>> Default deployment zone: [bold]{current_dir}[/bold][/dim bright_blue]")
     project_location = Prompt.ask(
-        "Where do you want the project to be located?",
+        "[bold bright_cyan]╭─[/bold bright_cyan][bold bright_white] TARGET COORDINATES[/bold bright_white][bold bright_cyan] ─────────────────╮\n│[/bold bright_cyan] [bold bright_yellow]>>>[/bold bright_yellow]",
         default=current_dir
     )
 
@@ -38,19 +65,37 @@ def create_new_project():
 
     # Check if directory already exists
     if project_path.exists():
-        console.print(f"[red]Error: Directory '{project_path}' already exists![/red]")
+        console.print("")
+        console.print("[bold red]╭─[ DEPLOYMENT CONFLICT ]────────────────╮[/bold red]")
+        console.print(f"[bold red]│ Zone '{project_path}' already occupied  │[/bold red]")
+        console.print("[bold red]│ MISSION ABORT - RETREAT IMMEDIATELY   │[/bold red]")
+        console.print("[bold red]╰─────────────────────────────────────────╯[/bold red]")
         return
 
     try:
-        # Create project structure
-        console.print(f"\n[yellow]Creating project '{project_name}' at {project_path}...[/yellow]")
+        console.print("")
+        console.print("[bold bright_yellow]╔════════════════════════════════════════╗[/bold bright_yellow]")
+        console.print(
+            f"[bold bright_yellow]║[/bold bright_yellow] [bold bright_white]DEPLOYING PROJECT '{project_name}'...[/bold bright_white] [bold bright_yellow]║[/bold bright_yellow]")
+        console.print("[bold bright_yellow]╚════════════════════════════════════════╝[/bold bright_yellow]")
+        console.print("")
+
+        import time
 
         # Create main project directory
+        console.print("[bright_blue]>>> [/bright_blue][bright_white]Establishing command structure...[/bright_white]",
+                      end="")
+        time.sleep(0.3)
         project_path.mkdir(parents=True, exist_ok=True)
+        console.print(" [bold bright_green]✓ COMPLETE[/bold bright_green]")
 
         # Create www directory
+        console.print(
+            "[bright_blue]>>> [/bright_blue][bright_white]Initializing web interface module...[/bright_white]", end="")
+        time.sleep(0.3)
         www_dir = project_path / "www"
         www_dir.mkdir(exist_ok=True)
+        console.print(" [bold bright_green]✓ COMPLETE[/bold bright_green]")
 
         # Create _config.yml
         config_content = f"""# SSSSStatic Configuration
@@ -68,8 +113,12 @@ theme:
   name: "default"
 """
 
+        console.print("[bright_blue]>>> [/bright_blue][bright_white]Deploying configuration matrix...[/bright_white]",
+                      end="")
+        time.sleep(0.3)
         config_file = project_path / "_config.yml"
         config_file.write_text(config_content)
+        console.print(" [bold bright_green]✓ COMPLETE[/bold bright_green]")
 
         # Create index.html
         html_content = f"""<!DOCTYPE html>
@@ -158,19 +207,48 @@ theme:
 </body>
 </html>"""
 
+        console.print("[bright_blue]>>> [/bright_blue][bright_white]Generating primary interface...[/bright_white]",
+                      end="")
+        time.sleep(0.3)
         index_file = www_dir / "index.html"
         index_file.write_text(html_content)
+        console.print(" [bold bright_green]✓ COMPLETE[/bold bright_green]")
 
-        # Success message
-        console.print(f"[green]✅ Project '{project_name}' created successfully![/green]")
-        console.print(f"[dim]Location: {project_path}[/dim]")
-        console.print("\n[yellow]Next steps:[/yellow]")
-        console.print(f"  cd {project_name}")
-        console.print("  # Edit www/index.html to customize your site")
-        console.print("  # Run 'sssstatic build' to generate your site")
+        # Epic success message
+        console.print("")
+        console.print(
+            "[bold bright_green]╔══════════════════════════════════════════════════════════╗[/bold bright_green]")
+        console.print(
+            "[bold bright_green]║[/bold bright_green] [bold bright_yellow]🚀 DEPLOYMENT SUCCESSFUL! MISSION ACCOMPLISHED! 🚀[/bold bright_yellow] [bold bright_green]║[/bold bright_green]")
+        console.print(
+            "[bold bright_green]╚══════════════════════════════════════════════════════════╝[/bold bright_green]")
+        console.print("")
+        console.print(f"[bold bright_cyan]╭─[ PROJECT STATUS ]──────────────────────╮[/bold bright_cyan]")
+        console.print(
+            f"[bold bright_cyan]│[/bold bright_cyan] [bold bright_white]Codename:[/bold bright_white] [bright_yellow]{project_name}[/bright_yellow]")
+        console.print(
+            f"[bold bright_cyan]│[/bold bright_cyan] [bold bright_white]Location:[/bold bright_white] [dim]{project_path}[/dim]")
+        console.print(f"[bold bright_cyan]╰─────────────────────────────────────────╯[/bold bright_cyan]")
+        console.print("")
+        console.print("[bold bright_red]╭─[ NEXT OPERATIONS ]─────────────────────╮[/bold bright_red]")
+        console.print(
+            f"[bold bright_red]│[/bold bright_red] [bright_yellow]>>>[/bright_yellow] [bright_white]cd {project_name}[/bright_white]")
+        console.print(
+            "[bold bright_red]│[/bold bright_red] [bright_yellow]>>>[/bright_yellow] [dim]Modify www/index.html to customize[/dim]")
+        console.print(
+            "[bold bright_red]│[/bold bright_red] [bright_yellow]>>>[/bright_yellow] [dim]Execute 'sssstatic build' to compile[/dim]")
+        console.print("[bold bright_red]╰─────────────────────────────────────────╯[/bold bright_red]")
+        console.print("")
+        console.print("[blink bright_blue]>>> SYSTEM STANDING BY FOR FURTHER ORDERS...[/blink bright_blue]")
 
     except Exception as e:
-        console.print(f"[red]Error creating project: {e}[/red]")
+        console.print("")
+        console.print("[bold red]╔══════════════════════════════════════════╗[/bold red]")
+        console.print(
+            "[bold red]║[/bold red] [bold bright_white]🔥 CRITICAL SYSTEM FAILURE! 🔥[/bold bright_white] [bold red]║[/bold red]")
+        console.print("[bold red]╚══════════════════════════════════════════╝[/bold red]")
+        console.print(f"[bold red]>>> ERROR DETAILS: {e}[/bold red]")
+        console.print("[bold red]>>> MISSION FAILED - EMERGENCY SHUTDOWN[/bold red]")
 
 
 def main():
@@ -188,10 +266,14 @@ def main():
     if args.command == "create" and args.type == "new":
         create_new_project()
     elif args.command is None:
-        console.print("[bold bright_green]>> SSSSStatic ONLINE[/bold bright_green]", style="bold green")
-        console.print("[dim bright_blue]>> Static site generator initialized successfully[/dim bright_blue]",
-                      style="dim")
-        console.print("[dim]>> Use 'sssstatic create new' to initialize new project[/dim]")
+        console.print("")
+        console.print("[bold bright_green]╔════════════════════════════════════╗[/bold bright_green]")
+        console.print(
+            "[bold bright_green]║[/bold bright_green] [bold bright_cyan]🐍 SSSSStatic ONLINE 🐍[/bold bright_cyan] [bold bright_green]║[/bold bright_green]")
+        console.print("[bold bright_green]╚════════════════════════════════════╝[/bold bright_green]")
+        console.print("[dim bright_blue]>>> Static site generator ready for deployment[/dim bright_blue]")
+        console.print("[dim]>>> Execute 'sssstatic create new' to begin mission[/dim]")
+        console.print("")
     else:
         parser.print_help()
 

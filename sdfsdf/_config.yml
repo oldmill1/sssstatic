@@ -1,0 +1,13 @@
+# SSSSStatic Configuration
+site_name: "sdfsdf"
+description: "A static site generated with SSSSStatic"
+author: "Your Name"
+url: ""
+
+# Build settings
+output_dir: "_site"
+source_dir: "www"
+
+# Theme settings
+theme:
+  name: "default"
