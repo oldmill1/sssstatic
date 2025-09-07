@@ -291,29 +291,68 @@ def get_dark_theme_css():
         }}
         
         h2 {{
-            color: #58a6ff;
-            margin-top: 2.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #ffffff;
+            margin-top: 2rem;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: 500;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }}
         
         section {{
-            margin: 2.5rem 0;
+            margin: 1.5rem 0;
+            padding: 0.5rem;
+            background-color: transparent;
+            border-radius: 0;
+            border: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }}
+        
+        section section {{
+            margin: 1rem 0;
             padding: 1.5rem;
             background-color: #161b22;
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid #30363d;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }}
+        
+        section section h2 {{
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
         }}
         
         ol, ul {{
             margin: 1rem 0;
-            padding-left: 1.5rem;
+            padding-left: 0;
+            list-style: none;
         }}
         
         li {{
             margin: 0.8rem 0;
-            line-height: 1.7;
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #e1e8ed;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }}
+        
+        ol li {{
+            counter-increment: item;
+        }}
+        
+        ol li::before {{
+            content: counter(item) ". ";
+            color: #58a6ff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-right: 1rem;
+        }}
+        
+        ol {{
+            counter-reset: item;
         }}
         
         strong {{
@@ -417,29 +456,68 @@ def get_light_theme_css():
         }}
         
         h2 {{
-            color: #34495e;
-            margin-top: 2.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #2c3e50;
+            margin-top: 2rem;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: 500;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }}
         
         section {{
-            margin: 2.5rem 0;
+            margin: 1.5rem 0;
+            padding: 0.5rem;
+            background-color: transparent;
+            border-radius: 0;
+            border: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }}
+        
+        section section {{
+            margin: 1rem 0;
             padding: 1.5rem;
             background-color: #f8f9fa;
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid #e9ecef;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }}
+        
+        section section h2 {{
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
         }}
         
         ol, ul {{
             margin: 1rem 0;
-            padding-left: 1.5rem;
+            padding-left: 0;
+            list-style: none;
         }}
         
         li {{
             margin: 0.8rem 0;
-            line-height: 1.7;
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }}
+        
+        ol li {{
+            counter-increment: item;
+        }}
+        
+        ol li::before {{
+            content: counter(item) ". ";
+            color: #3498db;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-right: 1rem;
+        }}
+        
+        ol {{
+            counter-reset: item;
         }}
         
         strong {{
