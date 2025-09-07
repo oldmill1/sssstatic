@@ -23,6 +23,21 @@ def load_config(config_path):
         return None
 
 
+def copy_assets():
+    """Copy assets folder to _site if it exists."""
+    import shutil
+
+    assets_src = Path("assets")
+    if assets_src.exists() and assets_src.is_dir():
+        assets_dest = Path("_site") / "assets"
+        if assets_dest.exists():
+            shutil.rmtree(assets_dest)
+        shutil.copytree(assets_src, assets_dest)
+        console.print("[bright_blue]>>> Copied assets folder[/bright_blue]")
+        return True
+    return False
+
+
 def build_site():
     """Main build function - reads config and generates HTML."""
     config_path = Path("_config.yml")
@@ -43,12 +58,15 @@ def build_site():
                     if not k.startswith('_') and k not in ['site_name', 'theme']}
     content_html = convert_to_html(content_data)
 
-    # Generate complete HTML using template
-    html = generate_site_html(config, content_html)
-
     # Create output directory
     output_dir = Path("_site")
     output_dir.mkdir(exist_ok=True)
+
+    # Copy assets folder if it exists
+    copy_assets()
+
+    # Generate complete HTML using template
+    html = generate_site_html(config, content_html)
 
     # Write HTML file
     output_file = output_dir / "index.html"

@@ -89,6 +89,25 @@ def get_dark_theme_css():
         li > br:last-child {
             display: none;
         }
+        
+        /* Header image styling */
+        .header-image {
+            text-align: center;
+            margin: 2rem 0 3rem 0;
+        }
+        
+        .header-image img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .header-image img:hover {
+            transform: scale(1.02);
+        }
     """
 
 
@@ -176,6 +195,25 @@ def get_light_theme_css():
         /* Style for nested content in list items */
         li > br:last-child {
             display: none;
+        }
+        
+        /* Header image styling */
+        .header-image {
+            text-align: center;
+            margin: 2rem 0 3rem 0;
+        }
+        
+        .header-image img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .header-image img:hover {
+            transform: scale(1.02);
         }
     """
 
