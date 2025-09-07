@@ -9,7 +9,8 @@ def convert_to_html(data, key=None, in_list_item=False):
     if isinstance(data, dict):
         html = ""
         for k, v in data.items():
-            if k == "site_name":  # Skip the reserved site_name
+            # Skip system tags (underscore-prefixed) and reserved tags
+            if k.startswith('_') or k in ["site_name", "theme"]:
                 continue
 
             if in_list_item:

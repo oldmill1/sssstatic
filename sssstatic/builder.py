@@ -38,8 +38,9 @@ def build_site():
 
     console.print("[bright_blue]>>> Generating HTML...[/bright_blue]")
 
-    # Generate content from everything except site_name
-    content_data = {k: v for k, v in config.items() if k != 'site_name'}
+    # Generate content from all data except system tags and reserved fields
+    content_data = {k: v for k, v in config.items()
+                    if not k.startswith('_') and k not in ['site_name', 'theme']}
     content_html = convert_to_html(content_data)
 
     # Generate complete HTML using template
