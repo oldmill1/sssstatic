@@ -60,7 +60,8 @@ def generate_cards_html(config):
 
 def generate_site_html(config, content_html):
     """Generate complete HTML page from config and content HTML."""
-    site_name = config.get('site_name', 'My Site')
+    # Use _title for both title and h1, fall back to site_name if _title not available
+    page_title = config.get('_title', config.get('site_name', 'My Site'))
 
     # Generate image HTML if _image is present
     image_html = ""
@@ -80,11 +81,11 @@ def generate_site_html(config, content_html):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{site_name}</title>
+    <title>{page_title}</title>
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-    <h1>{site_name}</h1>
+    <h1>{page_title}</h1>
     {image_html}
     {cards_html}
     {content_html}
