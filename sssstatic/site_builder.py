@@ -8,6 +8,7 @@ from pathlib import Path
 from .display import console, show_critical_error
 from .templates import generate_site_html
 from .yaml_to_html import convert_to_html
+from .styles import get_theme_css
 
 
 def load_config(config_path):
@@ -38,6 +39,24 @@ def copy_assets():
     return False
 
 
+def generate_css_file(config):
+    """Generate styles.css file in assets folder."""
+    # Create assets directory in _site
+    assets_dir = Path("_site") / "assets"
+    assets_dir.mkdir(exist_ok=True)
+
+    # Get theme CSS
+    theme = config.get('_theme', config.get('theme', 'dark'))
+    css_content = get_theme_css(theme)
+
+    # Write CSS file
+    css_file = assets_dir / "styles.css"
+    css_file.write_text(css_content, encoding='utf-8')
+
+    console.print("[bright_blue]>>> Generated styles.css[/bright_blue]")
+    return True
+
+
 def build_site():
     """Main build function - reads config and generates HTML."""
     config_path = Path("_config.yml")
@@ -62,8 +81,11 @@ def build_site():
     output_dir = Path("_site")
     output_dir.mkdir(exist_ok=True)
 
-    # Copy assets folder if it exists
+    # Copy assets folder if it exists (this creates _site/assets)
     copy_assets()
+
+    # Generate CSS file in assets folder
+    generate_css_file(config)
 
     # Generate complete HTML using template
     html = generate_site_html(config, content_html)
@@ -74,5 +96,6 @@ def build_site():
 
     console.print(f"[bold bright_green]✓ Site built successfully![/bold bright_green]")
     console.print(f"[dim]>>> Output: {output_file.absolute()}[/dim]")
+    console.print(f"[dim]>>> Styles: {output_dir / 'assets' / 'styles.css'}[/dim]")
 
     return True

@@ -3,8 +3,6 @@
 Templates module for SSSStatic - contains all file templates
 """
 
-from .styles import get_theme_css
-
 
 def get_config_template(project_name):
     """Return the _config.yml template content."""
@@ -16,8 +14,6 @@ site_name: "{project_name}"
 def generate_site_html(config, content_html):
     """Generate complete HTML page from config and content HTML."""
     site_name = config.get('site_name', 'My Site')
-    theme = config.get('_theme', config.get('theme', 'dark'))  # Support both _theme and theme
-    css_styles = get_theme_css(theme)
 
     # Generate image HTML if _image is present
     image_html = ""
@@ -35,8 +31,7 @@ def generate_site_html(config, content_html):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{site_name}</title>
-    <style>{css_styles}
-    </style>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <h1>{site_name}</h1>
