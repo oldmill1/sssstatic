@@ -248,47 +248,53 @@ def get_dark_theme_css():
         }}
         
         h1 {{
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #58a6ff, #79c0ff, #a5d6ff, #58a6ff);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease-in-out infinite;
-            font-size: 3rem;
-            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            border: 1px solid #404040;
+            border-radius: 8px;
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.4);
+            font-size: 0.9rem;
+            font-weight: 500;
             text-align: center;
-            margin: 2rem 0 3rem 0;
-            padding: 1rem 0;
+            margin: 0.5rem 0 1.5rem 0;
+            padding: 0.75rem 1.5rem;
             position: relative;
-            letter-spacing: -0.02em;
-            text-shadow: 0 0 30px rgba(88, 166, 255, 0.3);
+            letter-spacing: 0.3px;
+            color: #e8e8e8;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+        }}
+        
+        h1:hover {{
+            background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 50%, #1f1f1f 100%);
+            border-color: #505050;
+            color: #f8f8f8;
         }}
         
         h1::before {{
             content: '';
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #58a6ff, #79c0ff, #a5d6ff);
-            border-radius: 2px;
-            animation: pulse 2s ease-in-out infinite;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            border-radius: 8px 8px 0 0;
         }}
         
         h1::after {{
             content: '';
             position: absolute;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #58a6ff, transparent);
-            border-radius: 1px;
-            animation: shimmer 2.5s ease-in-out infinite;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.3), transparent);
+            border-radius: 0 0 8px 8px;
         }}
         
         @keyframes gradientShift {{
