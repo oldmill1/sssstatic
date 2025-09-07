@@ -248,53 +248,15 @@ def get_dark_theme_css():
         }}
         
         h1 {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%);
-            border: 1px solid #404040;
-            border-radius: 8px;
-            box-shadow: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-                0 2px 8px rgba(0, 0, 0, 0.4);
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.4rem;
+            font-weight: 600;
             text-align: center;
-            margin: 0.5rem 0 1.5rem 0;
-            padding: 0.75rem 1.5rem;
-            position: relative;
-            letter-spacing: 0.3px;
-            color: #e8e8e8;
-            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            transition: all 0.2s ease;
-        }}
-        
-        h1:hover {{
-            background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 50%, #1f1f1f 100%);
-            border-color: #505050;
-            color: #f8f8f8;
-        }}
-        
-        h1::before {{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            border-radius: 8px 8px 0 0;
-        }}
-        
-        h1::after {{
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.3), transparent);
-            border-radius: 0 0 8px 8px;
+            margin: 2rem 0 3rem 0;
+            padding: 0;
+            color: #58a6ff;
+            line-height: 1.4;
+            letter-spacing: 1px;
         }}
         
         @keyframes gradientShift {{
