@@ -1,7 +1,0 @@
-# Simple SSSStatic Configuration
-site_name: "My Awesome Site"
-
-about:
-  name: "John Doe"
-  bio: "A developer who loves building things"
-  location: "Somewhere on the internet"
