@@ -1,0 +1,76 @@
+SSSSTATIC(1)                    User Commands                   SSSSTATIC(1)
+
+NAME
+       sssstatic - A Simple Static Site Generator
+
+SYNOPSIS
+       sssstatic COMMAND [OPTIONS]
+
+DESCRIPTION
+       SSSStatic is a minimal static site generator that converts YAML
+       configuration files into clean HTML websites. It provides a simple
+       workflow for creating, building, and serving static sites.
+
+COMMANDS
+       create new
+              Create a new static site project. Prompts for project name
+              and location, then generates the initial project structure
+              with a _config.yml file.
+
+       build
+              Build the static site from the current directory's _config.yml
+              file. Generates HTML output in the _site/ directory.
+
+       serve [OPTIONS]
+              Start a development server to preview the built site.
+
+              -p, --port PORT
+                     Specify the port to serve on (default: 8000)
+
+              -d, --directory DIR
+                     Specify the directory to serve (default: _site)
+
+FILES
+       _config.yml
+              Main configuration file containing site metadata and content.
+              Supports YAML format with nested data structures.
+
+       _site/
+              Output directory containing the generated static site files.
+
+CONFIGURATION
+       The _config.yml file supports the following options:
+
+       site_name
+              The name of your site (used as the page title)
+
+       theme
+              Theme to use for styling (dark, light). Default: dark
+
+       Custom sections can be added and will be converted to HTML automatically.
+
+EXAMPLES
+       Create a new project:
+              $ sssstatic create new
+
+       Build the current project:
+              $ cd myproject
+              $ sssstatic build
+
+       Serve on custom port:
+              $ sssstatic serve --port 3000
+
+       Serve custom directory:
+              $ sssstatic serve --directory public
+
+EXIT STATUS
+       0      Success
+       1      General error (missing config, invalid YAML, etc.)
+
+AUTHOR
+       Written for simple, fast static site generation.
+
+COPYRIGHT
+       This is free software; see the source for copying conditions.
+
+SSSSTATIC 0.1.0                 September 2025                 SSSSTATIC(1)
