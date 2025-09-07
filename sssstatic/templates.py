@@ -63,6 +63,22 @@ def generate_site_html(config, content_html):
     # Use _title for both title and h1, fall back to site_name if _title not available
     page_title = config.get('_title', config.get('site_name', 'My Site'))
 
+    # Generate header HTML - check for multi-line title first
+    header_html = ""
+    if '_multi_line_title' in config:
+        multi_title = config['_multi_line_title']
+        if isinstance(multi_title, dict):
+            title_text = multi_title.get('title', page_title)
+            subtitle_text = multi_title.get('sub_title', '')
+            header_html = f"""    <header class="movie-header">
+        <h1 class="movie-title">{title_text}</h1>
+        <p class="movie-subtitle">{subtitle_text}</p>
+    </header>
+"""
+    else:
+        # Fallback to single line title
+        header_html = f"    <h1>{page_title}</h1>\n"
+
     # Generate image HTML if _image is present
     image_html = ""
     if '_image' in config:
@@ -86,8 +102,7 @@ def generate_site_html(config, content_html):
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-    <h1>{page_title}</h1>
-    {image_html}
+{header_html}    {image_html}
     {cards_html}
     {content_html}
 </body>

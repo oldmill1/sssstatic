@@ -247,6 +247,36 @@ def get_dark_theme_css():
             min-height: 100vh;
         }}
         
+        /* Minimal typography-focused header */
+        .movie-header {{
+            text-align: center;
+            margin: 3rem 0 4rem 0;
+            padding: 0;
+        }}
+        
+        .movie-title {{
+            font-family: 'Source Code Pro', monospace;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }}
+        
+        .movie-subtitle {{
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1rem;
+            font-weight: 400;
+            margin: 0.5rem 0 0 0;
+            padding: 0;
+            color: #58a6ff;
+            letter-spacing: 2px;
+            text-transform: lowercase;
+        }}
+        
+        /* Fallback h1 for single-line titles */
         h1 {{
             font-family: 'Source Code Pro', monospace;
             font-size: 1.4rem;
@@ -257,6 +287,17 @@ def get_dark_theme_css():
             color: #58a6ff;
             line-height: 1.4;
             letter-spacing: 1px;
+        }}
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {{
+            .movie-title {{
+                font-size: 2.2rem;
+            }}
+            
+            .movie-subtitle {{
+                font-size: 0.9rem;
+            }}
         }}
         
         @keyframes gradientShift {{
