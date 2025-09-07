@@ -9,7 +9,8 @@ SYNOPSIS
 DESCRIPTION
        SSSStatic is a minimal static site generator that converts YAML
        configuration files into clean HTML websites. It provides a simple
-       workflow for creating, building, and serving static sites.
+       workflow for creating, building, and serving static sites with
+       built-in themes and responsive design.
 
 COMMANDS
        create new
@@ -30,6 +31,16 @@ COMMANDS
               -d, --directory DIR
                      Specify the directory to serve (default: _site)
 
+       dev [OPTIONS]
+              Build the site and start development server in one command.
+              Equivalent to running 'build' followed by 'serve'.
+
+              -p, --port PORT
+                     Specify the port to serve on (default: 8000)
+
+              -d, --directory DIR
+                     Specify the directory to serve (default: _site)
+
 FILES
        _config.yml
               Main configuration file containing site metadata and content.
@@ -39,15 +50,30 @@ FILES
               Output directory containing the generated static site files.
 
 CONFIGURATION
-       The _config.yml file supports the following options:
+       The _config.yml file supports the following structure:
 
+   System Configuration (underscore-prefixed)
+       _theme Theme to use for styling. Options: "dark", "light".
+              Default: "dark"
+
+   Reserved Fields
        site_name
-              The name of your site (used as the page title)
+              The name of your site (used as page title and main heading)
 
-       theme
-              Theme to use for styling (dark, light). Default: dark
+   Content Structure
+       Any other YAML structure becomes HTML content. Objects become
+       sections with headings, lists become ordered lists, and URLs
+       are automatically converted to clickable links.
 
-       Custom sections can be added and will be converted to HTML automatically.
+THEMES
+       Two built-in themes are available:
+
+       dark   GitHub-inspired dark theme with syntax highlighting colors
+              and modern styling (default)
+
+       light  Clean, minimal light theme with professional appearance
+
+       Set theme using: _theme: "dark" or _theme: "light"
 
 EXAMPLES
        Create a new project:
@@ -57,11 +83,27 @@ EXAMPLES
               $ cd myproject
               $ sssstatic build
 
-       Serve on custom port:
+       Start development server:
               $ sssstatic serve --port 3000
+
+       Build and serve in one command:
+              $ sssstatic dev
 
        Serve custom directory:
               $ sssstatic serve --directory public
+
+       Example _config.yml:
+              site_name: "My Site"
+              _theme: "dark"
+
+              about:
+                name: "John Doe"
+                bio: "Developer"
+
+              projects:
+                - name: "Cool Project"
+                  url: "https://github.com/user/project"
+                  status: "active"
 
 EXIT STATUS
        0      Success

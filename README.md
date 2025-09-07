@@ -1,76 +1,145 @@
-SSSSTATIC(1)                    User Commands SSSSTATIC(1)
+# 🐍🐍🐍Static Site Generator🐍🐍🐍
 
-NAME
-sssstatic - A Simple Static Site Generator
+- 🐍**Simple**: Just write YAML
+- 🐍 **Themed**: Built-in dark and light themes
+- 🐍 **Dev-friendly**: Built-in dev server
+- 🐍 **Responsive**: Clean, modern styling out of the box
 
-SYNOPSIS
-sssstatic COMMAND [OPTIONS]
+## Set-up
 
-DESCRIPTION
-SSSStatic is a minimal static site generator that converts YAML
-configuration files into clean HTML websites. It provides a simple
-workflow for creating, building, and serving static sites.
+```bash
+pip install -e .
+```
 
-COMMANDS
-create new
-Create a new static site project. Prompts for project name
-and location, then generates the initial project structure
-with a _config.yml file.
+## Quick Start
 
-       build
-              Build the static site from the current directory's _config.yml
-              file. Generates HTML output in the _site/ directory.
+### 1. Create a new project
 
-       serve [OPTIONS]
-              Start a development server to preview the built site.
+```bash
+sssstatic create new
+```
 
-              -p, --port PORT
-                     Specify the port to serve on (default: 8000)
+### 2. Edit your `_config.yml`
 
-              -d, --directory DIR
-                     Specify the directory to serve (default: _site)
+```yaml
+# SSSStatic Configuration
+site_name: "My Awesome Site"
+_theme: "dark"  # or "light"
 
-FILES
-_config.yml
-Main configuration file containing site metadata and content.
-Supports YAML format with nested data structures.
+about:
+  name: "Your Name"
+  bio: "What you do"
+  location: "Where you are"
 
-       _site/
-              Output directory containing the generated static site files.
+projects:
+  - name: "Cool Project"
+    url: "https://github.com/you/project"
+    description: "What it does"
+    status: "active"
 
-CONFIGURATION
-The _config.yml file supports the following options:
+contact:
+  email: "you@example.com"
+  github: "https://github.com/you"
+```
 
-       site_name
-              The name of your site (used as the page title)
+### 3. Build and serve
 
-       theme
-              Theme to use for styling (dark, light). Default: dark
+```bash
+sssstatic dev  # builds and starts dev server
+# or separately:
+sssstatic build
+sssstatic serve
+```
 
-       Custom sections can be added and will be converted to HTML automatically.
+## Commands
 
-EXAMPLES
-Create a new project:
-$ sssstatic create new
+### `sssstatic create new`
 
-       Build the current project:
-              $ cd myproject
-              $ sssstatic build
+Creates a new project with initial `_config.yml` file.
 
-       Serve on custom port:
-              $ sssstatic serve --port 3000
+### `sssstatic build`
 
-       Serve custom directory:
-              $ sssstatic serve --directory public
+Builds the static site from `_config.yml` into `_site/` directory.
 
-EXIT STATUS
-0 Success
-1 General error (missing config, invalid YAML, etc.)
+### `sssstatic serve [options]`
 
-AUTHOR
-Written for simple, fast static site generation.
+Starts development server to preview the site.
 
-COPYRIGHT
-This is free software; see the source for copying conditions.
+Options:
 
-SSSSTATIC 0.1.0 September 2025 SSSSTATIC(1)
+- `-p, --port PORT` - Port to serve on (default: 8000)
+- `-d, --directory DIR` - Directory to serve (default: _site)
+
+### `sssstatic dev [options]`
+
+Builds the site and starts dev server in one command.
+
+Options:
+
+- `-p, --port PORT` - Port to serve on (default: 8000)
+- `-d, --directory DIR` - Directory to serve (default: _site)
+
+## Configuration
+
+### System Tags
+
+System configuration uses underscore prefix and won't appear in content:
+
+- `_theme`: "dark" or "light" (default: dark)
+
+### Reserved Fields
+
+- `site_name`: Used as page title and main heading
+
+### Content Structure
+
+Any other YAML structure becomes HTML content:
+
+- **Objects** → Sections with headings
+- **Lists** → Ordered lists
+- **URLs** → Automatic links
+- **Nested data** → Proper HTML hierarchy
+
+## Themes
+
+Two built-in themes:
+
+- **Dark**: GitHub-inspired dark theme (default)
+- **Light**: Clean, minimal light theme
+
+Set theme in your config:
+
+```yaml
+_theme: "light"  # or "dark"
+```
+
+## Development
+
+```bash
+# Install in development mode
+pip install -e .
+
+# Quick development workflow
+sssstatic dev  # builds and serves
+# Edit _site/index.html directly for quick tweaks
+# Or edit _config.yml and re-run sssstatic dev
+```
+
+## File Structure
+
+```
+your-project/
+├── _config.yml      # Your site configuration
+└── _site/           # Generated HTML (created by build)
+    └── index.html   # Your website
+```
+
+## Requirements
+
+- Python 3.6+
+- PyYAML
+- Rich (for pretty terminal output)
+
+## License
+
+Free software - see source for details.

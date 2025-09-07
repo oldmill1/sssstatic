@@ -1,4 +1,4 @@
-# sssstatic/builder.py
+# sssstatic/site_builder.py
 """
 Builder module for SSSStatic - orchestrates the site build process
 """
@@ -7,7 +7,7 @@ import yaml
 from pathlib import Path
 from .display import console, show_critical_error
 from .templates import generate_site_html
-from .converter import convert_to_html
+from .yaml_to_html import convert_to_html
 
 
 def load_config(config_path):
