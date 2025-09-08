@@ -72,6 +72,11 @@ def generate_hero_banner_html(config):
     
     # Hero section
     hero_image_url = hero_config.get('hero_image', 'https://dummyimage.com/600x400/007AFF/ffffff&text=hello+(again)')
+    
+    # Check if it's a local image (not starting with http/https)
+    if not hero_image_url.startswith(('http://', 'https://')):
+        hero_image_url = f"assets/{hero_image_url}"
+    
     hero_headline = hero_config.get('headline', 'Build. Ship. Wow.')
     hero_subtitle = hero_config.get('subtitle', 'A strategy as simple as great software.')
     
