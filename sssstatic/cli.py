@@ -7,6 +7,7 @@ import argparse
 from .project_creator import create_new_project
 from .dev_server import start_dev_server
 from .site_builder import build_site
+from .deploy import deploy_site
 from .display import show_main_header
 
 
@@ -32,6 +33,11 @@ def main():
     dev_parser.add_argument("--port", "-p", type=int, default=8000, help="Port to serve on (default: 8000)")
     dev_parser.add_argument("--directory", "-d", default="_site", help="Directory to serve (default: _site)")
 
+    # Deploy command (build + copy + cmtmsg)
+    deploy_parser = subparsers.add_parser("deploy", help="Build site and deploy to target directory with cmtmsg")
+    deploy_parser.add_argument("target_dir", help="Target directory to deploy to")
+    deploy_parser.add_argument("--skip-build", action="store_true", help="Skip building and only copy existing _site")
+
     # Parse arguments
     args = parser.parse_args()
 
@@ -45,6 +51,8 @@ def main():
         # Build first, then serve if build succeeds
         if build_site():
             start_dev_server(args.directory, args.port)
+    elif args.command == "deploy":
+        deploy_site(args.target_dir, args.skip_build)
     elif args.command is None:
         show_main_header()
     else:
