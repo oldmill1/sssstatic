@@ -2,6 +2,7 @@
 """
 Templates module for SSSStatic - contains all file templates
 """
+import re
 
 
 def get_config_template(project_name):
@@ -79,6 +80,17 @@ def generate_hero_banner_html(config):
     
     hero_headline = hero_config.get('headline', 'Build. Ship. Wow.')
     hero_subtitle = hero_config.get('subtitle', 'A strategy as simple as great software.')
+    hero_link = hero_config.get('link', '')
+    
+    # Process subtitle to make sssstatic a link if link is provided
+    if hero_link and 'sssstatic' in hero_subtitle.lower():
+        # Replace sssstatic with a link
+        hero_subtitle = re.sub(
+            r'\bsssstatic\b', 
+            f'<a href="{hero_link}" target="_blank" rel="noopener noreferrer">sssstatic</a>', 
+            hero_subtitle, 
+            flags=re.IGNORECASE
+        )
     
     # Three columns
     columns = hero_config.get('columns', [])
