@@ -58,6 +58,31 @@ def generate_cards_html(config):
     return cards_html
 
 
+def generate_footer_html(config):
+    """Generate HTML for footer."""
+    footer_html = ""
+    
+    # Check for _footer configuration
+    if '_footer' in config:
+        footer_config = config['_footer']
+        if isinstance(footer_config, dict):
+            headline = footer_config.get('headline', 'explore on 🌎')
+        else:
+            headline = footer_config
+    else:
+        # Default footer text
+        headline = 'explore on 🌎'
+    
+    footer_html = f'''    <footer class="site-footer">
+        <div class="footer-content">
+            <span class="footer-text">{headline}</span>
+        </div>
+    </footer>
+'''
+    
+    return footer_html
+
+
 def generate_site_html(config, content_html):
     """Generate complete HTML page from config and content HTML."""
     # Use _title for both title and h1, fall back to site_name if _title not available
@@ -91,6 +116,9 @@ def generate_site_html(config, content_html):
 
     # Generate cards HTML if _card entries exist
     cards_html = generate_cards_html(config)
+    
+    # Generate footer HTML
+    footer_html = generate_footer_html(config)
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -99,13 +127,16 @@ def generate_site_html(config, content_html):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{page_title}</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 {header_html}    {image_html}
     {cards_html}
     {content_html}
-</body>
+{footer_html}</body>
 </html>"""
 
     return html

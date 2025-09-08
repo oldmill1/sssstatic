@@ -216,6 +216,71 @@ def get_card_styles():
     """
 
 
+def get_footer_styles():
+    """Return CSS styles for footer component."""
+    return """
+        /* Clean Footer Styles */
+        .site-footer {
+            margin-top: 4rem;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 4rem 0 0 0;
+            background: transparent;
+            position: relative;
+        }
+        
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(88, 166, 255, 0.15);
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.05),
+                0 2px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem 2rem;
+        }
+        
+        .footer-text {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #e1e8ed;
+            letter-spacing: 1px;
+            text-align: center;
+            line-height: 1.4;
+            opacity: 0.8;
+        }
+        
+        /* Responsive footer */
+        @media (max-width: 768px) {
+            .site-footer {
+                margin-top: 3rem;
+                padding: 3rem 0 0 0;
+            }
+            
+            .footer-content {
+                padding: 0 1rem 3rem 1rem;
+            }
+            
+            .footer-text {
+                font-size: 1rem;
+                letter-spacing: 0.8px;
+            }
+        }
+    """
+
+
 def get_dark_theme_css():
     """Return dark theme CSS styles."""
     return f"""
@@ -332,13 +397,13 @@ def get_dark_theme_css():
         }}
         
         h2 {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Fascinate', cursive;
             color: #ffffff;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            font-size: 2.5rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }}
         
         section {{
@@ -352,17 +417,90 @@ def get_dark_theme_css():
         
         section section {{
             margin: 1rem 0;
-            padding: 1.5rem;
-            background-color: #161b22;
-            border-radius: 12px;
-            border: 1px solid #30363d;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 1.5rem 1.5rem 0;
         }}
         
         section section h2 {{
-            margin-top: 0;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
+            font-family: 'Fascinate', cursive;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin: 0 0 0.75rem 0;
+            text-align: left;
+            letter-spacing: 0.5px;
+        }}
+        
+        section section ol {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            counter-reset: none;
+        }}
+        
+        section section li {{
+            background: rgba(88, 166, 255, 0.05);
+            border: 1px solid rgba(88, 166, 255, 0.1);
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #e1e8ed;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }}
+        
+        section section li:hover {{
+            background: rgba(88, 166, 255, 0.08);
+            border-color: rgba(88, 166, 255, 0.2);
+        }}
+        
+        /* Language-specific icons for Languages section */
+        section section:nth-child(1) li:nth-child(1)::before {{
+            content: '🐍';
+            font-size: 1rem;
+            margin-right: 0.25rem;
+        }}
+        
+        section section:nth-child(1) li:nth-child(2)::before {{
+            content: '🔷';
+            font-size: 1rem;
+            margin-right: 0.25rem;
+        }}
+        
+        section section:nth-child(1) li:nth-child(3)::before {{
+            content: '🐚';
+            font-size: 1rem;
+            margin-right: 0.25rem;
+        }}
+        
+        section section:nth-child(1) li:nth-child(4)::before {{
+            content: '🌐';
+            font-size: 1rem;
+            margin-right: 0.25rem;
+        }}
+        
+        /* Responsive adjustments for all sub-sections */
+        @media (max-width: 768px) {{
+            section section {{
+                padding: 0.75rem;
+                margin: 0.75rem 0;
+            }}
+            
+            section section ol {{
+                grid-template-columns: 1fr;
+                gap: 0.375rem;
+            }}
+            
+            section section li {{
+                padding: 0.625rem;
+            }}
         }}
         
         ol, ul {{
@@ -453,6 +591,8 @@ def get_dark_theme_css():
         }}
         
         {get_card_styles()}
+        
+        {get_footer_styles()}
     """
 
 
@@ -618,6 +758,8 @@ def get_light_theme_css():
         }}
         
         {get_card_styles()}
+        
+        {get_footer_styles()}
     """
 
 
