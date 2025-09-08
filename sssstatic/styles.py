@@ -12,7 +12,7 @@ def get_card_styles():
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            margin: 0 0 1rem 0;
         }
         
         /* Individual Card */
@@ -221,7 +221,7 @@ def get_hero_banner_styles():
     return """
         /* Hero Banner Styles */
         .hero-banner {
-            margin: 3rem 0 4rem 0;
+            margin: 0 0 1rem 0;
             padding: 0;
         }
         
@@ -257,7 +257,7 @@ def get_hero_banner_styles():
         }
         
         .hero-headline {
-            font-family: 'Fascinate', cursive;
+            font-family: 'Henny Penny', cursive;
             font-size: 3.5rem;
             font-weight: 400;
             color: #ffffff;
@@ -318,7 +318,7 @@ def get_hero_banner_styles():
         }
         
         .column-title {
-            font-family: 'Fascinate', cursive;
+            font-family: 'Henny Penny', cursive;
             font-size: 2.2rem;
             font-weight: 400;
             color: #ffffff;
@@ -359,7 +359,7 @@ def get_hero_banner_styles():
         
         @media (max-width: 768px) {
             .hero-banner {
-                margin: 2rem 0 3rem 0;
+                margin: 0 0 1rem 0;
             }
             
             .hero-content {
@@ -520,7 +520,7 @@ def get_dark_theme_css():
             font-size: 1.4rem;
             font-weight: 600;
             text-align: center;
-            margin: 2rem 0 3rem 0;
+            margin: 2rem 0 1rem 0;
             padding: 0;
             color: #58a6ff;
             line-height: 1.4;
@@ -570,7 +570,7 @@ def get_dark_theme_css():
         }}
         
         h2 {{
-            font-family: 'Fascinate', cursive;
+            font-family: 'Henny Penny', cursive;
             color: #ffffff;
             margin-top: 2rem;
             margin-bottom: 1rem;
@@ -580,7 +580,7 @@ def get_dark_theme_css():
         }}
         
         section {{
-            margin: 1.5rem 0;
+            margin: 0 0 1rem 0;
             padding: 0.5rem;
             background-color: transparent;
             border-radius: 0;
@@ -589,90 +589,146 @@ def get_dark_theme_css():
         }}
         
         section section {{
-            margin: 1rem 0;
-            padding: 1.5rem 1.5rem 1.5rem 0;
+            margin: 0 0 1rem 0;
+            padding: 0 0 0 2rem;
+            border-left: 1px solid rgba(88, 166, 255, 0.1);
+            position: relative;
+        }}
+        
+        section section::before {{
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(88, 166, 255, 0.2), transparent);
+            opacity: 0.3;
         }}
         
         section section h2 {{
-            font-family: 'Fascinate', cursive;
-            font-size: 1.4rem;
+            font-family: 'Henny Penny', cursive;
+            font-size: 1.8rem;
             font-weight: 400;
             color: #ffffff;
-            margin: 0 0 0.75rem 0;
+            margin: 0 0 0.5rem 0;
             text-align: left;
             letter-spacing: 0.5px;
         }}
         
         section section ol {{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 0.5rem;
             margin: 0;
             padding: 0;
             list-style: none;
             counter-reset: none;
+            max-width: 100%;
         }}
         
         section section li {{
-            background: rgba(88, 166, 255, 0.05);
-            border: 1px solid rgba(88, 166, 255, 0.1);
-            border-radius: 6px;
-            padding: 0.75rem;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 0.95rem;
+            padding: 0;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1.1rem;
             font-weight: 400;
             color: #e1e8ed;
-            line-height: 1.5;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 2.5rem;
+            transition: all 0.3s ease;
+        }}
+        
+        section section li::before {{
+            content: counter(item);
+            counter-increment: item;
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            font-family: 'Henny Penny', cursive;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #58a6ff;
+            opacity: 0.8;
+            transition: all 0.3s ease;
         }}
         
         section section li:hover {{
-            background: rgba(88, 166, 255, 0.08);
-            border-color: rgba(88, 166, 255, 0.2);
+            color: #f0f6fc;
+            transform: translateX(0.2rem);
         }}
         
-        /* Language-specific icons for Languages section */
-        section section:nth-child(1) li:nth-child(1)::before {{
-            content: '🐍';
-            font-size: 1rem;
-            margin-right: 0.25rem;
+        section section li:hover::before {{
+            color: #79c0ff;
+            opacity: 1;
+            transform: scale(1.1);
         }}
         
-        section section:nth-child(1) li:nth-child(2)::before {{
-            content: '🔷';
-            font-size: 1rem;
-            margin-right: 0.25rem;
+        section section ol {{
+            counter-reset: item;
         }}
         
-        section section:nth-child(1) li:nth-child(3)::before {{
-            content: '🐚';
-            font-size: 1rem;
-            margin-right: 0.25rem;
+        /* Inline code styling for list items */
+        section section li code {{
+            font-family: 'Source Code Pro', 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.95em;
+            font-weight: 500;
+            background: rgba(88, 166, 255, 0.1);
+            color: #79c0ff;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            transition: all 0.3s ease;
         }}
         
-        section section:nth-child(1) li:nth-child(4)::before {{
-            content: '🌐';
-            font-size: 1rem;
-            margin-right: 0.25rem;
+        section section li:hover code {{
+            background: rgba(88, 166, 255, 0.15);
+            color: #a5d6ff;
+            border-color: rgba(88, 166, 255, 0.3);
+        }}
+        
+        /* Dimmed text styling for descriptions */
+        section section li dim {{
+            color: #8b949e;
+            font-style: italic;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }}
+        
+        section section li:hover dim {{
+            color: #a5a5a5;
+            opacity: 1;
         }}
         
         /* Responsive adjustments for all sub-sections */
         @media (max-width: 768px) {{
             section section {{
-                padding: 0.75rem;
-                margin: 0.75rem 0;
+                padding: 0 0 0 1.5rem;
+                margin: 0 0 1rem 0;
             }}
             
-            section section ol {{
-                grid-template-columns: 1fr;
-                gap: 0.375rem;
+            section section:last-child {{
+                margin-bottom: 0;
+            }}
+            
+            section section h2 {{
+                font-size: 1.6rem;
+                margin-bottom: 0.5rem;
             }}
             
             section section li {{
-                padding: 0.625rem;
+                font-size: 1rem;
+                line-height: 1.6;
+                padding-left: 2rem;
+                margin: 0;
+            }}
+            
+            section section li::before {{
+                font-size: 0.9rem;
+            }}
+            
+            section section li code {{
+                font-size: 0.9em;
+                padding: 0.15em 0.3em;
             }}
         }}
         

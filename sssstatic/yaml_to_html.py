@@ -33,7 +33,18 @@ def convert_to_html(data, key=None, in_list_item=False):
         html = "<ol>\n"
         for item in data:
             html += "<li>"
-            html += convert_to_html(item, key, True)
+            # Parse item to extract main term and description
+            if isinstance(item, str):
+                # Handle format like "Python (automation and AI tools)"
+                if '(' in item and ')' in item:
+                    parts = item.split('(', 1)
+                    main_term = parts[0].strip()
+                    description = '(' + parts[1].strip()
+                    html += f"<code>{main_term}</code> <dim>{description}</dim>"
+                else:
+                    html += f"<code>{item}</code>"
+            else:
+                html += convert_to_html(item, key, True)
             html += "</li>\n"
         html += "</ol>\n"
         return html
