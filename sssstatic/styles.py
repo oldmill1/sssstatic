@@ -216,6 +216,179 @@ def get_card_styles():
     """
 
 
+def get_hero_banner_styles():
+    """Return CSS styles for hero banner component."""
+    return """
+        /* Hero Banner Styles */
+        .hero-banner {
+            margin: 3rem 0 4rem 0;
+            padding: 0;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-left: 2rem;
+        }
+        
+        .hero-headline {
+            font-family: 'Fascinate', cursive;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin: 0 0 1rem 0;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1.3rem;
+            color: #e1e8ed;
+            margin: 0;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+        
+        /* Three Columns Layout */
+        .three-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .column {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(22, 27, 34, 0.3);
+            border: 1px solid rgba(88, 166, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .column:hover {
+            transform: translateY(-4px);
+            border-color: rgba(88, 166, 255, 0.3);
+            background: rgba(22, 27, 34, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .column-image {
+            margin-bottom: 1.5rem;
+        }
+        
+        .column-image img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .column:hover .column-image img {
+            transform: scale(1.05);
+        }
+        
+        .column-title {
+            font-family: 'Fascinate', cursive;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin: 0 0 1rem 0;
+            letter-spacing: 0.5px;
+        }
+        
+        .column-description {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1rem;
+            color: #e1e8ed;
+            margin: 0;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        /* Responsive Hero Banner */
+        @media (max-width: 1024px) {
+            .hero-content {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-left: 0;
+            }
+            
+            .hero-headline {
+                font-size: 3rem;
+            }
+            
+            .three-columns {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-banner {
+                margin: 2rem 0 3rem 0;
+            }
+            
+            .hero-content {
+                margin-bottom: 3rem;
+            }
+            
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .column {
+                padding: 1rem;
+            }
+            
+            .column-title {
+                font-size: 1.8rem;
+            }
+            
+            .column-description {
+                font-size: 0.95rem;
+            }
+        }
+    """
+
+
 def get_footer_styles():
     """Return CSS styles for footer component."""
     return """
@@ -590,6 +763,8 @@ def get_dark_theme_css():
             transform: scale(1.02);
         }}
         
+        {get_hero_banner_styles()}
+        
         {get_card_styles()}
         
         {get_footer_styles()}
@@ -756,6 +931,8 @@ def get_light_theme_css():
         .header-image img:hover {{
             transform: scale(1.02);
         }}
+        
+        {get_hero_banner_styles()}
         
         {get_card_styles()}
         
