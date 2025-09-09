@@ -1,0 +1,70 @@
+# Personal Portfolio Sample Configuration
+site_name: "Sarah Chen"
+_theme: "light"
+_title: "Full-Stack Developer & AI Enthusiast"
+
+# Hero Banner with image and call-to-action
+_hero_banner:
+  hero_image: "profile.jpg"
+  headline: "Building the future, one line of code at a time"
+  subtitle: "Passionate about creating elegant solutions to complex problems"
+  link: "https://github.com/sarahchen"
+  columns:
+    - title: "React & TypeScript"
+      description: "Modern web applications"
+      image: "https://dummyimage.com/300x200/61DAFB/ffffff&text=React"
+    - title: "Python & AI"
+      description: "Machine learning & automation"
+      image: "https://dummyimage.com/300x200/3776AB/ffffff&text=Python"
+    - title: "Cloud & DevOps"
+      description: "Scalable infrastructure"
+      image: "https://dummyimage.com/300x200/FF9900/ffffff&text=AWS"
+
+# Multi-line title for dramatic effect
+_multi_line_title:
+  title: "Sarah Chen"
+  sub_title: "presents"
+
+# Card layout for projects
+_card:
+  - name: "E-Commerce Platform"
+    url: "https://github.com/sarahchen/ecommerce"
+    description: "Full-stack React/Node.js application with Stripe integration"
+    status: "active"
+  - name: "AI Chatbot"
+    url: "https://github.com/sarahchen/ai-chatbot"
+    description: "GPT-powered customer service automation"
+    status: "experimental"
+  - name: "Data Visualization Tool"
+    url: "https://github.com/sarahchen/data-viz"
+    description: "Interactive charts and analytics dashboard"
+    status: "complete"
+
+# About section with links
+about_me:
+  skills:
+    - "[React](https://reactjs.org/) (frontend development)"
+    - "[TypeScript](https://www.typescriptlang.org/) (type safety)"
+    - "[Python](https://python.org/) (data science & AI)"
+    - "[Node.js](https://nodejs.org/) (backend development)"
+    - "[AWS](https://aws.amazon.com/) (cloud infrastructure)"
+  
+  experience:
+    - "Senior Developer at [TechCorp](https://techcorp.com/) (2021-present)"
+    - "Full-Stack Developer at [StartupXYZ](https://startupxyz.com/) (2019-2021)"
+    - "Frontend Developer at [WebAgency](https://webagency.com/) (2018-2019)"
+  
+  education:
+    - "Computer Science, [Stanford University](https://stanford.edu/) (2014-2018)"
+    - "AWS Solutions Architect Certification (2022)"
+    - "Google Cloud Professional Developer (2021)"
+  
+  interests:
+    - "Open source contributions"
+    - "Machine learning research"
+    - "Rock climbing and hiking"
+    - "Photography and travel"
+
+# Footer with social links
+_footer:
+  headline: "Let's connect on [LinkedIn](https://linkedin.com/in/sarahchen) or [Twitter](https://twitter.com/sarahchen)"
