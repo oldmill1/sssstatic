@@ -157,6 +157,8 @@ def generate_hero_banner_html(config):
 
 def generate_footer_html(config):
     """Generate HTML for footer."""
+    from .yaml_to_html import parse_markdown_links
+    
     footer_html = ""
     
     # Check for _footer configuration
@@ -170,9 +172,12 @@ def generate_footer_html(config):
         # Default footer text
         headline = 'explore on 🌎'
     
+    # Parse markdown links in the headline
+    parsed_headline = parse_markdown_links(headline)
+    
     footer_html = f'''    <footer class="site-footer">
         <div class="footer-content">
-            <span class="footer-text">{headline}</span>
+            <span class="footer-text">{parsed_headline}</span>
         </div>
     </footer>
 '''
