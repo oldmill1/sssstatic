@@ -12,6 +12,22 @@ Your `_config.yml` file is the heart of your site. It's just YAML with a few spe
 - **Objects** become sections with headings
 - **URLs** automatically become clickable links
 
+## 🔧 Special Components (Underscore Components)
+
+SSSStatic includes several special components that start with `_` to control site structure and appearance. These components are processed specially and don't appear as regular content sections.
+
+### Available Components:
+
+| Component | Purpose | Required Fields | Optional Fields |
+|-----------|---------|----------------|-----------------|
+| `_theme` | Set site theme | `"dark"` or `"light"` | - |
+| `_title` | Override main heading | Custom title text | - |
+| `_footer` | Add site footer | `headline` | - |
+| `_hero_banner` | Create hero section | `hero_image`, `headline`, `subtitle` | `link`, `columns` |
+| `_card` | Display project cards | `name`, `url`, `description`, `status` | - |
+| `_multi_line_title` | Movie-style title layout | `title`, `sub_title` | - |
+| `_image` | Add header image | `name`, `alt` | - |
+
 ## 🏗️ Site Structure
 
 ### Basic Site Info
@@ -136,6 +152,201 @@ Choose between two beautiful built-in themes:
 _theme: "dark"   # GitHub-inspired dark theme (default)
 _theme: "light"  # Clean, minimal light theme
 ```
+
+## 📋 Complete Component Reference
+
+### `_theme` - Site Theme
+Controls the overall visual appearance of your site.
+
+```yaml
+_theme: "dark"   # Default: GitHub-inspired dark theme
+_theme: "light" # Clean, minimal light theme
+```
+
+**Features:**
+- Dark theme: GitHub-inspired colors with syntax highlighting
+- Light theme: Clean, professional appearance
+- Automatically applies consistent styling across all components
+
+### `_title` - Custom Page Title
+Override the default page title (which uses `site_name`).
+
+```yaml
+_title: "the professional portfolio of a self-made software engineer"
+```
+
+**Usage:**
+- Sets both the HTML `<title>` tag and the main `<h1>` heading
+- If not provided, falls back to `site_name`
+- Supports any text content
+
+### `_footer` - Site Footer
+Add a footer section to your site.
+
+```yaml
+_footer:
+  headline: "~find me on skool soon~"
+```
+
+**Fields:**
+- `headline` (required): Text to display in the footer
+
+### `_hero_banner` - Hero Section
+Create a prominent hero section with image and feature columns.
+
+```yaml
+_hero_banner:
+  hero_image: "sssstatic_img.png"    # Local image in assets/ folder
+  headline: "This website is fast."
+  subtitle: "Because it was made with sssstatic"
+  link: "https://github.com/oldmill1/sssstatic"  # Optional: makes "sssstatic" clickable
+  columns:                           # Optional: three feature columns
+    - title: "cmtmsg"
+      description: "AI-assisted commit messages"
+      image: "https://dummyimage.com/300x200/10B981/ffffff&text=cmtmsg"
+    - title: "douglas"
+      description: "Chain AI's together. The response is the input."
+      image: "https://dummyimage.com/300x200/F59E0B/ffffff&text=douglas"
+    - title: "svelte-pi"
+      description: "Boilerplate generator for Svelte fans"
+      image: "https://dummyimage.com/300x200/8B5CF6/ffffff&text=svelte-pi"
+```
+
+**Fields:**
+- `hero_image` (required): Image filename or full URL
+- `headline` (required): Main hero text
+- `subtitle` (required): Supporting text
+- `link` (optional): URL that makes "sssstatic" in subtitle clickable
+- `columns` (optional): Array of 3 feature items with `title`, `description`, `image`
+
+**Image Handling:**
+- Local images: Put in `assets/` folder, reference by filename
+- Remote images: Use full URLs starting with `http://` or `https://`
+- Images are automatically optimized and responsive
+
+### `_card` - Project Cards
+Display project information in styled cards.
+
+```yaml
+_card:
+  - name: "cmtmsg"
+    url: "https://github.com/oldmill1/cmtmsg"
+    description: "AI-assisted commit messages"
+    status: "active"
+  - name: "douglas"
+    url: "https://github.com/oldmill1/douglas"
+    description: "Chain AI's together. The response is the input."
+    status: "experimental"
+```
+
+**Fields (per card):**
+- `name` (required): Project name
+- `url` (required): Project URL
+- `description` (required): Project description
+- `status` (required): Project status
+
+**Status Options:**
+- `active` - Green badge (actively maintained)
+- `experimental` - Orange badge (experimental/early stage)
+- `complete` - Purple badge (finished project)
+- `on hold` - Gray badge (temporarily paused)
+- `development` - Orange badge (in active development)
+- `archived` - Red badge (no longer maintained)
+
+### `_multi_line_title` - Movie-Style Title
+Create a cinematic title layout with main title and subtitle.
+
+```yaml
+_multi_line_title:
+  title: "Ankur Taxali"
+  sub_title: "presents"
+```
+
+**Fields:**
+- `title` (required): Main title text
+- `sub_title` (required): Subtitle text
+
+**Styling:**
+- Uses movie-style typography with monospace fonts
+- Creates a dramatic, cinematic appearance
+- Overrides `_title` when both are present
+
+### `_image` - Header Image
+Add a header image below the title.
+
+```yaml
+_image:
+  name: "profile-photo.jpg"
+  alt: "Profile photo of the author"
+```
+
+**Fields:**
+- `name` (required): Image filename in `assets/` folder
+- `alt` (required): Alt text for accessibility
+
+**Features:**
+- Automatically centers and sizes the image
+- Adds hover effects and shadows
+- Responsive design for all screen sizes
+
+## 🔄 Component Interactions & Best Practices
+
+### Component Priority
+When multiple title components are present, they follow this priority:
+1. `_multi_line_title` (highest priority)
+2. `_title` 
+3. `site_name` (fallback)
+
+### Recommended Combinations
+```yaml
+# Minimal setup
+site_name: "Your Name"
+_theme: "dark"
+_footer:
+  headline: "Find me online!"
+
+# Professional portfolio
+site_name: "Your Name"
+_theme: "dark"
+_title: "Software Engineer & Designer"
+_hero_banner:
+  hero_image: "hero-photo.jpg"
+  headline: "Building the future"
+  subtitle: "One line of code at a time"
+_card:
+  - name: "Project 1"
+    url: "https://github.com/you/project1"
+    description: "Amazing project description"
+    status: "active"
+_footer:
+  headline: "Let's connect!"
+
+# Cinematic presentation
+site_name: "Your Name"
+_theme: "dark"
+_multi_line_title:
+  title: "Your Name"
+  sub_title: "presents"
+_image:
+  name: "profile.jpg"
+  alt: "Professional headshot"
+_footer:
+  headline: "The end"
+```
+
+### Component Compatibility
+- ✅ `_theme` works with all other components
+- ✅ `_footer` works with all other components  
+- ✅ `_image` works with `_title` and `_multi_line_title`
+- ⚠️ `_title` and `_multi_line_title` conflict (use one or the other)
+- ✅ `_hero_banner` and `_card` can be used together
+- ✅ All components work with regular content sections
+
+### Performance Tips
+- Use local images in `assets/` folder for faster loading
+- Keep `_hero_banner` columns to exactly 3 for best layout
+- Use descriptive `alt` text for `_image` component
+- Choose appropriate status badges for `_card` components
 
 ## 📋 Complete Example
 
