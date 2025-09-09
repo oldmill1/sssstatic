@@ -673,7 +673,7 @@ def get_dark_theme_css():
             font-weight: 500;
             background: rgba(168, 230, 207, 0.1);
             color: #a8e6cf;
-            padding: 0.2em 0.4em;
+            padding: 0.1em 0.3em;
             border-radius: 4px;
             border: 1px solid rgba(168, 230, 207, 0.2);
             transition: all 0.3s ease;
@@ -683,6 +683,18 @@ def get_dark_theme_css():
             background: rgba(168, 230, 207, 0.15);
             color: #c7f0db;
             border-color: rgba(168, 230, 207, 0.3);
+        }}
+        
+        /* Link styling for list items - inherits from code styling */
+        section section li code a {{
+            color: inherit;
+            text-decoration: none;
+            display: inline;
+        }}
+        
+        section section li code a:hover {{
+            color: inherit;
+            text-decoration: none;
         }}
         
         /* Dimmed text styling for descriptions */
