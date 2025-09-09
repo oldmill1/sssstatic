@@ -477,7 +477,7 @@ def get_dark_theme_css():
         body {{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace;
             line-height: 1.6;
-            color: #e1e8ed;
+            color: #f8f9fa;
             background-color: #0d1117;
             max-width: 900px;
             margin: 0 auto;
@@ -591,7 +591,7 @@ def get_dark_theme_css():
         section section {{
             margin: 0 0 1rem 0;
             padding: 0 0 0 2rem;
-            border-left: 1px solid rgba(88, 166, 255, 0.1);
+            border-left: 1px solid rgba(168, 230, 207, 0.1);
             position: relative;
         }}
         
@@ -602,7 +602,7 @@ def get_dark_theme_css():
             top: 0;
             bottom: 0;
             width: 1px;
-            background: linear-gradient(180deg, transparent, rgba(88, 166, 255, 0.2), transparent);
+            background: linear-gradient(180deg, transparent, rgba(168, 230, 207, 0.2), transparent);
             opacity: 0.3;
         }}
         
@@ -630,7 +630,7 @@ def get_dark_theme_css():
             font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 1.1rem;
             font-weight: 400;
-            color: #e1e8ed;
+            color: #f8f9fa;
             line-height: 1.7;
             position: relative;
             padding-left: 2.5rem;
@@ -646,7 +646,7 @@ def get_dark_theme_css():
             font-family: 'Henny Penny', cursive;
             font-size: 1.1rem;
             font-weight: 400;
-            color: #58a6ff;
+            color: #a8e6cf;
             opacity: 0.8;
             transition: all 0.3s ease;
         }}
@@ -657,7 +657,7 @@ def get_dark_theme_css():
         }}
         
         section section li:hover::before {{
-            color: #79c0ff;
+            color: #c7f0db;
             opacity: 1;
             transform: scale(1.1);
         }}
@@ -671,18 +671,18 @@ def get_dark_theme_css():
             font-family: 'Source Code Pro', 'JetBrains Mono', 'Fira Code', monospace;
             font-size: 0.95em;
             font-weight: 500;
-            background: rgba(88, 166, 255, 0.1);
-            color: #79c0ff;
+            background: rgba(168, 230, 207, 0.1);
+            color: #a8e6cf;
             padding: 0.2em 0.4em;
             border-radius: 4px;
-            border: 1px solid rgba(88, 166, 255, 0.2);
+            border: 1px solid rgba(168, 230, 207, 0.2);
             transition: all 0.3s ease;
         }}
         
         section section li:hover code {{
-            background: rgba(88, 166, 255, 0.15);
-            color: #a5d6ff;
-            border-color: rgba(88, 166, 255, 0.3);
+            background: rgba(168, 230, 207, 0.15);
+            color: #c7f0db;
+            border-color: rgba(168, 230, 207, 0.3);
         }}
         
         /* Dimmed text styling for descriptions */
@@ -742,7 +742,7 @@ def get_dark_theme_css():
             margin: 0.8rem 0;
             line-height: 1.6;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #e1e8ed;
+            color: #f8f9fa;
             font-size: 1.1rem;
             font-weight: 400;
         }}
@@ -753,7 +753,7 @@ def get_dark_theme_css():
         
         ol li::before {{
             content: counter(item) ". ";
-            color: #58a6ff;
+            color: #a8e6cf;
             font-weight: 600;
             font-size: 1.1rem;
             margin-right: 1rem;
@@ -769,13 +769,13 @@ def get_dark_theme_css():
         }}
         
         a {{
-            color: #58a6ff;
+            color: #a8e6cf;
             text-decoration: none;
             transition: color 0.2s ease;
         }}
         
         a:hover {{
-            color: #79c0ff;
+            color: #c7f0db;
             text-decoration: underline;
         }}
         
