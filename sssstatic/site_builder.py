@@ -77,12 +77,16 @@ def extract_pages(config):
 
 
 def generate_page_html(page_config, base_config):
-    """Generate HTML for a specific page using its config and base site config."""
+    """Generate HTML for a specific page using only its own config."""
     from .templates import generate_site_html
     from .yaml_to_html import convert_to_html
     
-    # Create a merged config for this page
-    page_merged_config = base_config.copy()
+    # Create a minimal config for this page - only inherit site_name and theme
+    page_merged_config = {
+        'site_name': base_config.get('site_name', ''),
+        '_theme': base_config.get('_theme', base_config.get('theme', 'dark'))
+    }
+    # Add the page's own configuration
     page_merged_config.update(page_config)
     
     # Generate content from page data (excluding system tags)
