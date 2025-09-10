@@ -485,6 +485,44 @@ def get_dark_theme_css():
             min-height: 100vh;
         }}
         
+        /* Navigation Styles */
+        .site-navigation {{
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #30363d;
+        }}
+        
+        .nav-list {{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }}
+        
+        .nav-item {{
+            margin: 0;
+        }}
+        
+        .nav-link {{
+            color: #e1e8ed;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }}
+        
+        .nav-link:hover {{
+            color: #58a6ff;
+            background-color: rgba(88, 166, 255, 0.1);
+        }}
+        
+        .nav-link:active {{
+            transform: translateY(1px);
+        }}
+        
         /* Minimal typography-focused header */
         .movie-header {{
             text-align: center;
@@ -868,6 +906,44 @@ def get_light_theme_css():
             margin: 0 auto;
             padding: 2rem;
             min-height: 100vh;
+        }}
+        
+        /* Navigation Styles */
+        .site-navigation {{
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e1e5e9;
+        }}
+        
+        .nav-list {{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }}
+        
+        .nav-item {{
+            margin: 0;
+        }}
+        
+        .nav-link {{
+            color: #5a6c7d;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }}
+        
+        .nav-link:hover {{
+            color: #3498db;
+            background-color: rgba(52, 152, 219, 0.1);
+        }}
+        
+        .nav-link:active {{
+            transform: translateY(1px);
         }}
         
         h1 {{

@@ -57,6 +57,43 @@ def generate_css_file(config):
     return True
 
 
+def extract_pages(config):
+    """Extract _page components from config and return them as separate page configs."""
+    pages = []
+    
+    # Look for _page entries in the config
+    for key, value in config.items():
+        if key == '_page':
+            if isinstance(value, list):
+                # Multiple pages
+                for page_config in value:
+                    if isinstance(page_config, dict) and '_name' in page_config:
+                        pages.append(page_config)
+            elif isinstance(value, dict) and '_name' in value:
+                # Single page
+                pages.append(value)
+    
+    return pages
+
+
+def generate_page_html(page_config, base_config):
+    """Generate HTML for a specific page using its config and base site config."""
+    from .templates import generate_site_html
+    from .yaml_to_html import convert_to_html
+    
+    # Create a merged config for this page
+    page_merged_config = base_config.copy()
+    page_merged_config.update(page_config)
+    
+    # Generate content from page data (excluding system tags)
+    content_data = {k: v for k, v in page_config.items()
+                    if not k.startswith('_') and k not in ['site_name', 'theme']}
+    content_html = convert_to_html(content_data)
+    
+    # Generate the complete HTML for this page
+    return generate_site_html(page_merged_config, content_html)
+
+
 def build_site():
     """Main build function - reads config and generates HTML."""
     config_path = Path("_config.yml")
@@ -72,9 +109,12 @@ def build_site():
 
     console.print("[bright_blue]>>> Generating HTML...[/bright_blue]")
 
-    # Generate content from all data except system tags and reserved fields
+    # Extract pages from config
+    pages = extract_pages(config)
+    
+    # Generate content from all data except system tags, reserved fields, and _page
     content_data = {k: v for k, v in config.items()
-                    if not k.startswith('_') and k not in ['site_name', 'theme']}
+                    if not k.startswith('_') and k not in ['site_name', 'theme'] and k != '_page'}
     content_html = convert_to_html(content_data)
 
     # Create output directory
@@ -87,15 +127,22 @@ def build_site():
     # Generate CSS file in assets folder
     generate_css_file(config)
 
-    # Generate complete HTML using template
+    # Generate main index.html
     html = generate_site_html(config, content_html)
-
-    # Write HTML file
     output_file = output_dir / "index.html"
     output_file.write_text(html, encoding='utf-8')
+    console.print(f"[bright_blue]>>> Generated index.html[/bright_blue]")
+
+    # Generate individual pages
+    for page in pages:
+        page_name = page.get('_name', 'untitled').lower().replace(' ', '_')
+        page_html = generate_page_html(page, config)
+        page_file = output_dir / f"{page_name}.html"
+        page_file.write_text(page_html, encoding='utf-8')
+        console.print(f"[bright_blue]>>> Generated {page_name}.html[/bright_blue]")
 
     console.print(f"[bold bright_green]✓ Site built successfully![/bold bright_green]")
-    console.print(f"[dim]>>> Output: {output_file.absolute()}[/dim]")
+    console.print(f"[dim]>>> Output: {output_dir.absolute()}[/dim]")
     console.print(f"[dim]>>> Styles: {output_dir / 'assets' / 'styles.css'}[/dim]")
 
     return True

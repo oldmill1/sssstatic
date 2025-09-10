@@ -48,6 +48,36 @@ A clean, content-focused blog site:
 
 **Best for:** Bloggers, writers, educators, thought leaders
 
+### 5. Multi-Page Portfolio (`multi_page_example.yml`)
+A comprehensive multi-page portfolio featuring:
+- Homepage with hero banner and project cards
+- Dedicated About page with personal story
+- Projects page showcasing work and technologies
+- Contact page with multiple ways to connect
+- Blog page for writing and thoughts
+- Automatic navigation between all pages
+
+**Best for:** Developers, designers, freelancers who want multiple pages
+
+### 6. Simple Multi-Page (`simple_multi_page.yml`)
+A basic example showing multi-page functionality:
+- Minimal homepage content
+- Single About page example
+- Shows both single page and multiple pages syntax
+- Perfect for learning the multi-page feature
+
+**Best for:** Learning multi-page functionality, simple personal sites
+
+### 7. SSSStatic Library Site (`sssstatic_library_site.yml`)
+The official SSSStatic library website showcasing:
+- Homepage with hero banner highlighting key features
+- Documentation page with installation and usage guides
+- Examples page showcasing templates and real-world usage
+- Community page with support, contributing, and roadmap
+- Perfect example of a technical documentation site
+
+**Best for:** Library documentation, technical sites, open source projects
+
 ## How to Use These Samples
 
 1. **Copy a sample file** to your project directory:
@@ -90,6 +120,35 @@ All samples show how to use markdown-style links `[text](url)` in:
 - `_card` - Project showcase layout
 - `_footer` - Customizable footer with links
 - `about_me` - Structured personal/professional information
+- `_page` - Multi-page support for creating additional pages
+
+### Multi-Page Support
+SSSStatic now supports multiple pages! Use the `_page` component to create additional pages:
+
+```yaml
+# Single page
+_page:
+  _name: "About"
+  _title: "About Me"
+  _footer:
+    headline: "Learn more about my journey"
+  # ... page content
+
+# Multiple pages
+_page:
+  - _name: "About"
+    _title: "About Me"
+    # ... page content
+  - _name: "Projects"
+    _title: "My Projects"
+    # ... page content
+```
+
+**Features:**
+- Automatic navigation between pages
+- Each page can have its own title, footer, and content
+- Page names become filenames (e.g., "About Me" → `about_me.html`)
+- Backward compatible with single-page sites
 
 ### Content Organization
 - Hierarchical sections with clear headings

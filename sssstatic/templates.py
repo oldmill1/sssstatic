@@ -185,10 +185,36 @@ def generate_footer_html(config):
     return footer_html
 
 
+def generate_navigation_html(config):
+    """Generate navigation HTML for multi-page sites."""
+    from .site_builder import extract_pages
+    
+    pages = extract_pages(config)
+    if not pages:
+        return ""
+    
+    nav_html = '    <nav class="site-navigation">\n        <ul class="nav-list">\n'
+    
+    # Add home link
+    nav_html += '            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>\n'
+    
+    # Add page links
+    for page in pages:
+        page_name = page.get('_name', 'Untitled')
+        page_filename = page_name.lower().replace(' ', '_') + '.html'
+        nav_html += f'            <li class="nav-item"><a href="{page_filename}" class="nav-link">{page_name}</a></li>\n'
+    
+    nav_html += '        </ul>\n    </nav>\n'
+    return nav_html
+
+
 def generate_site_html(config, content_html):
     """Generate complete HTML page from config and content HTML."""
     # Use _title for both title and h1, fall back to site_name if _title not available
     page_title = config.get('_title', config.get('site_name', 'My Site'))
+
+    # Generate navigation HTML
+    navigation_html = generate_navigation_html(config)
 
     # Generate header HTML - only render h1 if _title is present
     header_html = ""
@@ -241,7 +267,7 @@ def generate_site_html(config, content_html):
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-{header_html}    {image_html}
+{navigation_html}{header_html}    {image_html}
     {hero_banner_html}
     {cards_html}
     {content_html}
