@@ -81,10 +81,11 @@ def generate_page_html(page_config, base_config):
     from .templates import generate_site_html
     from .yaml_to_html import convert_to_html
     
-    # Create a minimal config for this page - only inherit site_name and theme
+    # Create a minimal config for this page - inherit site_name, theme, and _page for navigation
     page_merged_config = {
         'site_name': base_config.get('site_name', ''),
-        '_theme': base_config.get('_theme', base_config.get('theme', 'dark'))
+        '_theme': base_config.get('_theme', base_config.get('theme', 'dark')),
+        '_page': base_config.get('_page', [])  # Include _page for navigation generation
     }
     # Add the page's own configuration
     page_merged_config.update(page_config)
