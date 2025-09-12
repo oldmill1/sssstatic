@@ -23,15 +23,15 @@ def get_header_styles():
             font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 1.8rem;
             font-weight: 400;
-            color: rgb(128, 182, 204);
+            color: #a8e6cf;
             text-decoration: none;
             letter-spacing: 1px;
             margin: 0;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
         
         .header-brand:hover {
-            color: rgb(148, 202, 224);
+            color: #c7f0db;
             text-decoration: none;
         }
         
@@ -50,11 +50,11 @@ def get_header_styles():
         }
         
         .header-link {
-            color: rgb(128, 182, 204);
+            color: #a8e6cf;
             text-decoration: none;
             padding: 0.5rem 0;
-            transition: all 0.2s ease;
-            font-weight: 600;
+            transition: color 0.2s ease;
+            font-weight: 400;
             font-size: 0.95rem;
             letter-spacing: 0.5px;
             font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -62,7 +62,7 @@ def get_header_styles():
         }
         
         .header-link:hover {
-            color: rgb(148, 202, 224);
+            color: #c7f0db;
             text-decoration: none;
             transform: scale(1.05);
         }
