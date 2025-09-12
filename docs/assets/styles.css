@@ -150,7 +150,7 @@
         }
         
         h2 {
-            font-family: 'Henny Penny', cursive;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             color: #ffffff;
             margin-top: 2rem;
             margin-bottom: 1rem;
@@ -187,7 +187,7 @@
         }
         
         section section h2 {
-            font-family: 'Henny Penny', cursive;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 1.8rem;
             font-weight: 400;
             color: #ffffff;
@@ -223,7 +223,7 @@
             position: absolute;
             left: 0;
             top: 0.1rem;
-            font-family: 'Henny Penny', cursive;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 1.1rem;
             font-weight: 400;
             color: #a8e6cf;
@@ -450,7 +450,7 @@
         }
         
         .hero-headline {
-            font-family: 'Henny Penny', cursive;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 3.5rem;
             font-weight: 400;
             color: #ffffff;
@@ -511,7 +511,7 @@
         }
         
         .column-title {
-            font-family: 'Henny Penny', cursive;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 2.2rem;
             font-weight: 400;
             color: #ffffff;

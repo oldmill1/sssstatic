@@ -6,7 +6,7 @@ Header styles module for SSSStatic - contains CSS styles for site header
 
 def get_header_styles():
     """Return CSS styles for header components."""
-    from .fonts import get_font_styles
+    from .type import get_font_styles
     return get_font_styles() + """
         /* Header Styles - Toronto Dating Photos Style */
         .site-header {

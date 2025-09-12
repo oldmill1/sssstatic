@@ -6,7 +6,7 @@ Footer styles module for SSSStatic - contains CSS styles and HTML generation for
 
 def get_footer_styles():
     """Return CSS styles for footer components."""
-    from .fonts import get_font_styles
+    from .type import get_font_styles
     return get_font_styles() + """
         /* Clean Footer Styles */
         .site-footer {

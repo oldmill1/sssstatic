@@ -6,7 +6,7 @@ Card styles module for SSSStatic - contains CSS styles for card components
 
 def get_card_styles():
     """Return CSS styles for card components."""
-    from .fonts import get_font_styles
+    from .type import get_font_styles
     return get_font_styles() + """
         /* Card Container */
         .cards-container {

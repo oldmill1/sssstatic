@@ -20,7 +20,7 @@ def generate_site_html(config, content_html):
     from .components.header import generate_header_html
     from .components.cards import generate_cards_html
     from .styles.footer import generate_footer_html
-    from .styles.fonts import get_google_fonts_imports
+    from .styles.type import get_google_fonts_imports
     
     # Use _title for both title and h1, fall back to site name if _title not available
     page_title = config.get('_title', config.get('site', {}).get('name', 'My Site'))

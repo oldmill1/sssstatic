@@ -1,6 +1,6 @@
-# sssstatic/styles/fonts.py
+# sssstatic/styles/type.py
 """
-Fonts module for SSSStatic - centralized font definitions and Google Fonts imports
+Type module for SSSStatic - centralized font definitions and Google Fonts imports
 """
 
 def get_google_fonts_imports():
@@ -8,8 +8,7 @@ def get_google_fonts_imports():
     return """    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">"""
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">"""
 
 
 def get_font_families():
@@ -18,7 +17,7 @@ def get_font_families():
         :root {
             /* Primary font families */
             --font-primary: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-heading: 'Henny Penny', cursive;
+            --font-heading: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --font-mono: 'Source Code Pro', 'JetBrains Mono', 'Fira Code', monospace;
             --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace;
@@ -62,7 +61,7 @@ def get_font_styles():
 
 # Font family constants for easy reference
 FONT_PRIMARY = "'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-FONT_HEADING = "'Henny Penny', cursive"
+FONT_HEADING = "'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
 FONT_MONO = "'Source Code Pro', 'JetBrains Mono', 'Fira Code', monospace"
 FONT_SYSTEM = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
 FONT_BODY = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace"

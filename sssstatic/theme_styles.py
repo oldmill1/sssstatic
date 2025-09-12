@@ -16,7 +16,7 @@ from .styles.cards import get_card_styles
 def get_global_css():
     """Return global CSS styles (dark theme is the default)."""
     from .styles.footer import get_footer_styles
-    from .styles.fonts import get_font_styles
+    from .styles.type import get_font_styles
     from .styles.cards import get_card_styles
     from .styles.header import get_header_styles
     return get_font_styles() + """
