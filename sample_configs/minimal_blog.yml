@@ -2,11 +2,6 @@
 site_name: "Thoughts & Code"
 _title: "A developer's journey through technology"
 
-# Simple hero without banner
-_hero_banner:
-  headline: "Writing about code, creativity, and the future of technology"
-  subtitle: "Musings from a software engineer exploring the intersection of art and science"
-  link: "https://thoughtsandcode.com/rss"
 
 # Blog categories and recent posts
 blog:

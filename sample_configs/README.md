@@ -124,7 +124,6 @@ All samples show how to use markdown-style links `[text](url)` in:
 - `dark` - Modern, sleek appearance
 
 ### Components Used
-- `_hero_banner` - Eye-catching header with call-to-action
 - `_multi_line_title` - Dramatic title presentation
 - `_card` - Project showcase layout
 - `_footer` - Customizable footer with links

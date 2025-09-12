@@ -2,22 +2,6 @@
 site_name: "InnovateTech Solutions"
 _title: "Transforming Ideas into Digital Reality"
 
-# Hero Banner for business
-_hero_banner:
-  hero_image: "office-building.jpg"
-  headline: "Custom Software Development & Digital Transformation"
-  subtitle: "We help businesses scale with cutting-edge technology solutions"
-  link: "https://innovate-tech.com/contact"
-  columns:
-    - title: "Web Applications"
-      description: "Scalable, secure, and user-friendly"
-      image: "https://dummyimage.com/300x200/2563EB/ffffff&text=Web+Apps"
-    - title: "Mobile Development"
-      description: "iOS and Android native apps"
-      image: "https://dummyimage.com/300x200/10B981/ffffff&text=Mobile"
-    - title: "Cloud Solutions"
-      description: "AWS, Azure, and Google Cloud"
-      image: "https://dummyimage.com/300x200/F59E0B/ffffff&text=Cloud"
 
 # Services offered
 services:

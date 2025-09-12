@@ -8,7 +8,7 @@ from pathlib import Path
 from .display import console, show_critical_error
 from .templates import generate_site_html
 from .yaml_to_html import convert_to_html
-from .theme_styles import get_theme_css
+from .theme_styles import get_global_css
 
 
 def load_config(config_path):
@@ -45,8 +45,8 @@ def generate_css_file(config):
     assets_dir = Path("_site") / "assets"
     assets_dir.mkdir(exist_ok=True)
 
-    # Get theme CSS (only dark theme supported)
-    css_content = get_theme_css()
+    # Get global CSS (dark theme is the default)
+    css_content = get_global_css()
 
     # Write CSS file
     css_file = assets_dir / "styles.css"

@@ -2,22 +2,6 @@
 site_name: "Luna Martinez"
 _title: "Digital Artist & Creative Director"
 
-# Hero Banner for creative portfolio
-_hero_banner:
-  hero_image: "art-studio.jpg"
-  headline: "Where imagination meets digital reality"
-  subtitle: "Creating stunning visuals that tell compelling stories"
-  link: "https://lunamartinez.art/portfolio"
-  columns:
-    - title: "Digital Illustration"
-      description: "Character design and concept art"
-      image: "https://dummyimage.com/300x200/8B5CF6/ffffff&text=Illustration"
-    - title: "Brand Identity"
-      description: "Logos, branding, and visual systems"
-      image: "https://dummyimage.com/300x200/EC4899/ffffff&text=Branding"
-    - title: "UI/UX Design"
-      description: "User-centered digital experiences"
-      image: "https://dummyimage.com/300x200/06B6D4/ffffff&text=UI+UX"
 
 # Multi-line title for dramatic effect
 _multi_line_title:

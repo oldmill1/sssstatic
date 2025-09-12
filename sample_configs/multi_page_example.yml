@@ -19,21 +19,6 @@ about_me:
     - "Full-Stack Developer at StartupXYZ (2018-2020)"
     - "Junior Developer at WebAgency (2016-2018)"
 
-# Hero banner for homepage
-_hero_banner:
-  headline: "Building the Future with Code"
-  subtitle: "Passionate about creating innovative solutions that make a difference"
-  hero_image: "hero-image.jpg"
-  columns:
-    - title: "Build"
-      description: "Creating robust, scalable applications"
-      image: "https://dummyimage.com/300x200/10B981/ffffff&text=Build"
-    - title: "Deploy"
-      description: "Seamless deployment and DevOps practices"
-      image: "https://dummyimage.com/300x200/F59E0B/ffffff&text=Deploy"
-    - title: "Scale"
-      description: "Growing applications that handle millions of users"
-      image: "https://dummyimage.com/300x200/8B5CF6/ffffff&text=Scale"
 
 # Project cards
 _card:

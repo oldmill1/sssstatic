@@ -2,22 +2,6 @@
 site_name: "SSSStatic"
 _title: "SSSStatic - Simple Static Site Generator"
 
-# Hero banner showcasing the library
-_hero_banner:
-  headline: "Build Beautiful Static Sites with YAML"
-  subtitle: "SSSStatic is a minimal static site generator that converts YAML configuration into clean HTML websites"
-  hero_image: "https://dummyimage.com/600x400/58a6ff/ffffff&text=SSSStatic"
-  link: "https://github.com/oldmill1/sssstatic"
-  columns:
-    - title: "Simple"
-      description: "Just write YAML, get beautiful HTML"
-      image: "https://dummyimage.com/300x200/10B981/ffffff&text=Simple"
-    - title: "Fast"
-      description: "Lightning-fast builds with zero dependencies"
-      image: "https://dummyimage.com/300x200/F59E0B/ffffff&text=Fast"
-    - title: "Flexible"
-      description: "Multiple themes and components"
-      image: "https://dummyimage.com/300x200/8B5CF6/ffffff&text=Flexible"
 
 # Main features
 features:
@@ -79,7 +63,6 @@ _page:
       - "`site_name` - Your site's name"
       - "`_theme` - Choose 'dark' or 'light'"
       - "`_title` - Page title (optional)"
-      - "`_hero_banner` - Hero section with columns"
       - "`_card` - Project showcase cards"
       - "`_footer` - Custom footer with links"
       - "`_page` - Multi-page support"

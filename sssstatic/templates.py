@@ -59,100 +59,6 @@ def generate_cards_html(config):
     return cards_html
 
 
-def generate_hero_banner_html(config):
-    """Generate HTML for hero banner component."""
-    hero_html = ""
-    
-    # Check for _hero_banner configuration
-    if '_hero_banner' not in config:
-        return ""
-    
-    hero_config = config['_hero_banner']
-    if not isinstance(hero_config, dict):
-        return ""
-    
-    # Hero section
-    hero_image_url = hero_config.get('hero_image', 'https://dummyimage.com/600x400/007AFF/ffffff&text=hello+(again)')
-    
-    # Check if it's a local image (not starting with http/https)
-    if not hero_image_url.startswith(('http://', 'https://')):
-        hero_image_url = f"assets/{hero_image_url}"
-    
-    hero_headline = hero_config.get('headline', 'Build. Ship. Wow.')
-    hero_subtitle = hero_config.get('subtitle', 'A strategy as simple as great software.')
-    hero_link = hero_config.get('link', '')
-    
-    # Process subtitle to make sssstatic a link if link is provided
-    if hero_link and 'sssstatic' in hero_subtitle.lower():
-        # Replace sssstatic with a link
-        hero_subtitle = re.sub(
-            r'\bsssstatic\b', 
-            f'<a href="{hero_link}" target="_blank" rel="noopener noreferrer">sssstatic</a>', 
-            hero_subtitle, 
-            flags=re.IGNORECASE
-        )
-    
-    # Three columns
-    columns = hero_config.get('columns', [])
-    if not columns:
-        # Default columns if none specified
-        columns = [
-            {
-                'title': 'Build.',
-                'description': 'Creative developers, meet your match.',
-                'image': 'https://dummyimage.com/300x200/10B981/ffffff&text=Build',
-                'color': '10B981'
-            },
-            {
-                'title': 'Ship.',
-                'description': 'We rewrote the book on deployment.',
-                'image': 'https://dummyimage.com/300x200/F59E0B/ffffff&text=Ship',
-                'color': 'F59E0B'
-            },
-            {
-                'title': 'Wow.',
-                'description': "It's okay, you don't have to say anything.",
-                'image': 'https://dummyimage.com/300x200/8B5CF6/ffffff&text=Wow',
-                'color': '8B5CF6'
-            }
-        ]
-    
-    # Generate hero content
-    hero_html = f'''    <!-- Hero Banner Section -->
-    <section class="hero-banner">
-        <div class="hero-content">
-            <div class="hero-image">
-                <img src="{hero_image_url}" alt="Software Screenshot" />
-            </div>
-            <div class="hero-text">
-                <h2 class="hero-headline">{hero_headline}</h2>
-                <p class="hero-subtitle">{hero_subtitle}</p>
-            </div>
-        </div>
-        
-        <div class="three-columns">
-'''
-    
-    # Generate three columns
-    for column in columns:
-        title = column.get('title', '')
-        description = column.get('description', '')
-        image_url = column.get('image', 'https://dummyimage.com/300x200/cccccc/ffffff&text=Column')
-        
-        hero_html += f'''            <div class="column">
-                <div class="column-image">
-                    <img src="{image_url}" alt="{title}" />
-                </div>
-                <h3 class="column-title">{title}</h3>
-                <p class="column-description">{description}</p>
-            </div>
-'''
-    
-    hero_html += '''        </div>
-    </section>
-'''
-    
-    return hero_html
 
 
 def generate_footer_html(config):
@@ -231,8 +137,6 @@ def generate_site_html(config, content_html):
             if image_name:
                 image_html = f'<div class="header-image"><img src="assets/{image_name}" alt="{image_alt}"></div>'
 
-    # Generate hero banner HTML if _hero_banner exists
-    hero_banner_html = generate_hero_banner_html(config)
     
     # Generate cards HTML if _card entries exist
     cards_html = generate_cards_html(config)
@@ -255,7 +159,6 @@ def generate_site_html(config, content_html):
 </head>
 <body>
 {header_html}{page_header_html}    {image_html}
-    {hero_banner_html}
     {cards_html}
     {content_html}
 {footer_html}</body>
