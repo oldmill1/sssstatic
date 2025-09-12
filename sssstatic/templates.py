@@ -10,7 +10,6 @@ def get_config_template(project_name):
     return f"""# SSSStatic Configuration
 site:
   name: "{project_name}"
-  theme: "Midnight Serene"
 """
 
 

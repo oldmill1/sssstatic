@@ -41,7 +41,7 @@ def get_header_styles():
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 2.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
             align-items: center;
         }
@@ -51,21 +51,32 @@ def get_header_styles():
         }
         
         .header-link {
-            color: #a8e6cf;
+            background-color: #c2fbd7;
+            border-radius: 100px;
+            box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+            color: green;
+            cursor: pointer;
+            display: inline-block;
+            font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+            padding: 7px 20px;
+            text-align: center;
             text-decoration: none;
-            padding: 0.5rem 0;
-            transition: color 0.2s ease;
+            transition: all 250ms;
+            border: 0;
+            font-size: 16px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
             font-weight: var(--font-weight-normal);
-            font-size: var(--font-size-sm);
             letter-spacing: 0.5px;
-            font-family: var(--font-primary);
             position: relative;
         }
         
         .header-link:hover {
-            color: #c7f0db;
+            box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+            transform: scale(1.05) rotate(-1deg);
             text-decoration: none;
-            transform: scale(1.05);
+            color: #0d4f1c;
         }
         
         .nav-link:active {
@@ -86,12 +97,14 @@ def get_header_styles():
             }
             
             .header-list {
-                gap: 1.5rem;
+                gap: 0.75rem;
                 justify-content: center;
+                flex-wrap: wrap;
             }
             
             .header-link {
-                font-size: var(--font-size-sm);
+                font-size: 14px;
+                padding: 6px 16px;
             }
         }
     """
