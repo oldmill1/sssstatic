@@ -6,7 +6,8 @@ Card styles module for SSSStatic - contains CSS styles for card components
 
 def get_card_styles():
     """Return CSS styles for card components."""
-    return """
+    from .fonts import get_font_styles
+    return get_font_styles() + """
         /* Card Container */
         .cards-container {
             display: grid;
@@ -60,9 +61,9 @@ def get_card_styles():
         }
         
         .card-title {
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
             margin: 0;
             color: var(--card-title);
             line-height: 1.3;
@@ -77,9 +78,9 @@ def get_card_styles():
         
         /* Status Badges */
         .card-status {
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
             padding: 0.4rem 0.9rem;
             border-radius: 20px;
             text-transform: uppercase;
@@ -132,12 +133,12 @@ def get_card_styles():
         
         /* Card Description */
         .card-description {
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: var(--font-primary);
             color: var(--card-description);
             margin: 0 0 2rem 0;
             line-height: 1.7;
-            font-size: 1rem;
-            font-weight: 400;
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-normal);
             transition: color 0.3s ease;
         }
         
@@ -151,13 +152,13 @@ def get_card_styles():
         }
         
         .card-link {
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: var(--font-primary);
             display: inline-flex;
             align-items: center;
             color: var(--card-link);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-sm);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0.75rem 1.5rem;
             border-radius: 12px;

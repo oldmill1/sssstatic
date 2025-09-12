@@ -21,6 +21,7 @@ def generate_site_html(config, content_html):
     from .components.header import generate_header_html
     from .components.cards import generate_cards_html
     from .styles.footer import generate_footer_html
+    from .styles.fonts import get_google_fonts_imports
     
     # Use _title for both title and h1, fall back to site name if _title not available
     page_title = config.get('_title', config.get('site', {}).get('name', 'My Site'))
@@ -46,11 +47,7 @@ def generate_site_html(config, content_html):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{page_title}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+{get_google_fonts_imports()}
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>

@@ -16,7 +16,8 @@ from .styles.cards import get_card_styles
 def get_global_css():
     """Return global CSS styles (dark theme is the default)."""
     from .styles.footer import get_footer_styles
-    return f"""
+    from .styles.fonts import get_font_styles
+    return get_font_styles() + """
         :root {{
             --card-bg: #161b22;
             --card-border: #30363d;
@@ -35,7 +36,7 @@ def get_global_css():
         }}
         
         body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace;
+            font-family: var(--font-body);
             line-height: 1.6;
             color: #f8f9fa;
             background-color: #0d1117;
@@ -55,9 +56,9 @@ def get_global_css():
         }}
         
         .movie-title {{
-            font-family: 'Source Code Pro', monospace;
-            font-size: 2.8rem;
-            font-weight: 600;
+            font-family: var(--font-mono);
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-semibold);
             margin: 0;
             padding: 0;
             color: #ffffff;
@@ -66,9 +67,9 @@ def get_global_css():
         }}
         
         .movie-subtitle {{
-            font-family: 'Source Code Pro', monospace;
-            font-size: 1rem;
-            font-weight: 400;
+            font-family: var(--font-mono);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-normal);
             margin: 0.5rem 0 0 0;
             padding: 0;
             color: rgb(128, 182, 204);
@@ -78,9 +79,9 @@ def get_global_css():
         
         /* Fallback h1 for single-line titles */
         h1 {{
-            font-family: 'Source Code Pro', monospace;
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-family: var(--font-mono);
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
             text-align: center;
             margin: 2rem 0 1rem 0;
             padding: 0;
@@ -92,11 +93,11 @@ def get_global_css():
         /* Responsive adjustments */
         @media (max-width: 768px) {{
             .movie-title {{
-                font-size: 2.2rem;
+                font-size: var(--font-size-3xl);
             }}
             
             .movie-subtitle {{
-                font-size: 0.9rem;
+                font-size: var(--font-size-sm);
             }}
         }}
         
@@ -132,12 +133,12 @@ def get_global_css():
         }}
         
         h2 {{
-            font-family: 'Henny Penny', cursive;
+            font-family: var(--font-heading);
             color: #ffffff;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            font-size: 2.8rem;
-            font-weight: 400;
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-normal);
             letter-spacing: 0.5px;
         }}
         
@@ -147,7 +148,7 @@ def get_global_css():
             background-color: transparent;
             border-radius: 0;
             border: none;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: var(--font-system);
         }}
         
         section section {{
@@ -169,9 +170,9 @@ def get_global_css():
         }}
         
         section section h2 {{
-            font-family: 'Henny Penny', cursive;
-            font-size: 1.8rem;
-            font-weight: 400;
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-normal);
             color: #ffffff;
             margin: 0 0 0.5rem 0;
             text-align: left;
@@ -189,9 +190,9 @@ def get_global_css():
         section section li {{
             margin: 0;
             padding: 0;
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.1rem;
-            font-weight: 400;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-normal);
             color: #f8f9fa;
             line-height: 1.7;
             position: relative;
@@ -205,9 +206,9 @@ def get_global_css():
             position: absolute;
             left: 0;
             top: 0.1rem;
-            font-family: 'Henny Penny', cursive;
-            font-size: 1.1rem;
-            font-weight: 400;
+            font-family: var(--font-heading);
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-normal);
             color: #a8e6cf;
             opacity: 0.8;
             transition: all 0.3s ease;
@@ -230,9 +231,9 @@ def get_global_css():
         
         /* Inline code styling for list items */
         section section li code {{
-            font-family: 'Source Code Pro', 'JetBrains Mono', 'Fira Code', monospace;
+            font-family: var(--font-mono);
             font-size: 0.95em;
-            font-weight: 500;
+            font-weight: var(--font-weight-medium);
             background: rgba(168, 230, 207, 0.1);
             color: #a8e6cf;
             padding: 0.1em 0.3em;
@@ -263,7 +264,7 @@ def get_global_css():
         section section li dim {{
             color: #8b949e;
             font-style: italic;
-            font-weight: 400;
+            font-weight: var(--font-weight-normal);
             opacity: 0.8;
             transition: all 0.3s ease;
         }}
@@ -285,19 +286,19 @@ def get_global_css():
             }}
             
             section section h2 {{
-                font-size: 1.6rem;
+                font-size: var(--font-size-xl);
                 margin-bottom: 0.5rem;
             }}
             
             section section li {{
-                font-size: 1rem;
+                font-size: var(--font-size-base);
                 line-height: 1.6;
                 padding-left: 2rem;
                 margin: 0;
             }}
             
             section section li::before {{
-                font-size: 0.9rem;
+                font-size: var(--font-size-sm);
             }}
             
             section section li code {{
@@ -315,10 +316,10 @@ def get_global_css():
         li {{
             margin: 0.8rem 0;
             line-height: 1.6;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: var(--font-system);
             color: #f8f9fa;
-            font-size: 1.1rem;
-            font-weight: 400;
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-normal);
         }}
         
         ol li {{
@@ -328,8 +329,8 @@ def get_global_css():
         ol li::before {{
             content: counter(item) ". ";
             color: #a8e6cf;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-lg);
             margin-right: 1rem;
         }}
         
@@ -339,7 +340,7 @@ def get_global_css():
         
         strong {{
             color: #f0f6fc;
-            font-weight: 600;
+            font-weight: var(--font-weight-semibold);
         }}
         
         a {{

@@ -19,9 +19,9 @@ def get_header_styles():
         }
         
         .header-brand {
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.8rem;
-            font-weight: 400;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-normal);
             color: #a8e6cf;
             text-decoration: none;
             letter-spacing: 1px;
@@ -53,10 +53,10 @@ def get_header_styles():
             text-decoration: none;
             padding: 0.5rem 0;
             transition: color 0.2s ease;
-            font-weight: 400;
-            font-size: 0.95rem;
+            font-weight: var(--font-weight-normal);
+            font-size: var(--font-size-sm);
             letter-spacing: 0.5px;
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: var(--font-primary);
             position: relative;
         }
         
@@ -79,7 +79,7 @@ def get_header_styles():
             }
             
             .header-brand {
-                font-size: 1.5rem;
+                font-size: var(--font-size-xl);
                 text-align: center;
             }
             
@@ -89,7 +89,7 @@ def get_header_styles():
             }
             
             .header-link {
-                font-size: 0.9rem;
+                font-size: var(--font-size-sm);
             }
         }
     """
@@ -98,8 +98,9 @@ def get_global_css():
     """Return global CSS styles for Midnight Serene theme."""
     from ..styles.cards import get_card_styles
     from ..styles.footer import get_footer_styles
+    from ..styles.fonts import get_font_styles
     
-    return f"""
+    return get_font_styles() + """
         :root {{
             --card-bg: #161b22;
             --card-border: #30363d;
@@ -118,7 +119,7 @@ def get_global_css():
         }}
         
         body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace;
+            font-family: var(--font-body);
             line-height: 1.6;
             color: #f8f9fa;
             background-color: #0d1117;
@@ -138,9 +139,9 @@ def get_global_css():
         }}
         
         .movie-title {{
-            font-family: 'Source Code Pro', monospace;
-            font-size: 2.8rem;
-            font-weight: 600;
+            font-family: var(--font-mono);
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-semibold);
             margin: 0;
             padding: 0;
             color: #ffffff;
@@ -149,9 +150,9 @@ def get_global_css():
         }}
         
         .movie-subtitle {{
-            font-family: 'Source Code Pro', monospace;
-            font-size: 1rem;
-            font-weight: 400;
+            font-family: var(--font-mono);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-normal);
             margin: 0.5rem 0 0 0;
             padding: 0;
             color: rgb(128, 182, 204);
@@ -161,9 +162,9 @@ def get_global_css():
         
         /* Fallback h1 for single-line titles */
         h1 {{
-            font-family: 'Source Code Pro', monospace;
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-family: var(--font-mono);
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
             text-align: center;
             margin: 2rem 0 1rem 0;
             padding: 0;
@@ -175,11 +176,11 @@ def get_global_css():
         /* Responsive adjustments */
         @media (max-width: 768px) {{
             .movie-title {{
-                font-size: 2.2rem;
+                font-size: var(--font-size-3xl);
             }}
             
             .movie-subtitle {{
-                font-size: 0.9rem;
+                font-size: var(--font-size-sm);
             }}
         }}
         

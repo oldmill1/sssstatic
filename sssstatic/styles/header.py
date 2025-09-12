@@ -6,7 +6,8 @@ Header styles module for SSSStatic - contains CSS styles for site header
 
 def get_header_styles():
     """Return CSS styles for header components."""
-    return """
+    from .fonts import get_font_styles
+    return get_font_styles() + """
         /* Header Styles - Toronto Dating Photos Style */
         .site-header {
             margin-bottom: 2rem;
@@ -20,9 +21,9 @@ def get_header_styles():
         }
         
         .header-brand {
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.8rem;
-            font-weight: 400;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-normal);
             color: #a8e6cf;
             text-decoration: none;
             letter-spacing: 1px;
@@ -54,10 +55,10 @@ def get_header_styles():
             text-decoration: none;
             padding: 0.5rem 0;
             transition: color 0.2s ease;
-            font-weight: 400;
-            font-size: 0.95rem;
+            font-weight: var(--font-weight-normal);
+            font-size: var(--font-size-sm);
             letter-spacing: 0.5px;
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: var(--font-primary);
             position: relative;
         }
         
@@ -80,7 +81,7 @@ def get_header_styles():
             }
             
             .header-brand {
-                font-size: 1.5rem;
+                font-size: var(--font-size-xl);
                 text-align: center;
             }
             
@@ -90,7 +91,7 @@ def get_header_styles():
             }
             
             .header-link {
-                font-size: 0.9rem;
+                font-size: var(--font-size-sm);
             }
         }
     """

@@ -6,7 +6,8 @@ Footer styles module for SSSStatic - contains CSS styles and HTML generation for
 
 def get_footer_styles():
     """Return CSS styles for footer components."""
-    return """
+    from .fonts import get_font_styles
+    return get_font_styles() + """
         /* Clean Footer Styles */
         .site-footer {
             margin-top: 4rem;
@@ -40,9 +41,9 @@ def get_footer_styles():
         }
         
         .footer-text {
-            font-family: 'Source Code Pro', monospace;
-            font-size: 1.1rem;
-            font-weight: 400;
+            font-family: var(--font-mono);
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-normal);
             color: #e1e8ed;
             letter-spacing: 1px;
             text-align: center;
@@ -62,7 +63,7 @@ def get_footer_styles():
             }
             
             .footer-text {
-                font-size: 1rem;
+                font-size: var(--font-size-base);
                 letter-spacing: 0.8px;
             }
         }
