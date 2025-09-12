@@ -17,8 +17,10 @@ def get_global_css():
     """Return global CSS styles (dark theme is the default)."""
     from .styles.footer import get_footer_styles
     from .styles.fonts import get_font_styles
+    from .styles.cards import get_card_styles
+    from .styles.header import get_header_styles
     return get_font_styles() + """
-        :root {{
+        :root {
             --card-bg: #161b22;
             --card-border: #30363d;
             --card-shadow: rgba(0, 0, 0, 0.3);
@@ -33,9 +35,9 @@ def get_global_css():
             --card-link-hover: rgb(148, 202, 224);
             --status-unknown-bg: #484f58;
             --status-unknown-text: #f0f6fc;
-        }}
+        }
         
-        body {{
+        body {
             font-family: var(--font-body);
             line-height: 1.6;
             color: #f8f9fa;
@@ -44,18 +46,18 @@ def get_global_css():
             margin: 0 auto;
             padding: 2rem;
             min-height: 100vh;
-        }}
+        }
         
-        {get_header_styles()}
+        """ + get_header_styles() + """
         
         /* Minimal typography-focused header */
-        .movie-header {{
+        .movie-header {
             text-align: center;
             margin: 3rem 0 4rem 0;
             padding: 0;
-        }}
+        }
         
-        .movie-title {{
+        .movie-title {
             font-family: var(--font-mono);
             font-size: var(--font-size-4xl);
             font-weight: var(--font-weight-semibold);
@@ -64,9 +66,9 @@ def get_global_css():
             color: #ffffff;
             line-height: 1.2;
             letter-spacing: 1px;
-        }}
+        }
         
-        .movie-subtitle {{
+        .movie-subtitle {
             font-family: var(--font-mono);
             font-size: var(--font-size-base);
             font-weight: var(--font-weight-normal);
@@ -75,10 +77,10 @@ def get_global_css():
             color: rgb(128, 182, 204);
             letter-spacing: 2px;
             text-transform: lowercase;
-        }}
+        }
         
         /* Fallback h1 for single-line titles */
-        h1 {{
+        h1 {
             font-family: var(--font-mono);
             font-size: var(--font-size-xl);
             font-weight: var(--font-weight-semibold);
@@ -88,51 +90,51 @@ def get_global_css():
             color: rgb(128, 182, 204);
             line-height: 1.4;
             letter-spacing: 1px;
-        }}
+        }
         
         /* Responsive adjustments */
-        @media (max-width: 768px) {{
-            .movie-title {{
+        @media (max-width: 768px) {
+            .movie-title {
                 font-size: var(--font-size-3xl);
-            }}
+            }
             
-            .movie-subtitle {{
+            .movie-subtitle {
                 font-size: var(--font-size-sm);
-            }}
-        }}
+            }
+        }
         
-        @keyframes gradientShift {{
-            0%, 100% {{
+        @keyframes gradientShift {
+            0%, 100% {
                 background-position: 0% 50%;
-            }}
-            50% {{
+            }
+            50% {
                 background-position: 100% 50%;
-            }}
-        }}
+            }
+        }
         
-        @keyframes pulse {{
-            0%, 100% {{
+        @keyframes pulse {
+            0%, 100% {
                 opacity: 0.6;
                 transform: translateX(-50%) scaleX(1);
-            }}
-            50% {{
+            }
+            50% {
                 opacity: 1;
                 transform: translateX(-50%) scaleX(1.2);
-            }}
-        }}
+            }
+        }
         
-        @keyframes shimmer {{
-            0%, 100% {{
+        @keyframes shimmer {
+            0%, 100% {
                 opacity: 0.3;
                 transform: translateX(-50%) scaleX(0.8);
-            }}
-            50% {{
+            }
+            50% {
                 opacity: 0.8;
                 transform: translateX(-50%) scaleX(1.2);
-            }}
-        }}
+            }
+        }
         
-        h2 {{
+        h2 {
             font-family: var(--font-heading);
             color: #ffffff;
             margin-top: 2rem;
@@ -140,25 +142,25 @@ def get_global_css():
             font-size: var(--font-size-4xl);
             font-weight: var(--font-weight-normal);
             letter-spacing: 0.5px;
-        }}
+        }
         
-        section {{
+        section {
             margin: 0 0 1rem 0;
             padding: 0.5rem;
             background-color: transparent;
             border-radius: 0;
             border: none;
             font-family: var(--font-system);
-        }}
+        }
         
-        section section {{
+        section section {
             margin: 0 0 1rem 0;
             padding: 0 0 0 2rem;
             border-left: 1px solid rgba(168, 230, 207, 0.1);
             position: relative;
-        }}
+        }
         
-        section section::before {{
+        section section::before {
             content: '';
             position: absolute;
             left: -1px;
@@ -167,9 +169,9 @@ def get_global_css():
             width: 1px;
             background: linear-gradient(180deg, transparent, rgba(168, 230, 207, 0.2), transparent);
             opacity: 0.3;
-        }}
+        }
         
-        section section h2 {{
+        section section h2 {
             font-family: var(--font-heading);
             font-size: var(--font-size-2xl);
             font-weight: var(--font-weight-normal);
@@ -177,17 +179,17 @@ def get_global_css():
             margin: 0 0 0.5rem 0;
             text-align: left;
             letter-spacing: 0.5px;
-        }}
+        }
         
-        section section ol {{
+        section section ol {
             margin: 0;
             padding: 0;
             list-style: none;
             counter-reset: none;
             max-width: 100%;
-        }}
+        }
         
-        section section li {{
+        section section li {
             margin: 0;
             padding: 0;
             font-family: var(--font-primary);
@@ -198,9 +200,9 @@ def get_global_css():
             position: relative;
             padding-left: 2.5rem;
             transition: all 0.3s ease;
-        }}
+        }
         
-        section section li::before {{
+        section section li::before {
             content: counter(item);
             counter-increment: item;
             position: absolute;
@@ -212,25 +214,25 @@ def get_global_css():
             color: #a8e6cf;
             opacity: 0.8;
             transition: all 0.3s ease;
-        }}
+        }
         
-        section section li:hover {{
+        section section li:hover {
             color: #f0f6fc;
             transform: translateX(0.2rem);
-        }}
+        }
         
-        section section li:hover::before {{
+        section section li:hover::before {
             color: #c7f0db;
             opacity: 1;
             transform: scale(1.1);
-        }}
+        }
         
-        section section ol {{
+        section section ol {
             counter-reset: item;
-        }}
+        }
         
         /* Inline code styling for list items */
-        section section li code {{
+        section section li code {
             font-family: var(--font-mono);
             font-size: 0.95em;
             font-weight: var(--font-weight-medium);
@@ -240,165 +242,162 @@ def get_global_css():
             border-radius: 4px;
             border: 1px solid rgba(168, 230, 207, 0.2);
             transition: all 0.3s ease;
-        }}
+        }
         
-        section section li:hover code {{
+        section section li:hover code {
             background: rgba(168, 230, 207, 0.15);
             color: #c7f0db;
             border-color: rgba(168, 230, 207, 0.3);
-        }}
+        }
         
         /* Link styling for list items - inherits from code styling */
-        section section li code a {{
+        section section li code a {
             color: inherit;
             text-decoration: none;
             display: inline;
-        }}
+        }
         
-        section section li code a:hover {{
+        section section li code a:hover {
             color: inherit;
             text-decoration: none;
-        }}
+        }
         
         /* Dimmed text styling for descriptions */
-        section section li dim {{
+        section section li dim {
             color: #8b949e;
             font-style: italic;
             font-weight: var(--font-weight-normal);
             opacity: 0.8;
             transition: all 0.3s ease;
-        }}
+        }
         
-        section section li:hover dim {{
+        section section li:hover dim {
             color: #a5a5a5;
             opacity: 1;
-        }}
+        }
         
         /* Responsive adjustments for all sub-sections */
-        @media (max-width: 768px) {{
-            section section {{
+        @media (max-width: 768px) {
+            section section {
                 padding: 0 0 0 1.5rem;
                 margin: 0 0 1rem 0;
-            }}
+            }
             
-            section section:last-child {{
+            section section:last-child {
                 margin-bottom: 0;
-            }}
+            }
             
-            section section h2 {{
+            section section h2 {
                 font-size: var(--font-size-xl);
                 margin-bottom: 0.5rem;
-            }}
+            }
             
-            section section li {{
+            section section li {
                 font-size: var(--font-size-base);
                 line-height: 1.6;
                 padding-left: 2rem;
                 margin: 0;
-            }}
+            }
             
-            section section li::before {{
+            section section li::before {
                 font-size: var(--font-size-sm);
-            }}
+            }
             
-            section section li code {{
+            section section li code {
                 font-size: 0.9em;
                 padding: 0.15em 0.3em;
-            }}
-        }}
+            }
+        }
         
-        ol, ul {{
+        ol, ul {
             margin: 1rem 0;
             padding-left: 0;
             list-style: none;
-        }}
+        }
         
-        li {{
+        li {
             margin: 0.8rem 0;
             line-height: 1.6;
             font-family: var(--font-system);
             color: #f8f9fa;
             font-size: var(--font-size-lg);
             font-weight: var(--font-weight-normal);
-        }}
+        }
         
-        ol li {{
+        ol li {
             counter-increment: item;
-        }}
+        }
         
-        ol li::before {{
+        ol li::before {
             content: counter(item) ". ";
             color: #a8e6cf;
             font-weight: var(--font-weight-semibold);
             font-size: var(--font-size-lg);
             margin-right: 1rem;
-        }}
+        }
         
-        ol {{
+        ol {
             counter-reset: item;
-        }}
+        }
         
-        strong {{
+        strong {
             color: #f0f6fc;
             font-weight: var(--font-weight-semibold);
-        }}
+        }
         
-        a {{
+        a {
             color: #a8e6cf;
             text-decoration: none;
             transition: color 0.2s ease;
-        }}
+        }
         
-        a:hover {{
+        a:hover {
             color: #c7f0db;
             text-decoration: underline;
-        }}
+        }
         
-        br {{
+        br {
             line-height: 2;
-        }}
+        }
         
         /* Add some visual hierarchy */
-        li strong {{
+        li strong {
             display: inline-block;
             min-width: 120px;
-        }}
+        }
         
         /* Improve spacing between list items */
-        ol > li {{
+        ol > li {
             margin-bottom: 1.5rem;
             padding: 0.5rem 0;
-        }}
+        }
         
         /* Style for nested content in list items */
-        li > br:last-child {{
+        li > br:last-child {
             display: none;
-        }}
+        }
         
         /* Header image styling */
-        .header-image {{
+        .header-image {
             text-align: center;
             margin: 2rem 0 3rem 0;
-        }}
+        }
         
-        .header-image img {{
+        .header-image img {
             max-width: 400px;
             width: 100%;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
-        }}
+        }
         
-        .header-image img:hover {{
+        .header-image img:hover {
             transform: scale(1.02);
-        }}
+        }
         
         
-        {get_card_styles()}
-        
-        {get_footer_styles()}
-    """
+        """ + get_card_styles() + get_footer_styles()
 
 
 

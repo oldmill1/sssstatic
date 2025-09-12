@@ -61,7 +61,7 @@ def get_card_styles():
         }
         
         .card-title {
-            font-family: var(--font-primary);
+            font-family: var(--font-heading);
             font-size: var(--font-size-xl);
             font-weight: var(--font-weight-bold);
             margin: 0;
