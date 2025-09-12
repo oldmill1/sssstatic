@@ -4,7 +4,16 @@ This directory contains sample `_config.yml` files that demonstrate different wa
 
 ## Available Samples
 
-### 1. Personal Portfolio (`personal_portfolio.yml`)
+### 1. Card Only Example (`card_only_example.yml`)
+A minimal demonstration of the card component featuring:
+- Simple card layout with different status badges
+- No navigation (card-only focus)
+- Multiple card examples with various statuses
+- Clean, minimal design
+
+**Best for:** Understanding card component, simple project showcases, component testing
+
+### 2. Personal Portfolio (`personal_portfolio.yml`)
 A comprehensive portfolio site for a software developer featuring:
 - Hero banner with project showcases
 - Multi-line title
