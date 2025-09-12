@@ -1,6 +1,5 @@
 # SSSStatic Configuration - Card Only Example
 site_name: "Card Demo"
-_theme: "dark"
 
 # Simple card example without navigation
 _card:

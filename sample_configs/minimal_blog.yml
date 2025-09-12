@@ -1,6 +1,5 @@
 # Minimal Blog Sample Configuration
 site_name: "Thoughts & Code"
-_theme: "light"
 _title: "A developer's journey through technology"
 
 # Simple hero without banner

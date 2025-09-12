@@ -1,6 +1,5 @@
 # SSSStatic Library Website Configuration
 site_name: "SSSStatic"
-_theme: "dark"
 _title: "SSSStatic - Simple Static Site Generator"
 
 # Hero banner showcasing the library

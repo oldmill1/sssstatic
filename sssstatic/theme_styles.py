@@ -3,7 +3,7 @@
 Styles module for SSSStatic - contains CSS styles for generated sites
 """
 
-from .styles.navigation import get_navigation_styles, get_light_navigation_styles
+from .styles.header import get_header_styles
 from .styles.cards import get_card_styles
 
 
@@ -184,67 +184,8 @@ def get_hero_banner_styles():
 
 def get_footer_styles():
     """Return CSS styles for footer component."""
-    return """
-        /* Clean Footer Styles */
-        .site-footer {
-            margin-top: 4rem;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            padding: 4rem 0 0 0;
-            background: transparent;
-            position: relative;
-        }
-        
-        .site-footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: rgba(88, 166, 255, 0.15);
-            box-shadow: 
-                0 1px 0 rgba(255, 255, 255, 0.05),
-                0 2px 0 rgba(0, 0, 0, 0.1);
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem 2rem;
-        }
-        
-        .footer-text {
-            font-family: 'Source Code Pro', monospace;
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: #e1e8ed;
-            letter-spacing: 1px;
-            text-align: center;
-            line-height: 1.4;
-            opacity: 0.8;
-        }
-        
-        /* Responsive footer */
-        @media (max-width: 768px) {
-            .site-footer {
-                margin-top: 3rem;
-                padding: 3rem 0 0 0;
-            }
-            
-            .footer-content {
-                padding: 0 1rem 3rem 1rem;
-            }
-            
-            .footer-text {
-                font-size: 1rem;
-                letter-spacing: 0.8px;
-            }
-        }
-    """
+    from .styles.footer import get_footer_styles as _get_footer_styles
+    return _get_footer_styles()
 
 
 def get_dark_theme_css():
@@ -278,7 +219,7 @@ def get_dark_theme_css():
             min-height: 100vh;
         }}
         
-        {get_navigation_styles()}
+        {get_header_styles()}
         
         /* Minimal typography-focused header */
         .movie-header {{
@@ -634,183 +575,8 @@ def get_dark_theme_css():
     """
 
 
-def get_light_theme_css():
-    """Return light theme CSS styles."""
-    return f"""
-        :root {{
-            --card-bg: #ffffff;
-            --card-border: #e1e5e9;
-            --card-shadow: rgba(0, 0, 0, 0.1);
-            --card-shadow-hover: rgba(0, 0, 0, 0.15);
-            --card-border-hover: rgb(128, 182, 204);
-            --card-title: #2c3e50;
-            --card-description: #5a6c7d;
-            --card-link: rgb(128, 182, 204);
-            --card-link-bg: rgba(52, 152, 219, 0.1);
-            --card-link-border: rgba(52, 152, 219, 0.2);
-            --card-link-bg-hover: rgba(52, 152, 219, 0.2);
-            --card-link-hover: rgb(148, 202, 224);
-            --status-unknown-bg: #95a5a6;
-            --status-unknown-text: #ffffff;
-        }}
-        
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #ffffff;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-            min-height: 100vh;
-        }}
-        
-        {get_light_navigation_styles()}
-        
-        h1 {{
-            color: #2c3e50;
-            border-bottom: 2px solid rgb(128, 182, 204);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-            font-weight: 600;
-        }}
-        
-        h2 {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #2c3e50;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }}
-        
-        section {{
-            margin: 1.5rem 0;
-            padding: 0.5rem;
-            background-color: transparent;
-            border-radius: 0;
-            border: none;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }}
-        
-        section section {{
-            margin: 1rem 0;
-            padding: 1.5rem;
-            background-color: #f8f9fa;
-            border-radius: 12px;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }}
-        
-        section section h2 {{
-            margin-top: 0;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }}
-        
-        ol, ul {{
-            margin: 1rem 0;
-            padding-left: 0;
-            list-style: none;
-        }}
-        
-        li {{
-            margin: 0.8rem 0;
-            line-height: 1.6;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #333;
-            font-size: 1.1rem;
-            font-weight: 400;
-        }}
-        
-        ol li {{
-            counter-increment: item;
-        }}
-        
-        ol li::before {{
-            content: counter(item) ". ";
-            color: rgb(128, 182, 204);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-right: 1rem;
-        }}
-        
-        ol {{
-            counter-reset: item;
-        }}
-        
-        strong {{
-            color: #2c3e50;
-            font-weight: 600;
-        }}
-        
-        a {{
-            color: rgb(128, 182, 204);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }}
-        
-        a:hover {{
-            color: rgb(148, 202, 224);
-            text-decoration: underline;
-        }}
-        
-        br {{
-            line-height: 2;
-        }}
-        
-        /* Add some visual hierarchy */
-        li strong {{
-            display: inline-block;
-            min-width: 120px;
-        }}
-        
-        /* Improve spacing between list items */
-        ol > li {{
-            margin-bottom: 1.5rem;
-            padding: 0.5rem 0;
-        }}
-        
-        /* Style for nested content in list items */
-        li > br:last-child {{
-            display: none;
-        }}
-        
-        /* Header image styling */
-        .header-image {{
-            text-align: center;
-            margin: 2rem 0 3rem 0;
-        }}
-        
-        .header-image img {{
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }}
-        
-        .header-image img:hover {{
-            transform: scale(1.02);
-        }}
-        
-        {get_hero_banner_styles()}
-        
-        {get_card_styles()}
-        
-        {get_footer_styles()}
-    """
 
 
 def get_theme_css(theme_name="dark"):
-    """Get CSS for specified theme."""
-    themes = {
-        "dark": get_dark_theme_css,
-        "light": get_light_theme_css,
-    }
-
-    theme_function = themes.get(theme_name, get_dark_theme_css)
-    return theme_function()
+    """Get CSS for specified theme. Only dark theme is supported."""
+    return get_dark_theme_css()

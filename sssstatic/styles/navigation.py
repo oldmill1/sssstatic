@@ -22,7 +22,7 @@ def get_navigation_styles():
         .nav-brand {
             font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 1.8rem;
-            font-weight: 700;
+            font-weight: 400;
             color: rgb(128, 182, 204);
             text-decoration: none;
             letter-spacing: 1px;
@@ -114,7 +114,7 @@ def get_light_navigation_styles():
         .nav-brand {
             font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 1.8rem;
-            font-weight: 700;
+            font-weight: 400;
             color: rgb(128, 182, 204);
             text-decoration: none;
             letter-spacing: 1px;

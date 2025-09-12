@@ -6,7 +6,7 @@ Writing a config file for sssstatic is incredibly simple - just write YAML and w
 
 Your `_config.yml` file is the heart of your site. It's just YAML with a few special features:
 
-- **System settings** start with `_` (like `_theme`, `_title`)
+- **System settings** start with `_` (like `_colorMode`, `_title`)
 - **Everything else** becomes your website content
 - **Lists** become ordered lists
 - **Objects** become sections with headings
@@ -20,7 +20,7 @@ SSSStatic includes several special components that start with `_` to control sit
 
 | Component | Purpose | Required Fields | Optional Fields |
 |-----------|---------|----------------|-----------------|
-| `_theme` | Set site theme | `"dark"` or `"light"` | - |
+| `_colorMode` | Set site color mode | `"dark"` or `"light"` | - |
 | `_title` | Override main heading | Custom title text | - |
 | `_footer` | Add site footer | `headline` | - |
 | `_hero_banner` | Create hero section | `hero_image`, `headline`, `subtitle` | `link`, `columns` |
@@ -35,7 +35,7 @@ SSSStatic includes several special components that start with `_` to control sit
 ```yaml
 # SSSStatic Configuration
 site_name: "Your Name"           # Used as page title
-_theme: "dark"                   # "dark" or "light"
+_colorMode: "dark"               # "dark" or "light"
 _title: "Your Custom Title"       # Override the main heading
 ```
 
@@ -149,18 +149,18 @@ _hero_banner:
 Choose between two beautiful built-in themes:
 
 ```yaml
-_theme: "dark"   # GitHub-inspired dark theme (default)
-_theme: "light"  # Clean, minimal light theme
+_colorMode: "dark"   # GitHub-inspired dark theme (default)
+_colorMode: "light"  # Clean, minimal light theme
 ```
 
 ## 📋 Complete Component Reference
 
-### `_theme` - Site Theme
+### `_colorMode` - Site Color Mode
 Controls the overall visual appearance of your site.
 
 ```yaml
-_theme: "dark"   # Default: GitHub-inspired dark theme
-_theme: "light" # Clean, minimal light theme
+_colorMode: "dark"   # Default: GitHub-inspired dark theme
+_colorMode: "light" # Clean, minimal light theme
 ```
 
 **Features:**
@@ -301,13 +301,13 @@ When multiple title components are present, they follow this priority:
 ```yaml
 # Minimal setup
 site_name: "Your Name"
-_theme: "dark"
+_colorMode: "dark"
 _footer:
   headline: "Find me online!"
 
 # Professional portfolio
 site_name: "Your Name"
-_theme: "dark"
+_colorMode: "dark"
 _title: "Software Engineer & Designer"
 _hero_banner:
   hero_image: "hero-photo.jpg"
@@ -323,7 +323,7 @@ _footer:
 
 # Cinematic presentation
 site_name: "Your Name"
-_theme: "dark"
+_colorMode: "dark"
 _multi_line_title:
   title: "Your Name"
   sub_title: "presents"
@@ -335,7 +335,7 @@ _footer:
 ```
 
 ### Component Compatibility
-- ✅ `_theme` works with all other components
+- ✅ `_colorMode` works with all other components
 - ✅ `_footer` works with all other components  
 - ✅ `_image` works with `_title` and `_multi_line_title`
 - ⚠️ `_title` and `_multi_line_title` conflict (use one or the other)
@@ -355,7 +355,7 @@ Here's a real-world example showing all features:
 ```yaml
 # SSSStatic Configuration
 site_name: "Ankur Taxali"
-_theme: "dark"
+_colorMode: "dark"
 
 _title: "the professional portfolio of a self-made software engineer"
 _footer:
@@ -446,7 +446,7 @@ about_me:
 
 - **Start simple**: Begin with basic site info and add features gradually
 - **Use local images**: They're automatically optimized and responsive
-- **Experiment**: Change `_theme` between "dark" and "light" to see the difference
+- **Experiment**: Change `_colorMode` between "dark" and "light" to see the difference
 - **Rapid iteration**: Edit `_site/index.html` directly for quick styling tweaks
 - **Clean structure**: Use nested objects to create logical content sections
 

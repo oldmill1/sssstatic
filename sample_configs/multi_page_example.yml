@@ -1,6 +1,5 @@
 # SSSStatic Multi-Page Configuration Example
 site_name: "My Portfolio"
-_theme: "dark"
 _title: "Welcome to My Portfolio"
 
 # Main homepage content

@@ -157,64 +157,42 @@ def generate_hero_banner_html(config):
 
 def generate_footer_html(config):
     """Generate HTML for footer."""
-    from .yaml_to_html import parse_markdown_links
-    
-    footer_html = ""
-    
-    # Check for _footer configuration
-    if '_footer' in config:
-        footer_config = config['_footer']
-        if isinstance(footer_config, dict):
-            headline = footer_config.get('headline', 'explore on 🌎')
-        else:
-            headline = footer_config
-    else:
-        # Default footer text
-        headline = 'explore on 🌎'
-    
-    # Parse markdown links in the headline
-    parsed_headline = parse_markdown_links(headline)
-    
-    footer_html = f'''    <footer class="site-footer">
-        <div class="footer-content">
-            <span class="footer-text">{parsed_headline}</span>
-        </div>
-    </footer>
-'''
-    
-    return footer_html
+    from .styles.footer import generate_footer_html as _generate_footer_html
+    return _generate_footer_html(config)
 
 
-def generate_navigation_html(config):
-    """Generate navigation HTML for multi-page sites with brand title."""
+def generate_header_html(config):
+    """Generate header HTML - always shows site name, adds page links if available."""
     from .site_builder import extract_pages
     
     pages = extract_pages(config)
-    if not pages:
-        return ""
     
     # Get site name for brand
     site_name = config.get('site_name', 'My Site')
     
-    nav_html = '    <nav class="site-navigation">\n'
+    header_html = '    <header class="site-header">\n'
     
     # Add brand/title on the left
-    nav_html += f'        <a href="index.html" class="nav-brand">{site_name}</a>\n'
+    header_html += f'        <a href="index.html" class="header-brand">{site_name}</a>\n'
     
-    # Add navigation links on the right
-    nav_html += '        <ul class="nav-list">\n'
+    # Only add navigation links if there are pages
+    if pages:
+        # Add navigation links on the right
+        header_html += '        <ul class="header-list">\n'
+        
+        # Add home link
+        header_html += '            <li class="header-item"><a href="index.html" class="header-link">Home</a></li>\n'
+        
+        # Add page links
+        for page in pages:
+            page_name = page.get('_name', 'Untitled')
+            page_filename = page_name.lower().replace(' ', '_') + '.html'
+            header_html += f'            <li class="header-item"><a href="{page_filename}" class="header-link">{page_name}</a></li>\n'
+        
+        header_html += '        </ul>\n'
     
-    # Add home link
-    nav_html += '            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>\n'
-    
-    # Add page links
-    for page in pages:
-        page_name = page.get('_name', 'Untitled')
-        page_filename = page_name.lower().replace(' ', '_') + '.html'
-        nav_html += f'            <li class="nav-item"><a href="{page_filename}" class="nav-link">{page_name}</a></li>\n'
-    
-    nav_html += '        </ul>\n    </nav>\n'
-    return nav_html
+    header_html += '    </header>\n'
+    return header_html
 
 
 def generate_site_html(config, content_html):
@@ -222,11 +200,11 @@ def generate_site_html(config, content_html):
     # Use _title for both title and h1, fall back to site_name if _title not available
     page_title = config.get('_title', config.get('site_name', 'My Site'))
 
-    # Generate navigation HTML
-    navigation_html = generate_navigation_html(config)
+    # Generate header HTML
+    header_html = generate_header_html(config)
 
-    # Generate header HTML - only render h1 if _title is present
-    header_html = ""
+    # Generate page header HTML - only render h1 if _title is present
+    page_header_html = ""
     if '_title' in config:
         # Check for multi-line title first
         if '_multi_line_title' in config:
@@ -234,14 +212,14 @@ def generate_site_html(config, content_html):
             if isinstance(multi_title, dict):
                 title_text = multi_title.get('title', page_title)
                 subtitle_text = multi_title.get('sub_title', '')
-                header_html = f"""    <header class="movie-header">
+                page_header_html = f"""    <header class="movie-header">
         <h1 class="movie-title">{title_text}</h1>
         <p class="movie-subtitle">{subtitle_text}</p>
     </header>
 """
         else:
             # Fallback to single line title
-            header_html = f"    <h1>{page_title}</h1>\n"
+            page_header_html = f"    <h1>{page_title}</h1>\n"
 
     # Generate image HTML if _image is present
     image_html = ""
@@ -276,7 +254,7 @@ def generate_site_html(config, content_html):
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-{navigation_html}{header_html}    {image_html}
+{header_html}{page_header_html}    {image_html}
     {hero_banner_html}
     {cards_html}
     {content_html}
