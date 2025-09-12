@@ -8,7 +8,7 @@ from pathlib import Path
 from .display import console, show_critical_error
 from .templates import generate_site_html
 from .yaml_to_html import convert_to_html
-from .styles import get_theme_css
+from .theme_styles import get_theme_css
 
 
 def load_config(config_path):

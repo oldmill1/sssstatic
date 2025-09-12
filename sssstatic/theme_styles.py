@@ -3,6 +3,8 @@
 Styles module for SSSStatic - contains CSS styles for generated sites
 """
 
+from .styles.navigation import get_navigation_styles, get_light_navigation_styles
+
 
 def get_card_styles():
     """Return CSS styles for card components."""
@@ -72,7 +74,7 @@ def get_card_styles():
         }
         
         .card:hover .card-title {
-            color: #79c0ff;
+            color: rgb(148, 202, 224);
         }
         
         /* Status Badges */
@@ -462,14 +464,14 @@ def get_dark_theme_css():
             --card-border: #30363d;
             --card-shadow: rgba(0, 0, 0, 0.3);
             --card-shadow-hover: rgba(0, 0, 0, 0.5);
-            --card-border-hover: #58a6ff;
+            --card-border-hover: rgb(128, 182, 204);
             --card-title: #f0f6fc;
             --card-description: #e1e8ed;
-            --card-link: #58a6ff;
+            --card-link: rgb(128, 182, 204);
             --card-link-bg: rgba(88, 166, 255, 0.1);
             --card-link-border: rgba(88, 166, 255, 0.2);
             --card-link-bg-hover: rgba(88, 166, 255, 0.2);
-            --card-link-hover: #79c0ff;
+            --card-link-hover: rgb(148, 202, 224);
             --status-unknown-bg: #484f58;
             --status-unknown-text: #f0f6fc;
         }}
@@ -485,108 +487,7 @@ def get_dark_theme_css():
             min-height: 100vh;
         }}
         
-        /* Navigation Styles - Toronto Dating Photos Style */
-        .site-navigation {{
-            margin-bottom: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #0d1117;
-            position: relative;
-        }}
-        
-        .nav-brand {{
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #58a6ff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0;
-            transition: color 0.3s ease;
-        }}
-        
-        .nav-brand:hover {{
-            color: #79c0ff;
-            text-decoration: none;
-        }}
-        
-        .nav-list {{
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }}
-        
-        .nav-item {{
-            margin: 0;
-        }}
-        
-        .nav-link {{
-            color: #58a6ff;
-            text-decoration: none;
-            padding: 0.5rem 0;
-            transition: all 0.2s ease;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            position: relative;
-        }}
-        
-        .nav-link::after {{
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #79c0ff;
-            transition: width 0.3s ease;
-        }}
-        
-        .nav-link:hover {{
-            color: #79c0ff;
-            text-decoration: none;
-        }}
-        
-        .nav-link:hover::after {{
-            width: 100%;
-        }}
-        
-        .nav-link:active {{
-            transform: translateY(1px);
-        }}
-        
-        /* Responsive navigation */
-        @media (max-width: 768px) {{
-            .site-navigation {{
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem 0;
-            }}
-            
-            .nav-brand {{
-                font-size: 1.5rem;
-                text-align: center;
-            }}
-            
-            .nav-list {{
-                gap: 1.5rem;
-                justify-content: center;
-            }}
-            
-            .nav-link {{
-                font-size: 0.9rem;
-            }}
-        }}
+        {get_navigation_styles()}
         
         /* Minimal typography-focused header */
         .movie-header {{
@@ -612,7 +513,7 @@ def get_dark_theme_css():
             font-weight: 400;
             margin: 0.5rem 0 0 0;
             padding: 0;
-            color: #58a6ff;
+            color: rgb(128, 182, 204);
             letter-spacing: 2px;
             text-transform: lowercase;
         }}
@@ -625,7 +526,7 @@ def get_dark_theme_css():
             text-align: center;
             margin: 2rem 0 1rem 0;
             padding: 0;
-            color: #58a6ff;
+            color: rgb(128, 182, 204);
             line-height: 1.4;
             letter-spacing: 1px;
         }}
@@ -950,14 +851,14 @@ def get_light_theme_css():
             --card-border: #e1e5e9;
             --card-shadow: rgba(0, 0, 0, 0.1);
             --card-shadow-hover: rgba(0, 0, 0, 0.15);
-            --card-border-hover: #3498db;
+            --card-border-hover: rgb(128, 182, 204);
             --card-title: #2c3e50;
             --card-description: #5a6c7d;
-            --card-link: #3498db;
+            --card-link: rgb(128, 182, 204);
             --card-link-bg: rgba(52, 152, 219, 0.1);
             --card-link-border: rgba(52, 152, 219, 0.2);
             --card-link-bg-hover: rgba(52, 152, 219, 0.2);
-            --card-link-hover: #2980b9;
+            --card-link-hover: rgb(148, 202, 224);
             --status-unknown-bg: #95a5a6;
             --status-unknown-text: #ffffff;
         }}
@@ -973,112 +874,11 @@ def get_light_theme_css():
             min-height: 100vh;
         }}
         
-        /* Navigation Styles - Toronto Dating Photos Style */
-        .site-navigation {{
-            margin-bottom: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #ffffff;
-            position: relative;
-        }}
-        
-        .nav-brand {{
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #3498db;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0;
-            transition: color 0.3s ease;
-        }}
-        
-        .nav-brand:hover {{
-            color: #2980b9;
-            text-decoration: none;
-        }}
-        
-        .nav-list {{
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }}
-        
-        .nav-item {{
-            margin: 0;
-        }}
-        
-        .nav-link {{
-            color: #3498db;
-            text-decoration: none;
-            padding: 0.5rem 0;
-            transition: all 0.2s ease;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            position: relative;
-        }}
-        
-        .nav-link::after {{
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #2980b9;
-            transition: width 0.3s ease;
-        }}
-        
-        .nav-link:hover {{
-            color: #2980b9;
-            text-decoration: none;
-        }}
-        
-        .nav-link:hover::after {{
-            width: 100%;
-        }}
-        
-        .nav-link:active {{
-            transform: translateY(1px);
-        }}
-        
-        /* Responsive navigation */
-        @media (max-width: 768px) {{
-            .site-navigation {{
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem 0;
-            }}
-            
-            .nav-brand {{
-                font-size: 1.5rem;
-                text-align: center;
-            }}
-            
-            .nav-list {{
-                gap: 1.5rem;
-                justify-content: center;
-            }}
-            
-            .nav-link {{
-                font-size: 0.9rem;
-            }}
-        }}
+        {get_light_navigation_styles()}
         
         h1 {{
             color: #2c3e50;
-            border-bottom: 2px solid #3498db;
+            border-bottom: 2px solid rgb(128, 182, 204);
             padding-bottom: 0.5rem;
             margin-bottom: 2rem;
             font-size: 2.5rem;
@@ -1140,7 +940,7 @@ def get_light_theme_css():
         
         ol li::before {{
             content: counter(item) ". ";
-            color: #3498db;
+            color: rgb(128, 182, 204);
             font-weight: 600;
             font-size: 1.1rem;
             margin-right: 1rem;
@@ -1156,13 +956,13 @@ def get_light_theme_css():
         }}
         
         a {{
-            color: #3498db;
+            color: rgb(128, 182, 204);
             text-decoration: none;
             transition: color 0.2s ease;
         }}
         
         a:hover {{
-            color: #2980b9;
+            color: rgb(148, 202, 224);
             text-decoration: underline;
         }}
         
