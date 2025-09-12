@@ -186,14 +186,23 @@ def generate_footer_html(config):
 
 
 def generate_navigation_html(config):
-    """Generate navigation HTML for multi-page sites."""
+    """Generate navigation HTML for multi-page sites with brand title."""
     from .site_builder import extract_pages
     
     pages = extract_pages(config)
     if not pages:
         return ""
     
-    nav_html = '    <nav class="site-navigation">\n        <ul class="nav-list">\n'
+    # Get site name for brand
+    site_name = config.get('site_name', 'My Site')
+    
+    nav_html = '    <nav class="site-navigation">\n'
+    
+    # Add brand/title on the left
+    nav_html += f'        <a href="index.html" class="nav-brand">{site_name}</a>\n'
+    
+    # Add navigation links on the right
+    nav_html += '        <ul class="nav-list">\n'
     
     # Add home link
     nav_html += '            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>\n'

@@ -485,11 +485,33 @@ def get_dark_theme_css():
             min-height: 100vh;
         }}
         
-        /* Navigation Styles */
+        /* Navigation Styles - Toronto Dating Photos Style */
         .site-navigation {{
             margin-bottom: 2rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid #30363d;
+            padding: 1.5rem 0;
+            border-bottom: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0d1117;
+            position: relative;
+        }}
+        
+        .nav-brand {{
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #58a6ff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            transition: color 0.3s ease;
+        }}
+        
+        .nav-brand:hover {{
+            color: #79c0ff;
+            text-decoration: none;
         }}
         
         .nav-list {{
@@ -497,8 +519,9 @@ def get_dark_theme_css():
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
+            align-items: center;
         }}
         
         .nav-item {{
@@ -506,21 +529,63 @@ def get_dark_theme_css():
         }}
         
         .nav-link {{
-            color: #e1e8ed;
+            color: #58a6ff;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            padding: 0.5rem 0;
             transition: all 0.2s ease;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            position: relative;
+        }}
+        
+        .nav-link::after {{
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #79c0ff;
+            transition: width 0.3s ease;
         }}
         
         .nav-link:hover {{
-            color: #58a6ff;
-            background-color: rgba(88, 166, 255, 0.1);
+            color: #79c0ff;
+            text-decoration: none;
+        }}
+        
+        .nav-link:hover::after {{
+            width: 100%;
         }}
         
         .nav-link:active {{
             transform: translateY(1px);
+        }}
+        
+        /* Responsive navigation */
+        @media (max-width: 768px) {{
+            .site-navigation {{
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+            }}
+            
+            .nav-brand {{
+                font-size: 1.5rem;
+                text-align: center;
+            }}
+            
+            .nav-list {{
+                gap: 1.5rem;
+                justify-content: center;
+            }}
+            
+            .nav-link {{
+                font-size: 0.9rem;
+            }}
         }}
         
         /* Minimal typography-focused header */
@@ -908,11 +973,33 @@ def get_light_theme_css():
             min-height: 100vh;
         }}
         
-        /* Navigation Styles */
+        /* Navigation Styles - Toronto Dating Photos Style */
         .site-navigation {{
             margin-bottom: 2rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid #e1e5e9;
+            padding: 1.5rem 0;
+            border-bottom: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            position: relative;
+        }}
+        
+        .nav-brand {{
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3498db;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            transition: color 0.3s ease;
+        }}
+        
+        .nav-brand:hover {{
+            color: #2980b9;
+            text-decoration: none;
         }}
         
         .nav-list {{
@@ -920,8 +1007,9 @@ def get_light_theme_css():
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
+            align-items: center;
         }}
         
         .nav-item {{
@@ -929,21 +1017,63 @@ def get_light_theme_css():
         }}
         
         .nav-link {{
-            color: #5a6c7d;
+            color: #3498db;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            padding: 0.5rem 0;
             transition: all 0.2s ease;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            position: relative;
+        }}
+        
+        .nav-link::after {{
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2980b9;
+            transition: width 0.3s ease;
         }}
         
         .nav-link:hover {{
-            color: #3498db;
-            background-color: rgba(52, 152, 219, 0.1);
+            color: #2980b9;
+            text-decoration: none;
+        }}
+        
+        .nav-link:hover::after {{
+            width: 100%;
         }}
         
         .nav-link:active {{
             transform: translateY(1px);
+        }}
+        
+        /* Responsive navigation */
+        @media (max-width: 768px) {{
+            .site-navigation {{
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+            }}
+            
+            .nav-brand {{
+                font-size: 1.5rem;
+                text-align: center;
+            }}
+            
+            .nav-list {{
+                gap: 1.5rem;
+                justify-content: center;
+            }}
+            
+            .nav-link {{
+                font-size: 0.9rem;
+            }}
         }}
         
         h1 {{
