@@ -57,8 +57,10 @@ CONFIGURATION
               Default: "dark"
 
    Reserved Fields
-       site_name
-              The name of your site (used as page title and main heading)
+       site
+              Site configuration object containing:
+              name - The name of your site (used as page title and main heading)
+              theme - Theme name (for future use)
 
    Content Structure
        Any other YAML structure becomes HTML content. Objects become
@@ -93,7 +95,9 @@ EXAMPLES
               $ sssstatic serve --directory public
 
        Example _config.yml:
-              site_name: "My Site"
+              site:
+                name: "My Site"
+                theme: "Midnight Serene"
               _colorMode: "dark"
 
               about:

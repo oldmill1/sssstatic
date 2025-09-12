@@ -1,5 +1,7 @@
-# SSSStatic Configuration - Navigation Test Example
-site_name: "Navigation Test"
+# SSSStatic Configuration - Simple Example
+site:
+  name: "Simple Site"
+  theme: "Midnight Serene"
 
 # Cards to showcase projects
 _card:

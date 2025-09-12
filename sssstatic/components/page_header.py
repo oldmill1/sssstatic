@@ -6,8 +6,8 @@ Page header component for SSSStatic
 
 def generate_page_header_html(config):
     """Generate page header HTML - only render h1 if _title is present."""
-    # Use _title for both title and h1, fall back to site_name if _title not available
-    page_title = config.get('_title', config.get('site_name', 'My Site'))
+    # Use _title for both title and h1, fall back to site name if _title not available
+    page_title = config.get('_title', config.get('site', {}).get('name', 'My Site'))
     
     page_header_html = ""
     if '_title' in config:

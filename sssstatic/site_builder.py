@@ -80,9 +80,9 @@ def generate_page_html(page_config, base_config):
     from .templates import generate_site_html
     from .yaml_to_html import convert_to_html
     
-    # Create a minimal config for this page - inherit site_name, theme, and _page for navigation
+    # Create a minimal config for this page - inherit site config and _page for navigation
     page_merged_config = {
-        'site_name': base_config.get('site_name', ''),
+        'site': base_config.get('site', {}),
         '_page': base_config.get('_page', [])  # Include _page for navigation generation
     }
     # Add the page's own configuration
@@ -90,7 +90,7 @@ def generate_page_html(page_config, base_config):
     
     # Generate content from page data (excluding system tags)
     content_data = {k: v for k, v in page_config.items()
-                    if not k.startswith('_') and k not in ['site_name', 'theme']}
+                    if not k.startswith('_') and k not in ['site']}
     content_html = convert_to_html(content_data)
     
     # Generate the complete HTML for this page
@@ -117,7 +117,7 @@ def build_site():
     
     # Generate content from all data except system tags, reserved fields, and _page
     content_data = {k: v for k, v in config.items()
-                    if not k.startswith('_') and k not in ['site_name', 'theme'] and k != '_page'}
+                    if not k.startswith('_') and k not in ['site'] and k != '_page'}
     content_html = convert_to_html(content_data)
 
     # Create output directory

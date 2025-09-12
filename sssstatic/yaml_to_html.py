@@ -24,7 +24,7 @@ def convert_to_html(data, key=None, in_list_item=False):
         html = ""
         for k, v in data.items():
             # Skip system tags (underscore-prefixed) and reserved tags
-            if k.startswith('_') or k in ["site_name", "theme"]:
+            if k.startswith('_') or k in ["site"]:
                 continue
 
             if in_list_item:

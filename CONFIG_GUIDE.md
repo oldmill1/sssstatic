@@ -34,7 +34,9 @@ SSSStatic includes several special components that start with `_` to control sit
 
 ```yaml
 # SSSStatic Configuration
-site_name: "Your Name"           # Used as page title
+site:
+  name: "Your Name"              # Used as page title
+  theme: "Midnight Serene"        # Theme name (for future use)
 _colorMode: "dark"               # "dark" or "light"
 _title: "Your Custom Title"       # Override the main heading
 ```
@@ -169,7 +171,7 @@ _colorMode: "light" # Clean, minimal light theme
 - Automatically applies consistent styling across all components
 
 ### `_title` - Custom Page Title
-Override the default page title (which uses `site_name`).
+Override the default page title (which uses `site.name`).
 
 ```yaml
 _title: "the professional portfolio of a self-made software engineer"
@@ -177,7 +179,7 @@ _title: "the professional portfolio of a self-made software engineer"
 
 **Usage:**
 - Sets both the HTML `<title>` tag and the main `<h1>` heading
-- If not provided, falls back to `site_name`
+- If not provided, falls back to `site.name`
 - Supports any text content
 
 ### `_footer` - Site Footer
@@ -295,18 +297,22 @@ _image:
 When multiple title components are present, they follow this priority:
 1. `_multi_line_title` (highest priority)
 2. `_title` 
-3. `site_name` (fallback)
+3. `site.name` (fallback)
 
 ### Recommended Combinations
 ```yaml
 # Minimal setup
-site_name: "Your Name"
+site:
+  name: "Your Name"
+  theme: "Midnight Serene"
 _colorMode: "dark"
 _footer:
   headline: "Find me online!"
 
 # Professional portfolio
-site_name: "Your Name"
+site:
+  name: "Your Name"
+  theme: "Midnight Serene"
 _colorMode: "dark"
 _title: "Software Engineer & Designer"
 _hero_banner:
@@ -322,7 +328,9 @@ _footer:
   headline: "Let's connect!"
 
 # Cinematic presentation
-site_name: "Your Name"
+site:
+  name: "Your Name"
+  theme: "Midnight Serene"
 _colorMode: "dark"
 _multi_line_title:
   title: "Your Name"
@@ -354,7 +362,9 @@ Here's a real-world example showing all features:
 
 ```yaml
 # SSSStatic Configuration
-site_name: "Ankur Taxali"
+site:
+  name: "Ankur Taxali"
+  theme: "Midnight Serene"
 _colorMode: "dark"
 
 _title: "the professional portfolio of a self-made software engineer"

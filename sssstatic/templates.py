@@ -8,7 +8,9 @@ import re
 def get_config_template(project_name):
     """Return the _config.yml template content."""
     return f"""# SSSStatic Configuration
-site_name: "{project_name}"
+site:
+  name: "{project_name}"
+  theme: "Midnight Serene"
 """
 
 
@@ -20,8 +22,8 @@ def generate_site_html(config, content_html):
     from .components.cards import generate_cards_html
     from .styles.footer import generate_footer_html
     
-    # Use _title for both title and h1, fall back to site_name if _title not available
-    page_title = config.get('_title', config.get('site_name', 'My Site'))
+    # Use _title for both title and h1, fall back to site name if _title not available
+    page_title = config.get('_title', config.get('site', {}).get('name', 'My Site'))
 
     # Generate header HTML
     header_html = generate_header_html(config)

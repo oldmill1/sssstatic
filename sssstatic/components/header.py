@@ -11,7 +11,7 @@ def generate_header_html(config):
     pages = extract_pages(config)
     
     # Get site name for brand
-    site_name = config.get('site_name', 'My Site')
+    site_name = config.get('site', {}).get('name', 'My Site')
     
     header_html = '    <header class="site-header">\n'
     
