@@ -1,6 +1,6 @@
 # SSSStatic Configuration - Simple Example
 site:
-  name: "Simple Site"
+  name: "SSSStatic"
 
 # Cards to showcase projects
 _card:
