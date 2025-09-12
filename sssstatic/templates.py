@@ -12,28 +12,13 @@ site_name: "{project_name}"
 """
 
 
-def generate_cards_html(config):
-    """Generate HTML for _card entries."""
-    from .components.cards import generate_cards_html as _generate_cards_html
-    return _generate_cards_html(config)
-
-
-def generate_footer_html(config):
-    """Generate HTML for footer."""
-    from .styles.footer import generate_footer_html as _generate_footer_html
-    return _generate_footer_html(config)
-
-
-def generate_header_html(config):
-    """Generate header HTML - always shows site name, adds page links if available."""
-    from .components.header import generate_header_html as _generate_header_html
-    return _generate_header_html(config)
-
-
 def generate_site_html(config, content_html):
     """Generate complete HTML page from config and content HTML."""
     from .components.page_header import generate_page_header_html
     from .components.image import generate_image_html
+    from .components.header import generate_header_html
+    from .components.cards import generate_cards_html
+    from .styles.footer import generate_footer_html
     
     # Use _title for both title and h1, fall back to site_name if _title not available
     page_title = config.get('_title', config.get('site_name', 'My Site'))
