@@ -46,7 +46,6 @@ def get_spotlight_styles():
             right: 0;
             bottom: 0;
             padding: 4rem 2rem 2rem;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
             color: #ffffff;
             display: flex;
             flex-direction: column;
