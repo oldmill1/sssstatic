@@ -85,6 +85,9 @@ def generate_page_html(page_config, base_config):
         'site': base_config.get('site', {}),
         '_page': base_config.get('_page', [])  # Include _page for navigation generation
     }
+    # Add _topbar if it exists in base config
+    if '_topbar' in base_config:
+        page_merged_config['_topbar'] = base_config['_topbar']
     # Add the page's own configuration
     page_merged_config.update(page_config)
     
@@ -131,7 +134,10 @@ def build_site():
     generate_css_file(config)
 
     # Generate main index.html
-    html = generate_site_html(config, content_html)
+    # Create a config that includes all necessary components for template generation
+    template_config = dict(config)  # Start with full config
+    
+    html = generate_site_html(template_config, content_html)
     output_file = output_dir / "index.html"
     output_file.write_text(html, encoding='utf-8')
     console.print(f"[bright_blue]>>> Generated index.html[/bright_blue]")
