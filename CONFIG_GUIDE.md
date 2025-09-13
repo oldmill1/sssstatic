@@ -23,10 +23,8 @@ SSSStatic includes several special components that start with `_` to control sit
 | `_colorMode` | Set site color mode | `"dark"` or `"light"` | - |
 | `_title` | Override main heading | Custom title text | - |
 | `_footer` | Add site footer | `headline` | - |
-| `_hero_banner` | Create hero section | `hero_image`, `headline`, `subtitle` | `link`, `columns` |
 | `_card` | Display project cards | `name`, `url`, `description`, `status` | - |
-| `_multi_line_title` | Movie-style title layout | `title`, `sub_title` | - |
-| `_image` | Add header image | `name`, `alt` | - |
+| `_spotlight` | Featured image section | `image` | `title`, `subtitle`, `description`, `buttons` |
 
 ## 🏗️ Site Structure
 
@@ -48,25 +46,23 @@ _footer:
   headline: "Find me on social media!"
 ```
 
-## 🎨 Hero Banner
+## ✨ Spotlight Section
 
-Create a stunning hero section with an image and three feature columns:
+Create a stunning featured image section with optional text overlay:
 
 ```yaml
-_hero_banner:
-  hero_image: "your-image.png"    # Local image in assets/ folder
-  headline: "Welcome to My Site"
+_spotlight:
+  image: "hero-image.jpg"         # Local image in assets/ folder
+  title: "Welcome to My Site"
   subtitle: "Building amazing things with code"
-  columns:
-    - title: "Feature 1"
-      description: "What this feature does"
-      image: "https://example.com/image1.jpg"  # Or local image
-    - title: "Feature 2" 
-      description: "Another cool feature"
-      image: "feature2.png"  # Local images auto-prefixed with assets/
-    - title: "Feature 3"
-      description: "Third amazing feature"
-      image: "https://example.com/image3.jpg"
+  description: "This is a featured section that highlights your main content"
+  buttons:
+    - text: "Get Started"
+      url: "https://github.com/you/project"
+      style: "primary"
+    - text: "Learn More"
+      url: "/about"
+      style: "secondary"
 ```
 
 **Image Tips:**
@@ -74,6 +70,10 @@ _hero_banner:
 - Local images are automatically prefixed with `assets/`
 - Remote images (starting with `http://` or `https://`) work as-is
 - Large images are automatically sized for optimal display
+
+**Button Styles:**
+- `primary` - Main call-to-action button
+- `secondary` - Secondary action button
 
 ## 🃏 Project Cards
 
@@ -193,33 +193,35 @@ _footer:
 **Fields:**
 - `headline` (required): Text to display in the footer
 
-### `_hero_banner` - Hero Section
-Create a prominent hero section with image and feature columns.
+### `_spotlight` - Featured Image Section
+Create a prominent featured image section with optional text overlay and buttons.
 
 ```yaml
-_hero_banner:
-  hero_image: "sssstatic_img.png"    # Local image in assets/ folder
-  headline: "This website is fast."
+_spotlight:
+  image: "sssstatic_img.png"        # Local image in assets/ folder
+  title: "This website is fast."
   subtitle: "Because it was made with sssstatic"
-  link: "https://github.com/oldmill1/sssstatic"  # Optional: makes "sssstatic" clickable
-  columns:                           # Optional: three feature columns
-    - title: "cmtmsg"
-      description: "AI-assisted commit messages"
-      image: "https://dummyimage.com/300x200/10B981/ffffff&text=cmtmsg"
-    - title: "douglas"
-      description: "Chain AI's together. The response is the input."
-      image: "https://dummyimage.com/300x200/F59E0B/ffffff&text=douglas"
-    - title: "svelte-pi"
-      description: "Boilerplate generator for Svelte fans"
-      image: "https://dummyimage.com/300x200/8B5CF6/ffffff&text=svelte-pi"
+  description: "SSSStatic makes it incredibly easy to create beautiful, professional websites with just YAML."
+  buttons:
+    - text: "View on GitHub"
+      url: "https://github.com/oldmill1/sssstatic"
+      style: "primary"
+    - text: "Get Started"
+      url: "/docs"
+      style: "secondary"
 ```
 
 **Fields:**
-- `hero_image` (required): Image filename or full URL
-- `headline` (required): Main hero text
-- `subtitle` (required): Supporting text
-- `link` (optional): URL that makes "sssstatic" in subtitle clickable
-- `columns` (optional): Array of 3 feature items with `title`, `description`, `image`
+- `image` (required): Image filename or full URL
+- `title` (optional): Main title text
+- `subtitle` (optional): Supporting subtitle text
+- `description` (optional): Detailed description text
+- `buttons` (optional): Array of button objects with `text`, `url`, `style`
+
+**Button Fields:**
+- `text` (required): Button label
+- `url` (required): Button link
+- `style` (optional): Button style (`primary` or `secondary`)
 
 **Image Handling:**
 - Local images: Put in `assets/` folder, reference by filename
@@ -255,49 +257,13 @@ _card:
 - `development` - Orange badge (in active development)
 - `archived` - Red badge (no longer maintained)
 
-### `_multi_line_title` - Movie-Style Title
-Create a cinematic title layout with main title and subtitle.
-
-```yaml
-_multi_line_title:
-  title: "Ankur Taxali"
-  sub_title: "presents"
-```
-
-**Fields:**
-- `title` (required): Main title text
-- `sub_title` (required): Subtitle text
-
-**Styling:**
-- Uses movie-style typography with monospace fonts
-- Creates a dramatic, cinematic appearance
-- Overrides `_title` when both are present
-
-### `_image` - Header Image
-Add a header image below the title.
-
-```yaml
-_image:
-  name: "profile-photo.jpg"
-  alt: "Profile photo of the author"
-```
-
-**Fields:**
-- `name` (required): Image filename in `assets/` folder
-- `alt` (required): Alt text for accessibility
-
-**Features:**
-- Automatically centers and sizes the image
-- Adds hover effects and shadows
-- Responsive design for all screen sizes
 
 ## 🔄 Component Interactions & Best Practices
 
 ### Component Priority
 When multiple title components are present, they follow this priority:
-1. `_multi_line_title` (highest priority)
-2. `_title` 
-3. `site.name` (fallback)
+1. `_title` (highest priority)
+2. `site.name` (fallback)
 
 ### Recommended Combinations
 ```yaml
@@ -315,10 +281,15 @@ site:
   theme: "Midnight Serene"
 _colorMode: "dark"
 _title: "Software Engineer & Designer"
-_hero_banner:
-  hero_image: "hero-photo.jpg"
-  headline: "Building the future"
+_spotlight:
+  image: "hero-photo.jpg"
+  title: "Building the future"
   subtitle: "One line of code at a time"
+  description: "Creating innovative solutions with modern technology"
+  buttons:
+    - text: "View Projects"
+      url: "/projects"
+      style: "primary"
 _card:
   - name: "Project 1"
     url: "https://github.com/you/project1"
@@ -327,17 +298,17 @@ _card:
 _footer:
   headline: "Let's connect!"
 
-# Cinematic presentation
+# Featured showcase
 site:
   name: "Your Name"
   theme: "Midnight Serene"
 _colorMode: "dark"
-_multi_line_title:
+_title: "Creative Developer"
+_spotlight:
+  image: "showcase.jpg"
   title: "Your Name"
-  sub_title: "presents"
-_image:
-  name: "profile.jpg"
-  alt: "Professional headshot"
+  subtitle: "Creative Developer"
+  description: "Building beautiful digital experiences"
 _footer:
   headline: "The end"
 ```
@@ -345,16 +316,15 @@ _footer:
 ### Component Compatibility
 - ✅ `_colorMode` works with all other components
 - ✅ `_footer` works with all other components  
-- ✅ `_image` works with `_title` and `_multi_line_title`
-- ⚠️ `_title` and `_multi_line_title` conflict (use one or the other)
-- ✅ `_hero_banner` and `_card` can be used together
+- ✅ `_spotlight` works with all other components
+- ✅ `_card` works with all other components
 - ✅ All components work with regular content sections
 
 ### Performance Tips
 - Use local images in `assets/` folder for faster loading
-- Keep `_hero_banner` columns to exactly 3 for best layout
-- Use descriptive `alt` text for `_image` component
+- Use descriptive alt text for `_spotlight` images
 - Choose appropriate status badges for `_card` components
+- Keep spotlight content concise for better visual impact
 
 ## 📋 Complete Example
 
@@ -371,20 +341,18 @@ _title: "the professional portfolio of a self-made software engineer"
 _footer:
   headline: "~find me on skool soon~"
 
-_hero_banner:
-  hero_image: "sssstatic_img.png"
-  headline: "This website is fast."
+_spotlight:
+  image: "sssstatic_img.png"
+  title: "This website is fast."
   subtitle: "Because it was made with sssstatic"
-  columns:
-    - title: "cmtmsg"
-      description: "AI-assisted commit messages"
-      image: "https://dummyimage.com/300x200/10B981/ffffff&text=cmtmsg"
-    - title: "douglas"
-      description: "Chain AI's together. The response is the input."
-      image: "https://dummyimage.com/300x200/F59E0B/ffffff&text=douglas"
-    - title: "svelte-pi"
-      description: "Boilerplate generator for Svelte fans"
-      image: "https://dummyimage.com/300x200/8B5CF6/ffffff&text=svelte-pi"
+  description: "SSSStatic makes it incredibly easy to create beautiful, professional websites with just YAML."
+  buttons:
+    - text: "View on GitHub"
+      url: "https://github.com/oldmill1/sssstatic"
+      style: "primary"
+    - text: "Get Started"
+      url: "/docs"
+      style: "secondary"
 
 _card:
   - name: "cmtmsg"
