@@ -21,6 +21,7 @@ def generate_site_html(config, content_html):
     from .components.topbar import generate_topbar_html
     from .components.cards import generate_cards_html
     from .components.spotlight import generate_spotlight_html
+    from .components.pinterest import generate_pinterest_html
     from .styles.footer import generate_footer_html
     from .styles.type import get_google_fonts_imports
     
@@ -46,6 +47,9 @@ def generate_site_html(config, content_html):
     # Generate spotlight HTML if _spotlight exists
     spotlight_html = generate_spotlight_html(config)
     
+    # Generate Pinterest HTML if _pinterest exists
+    pinterest_html = generate_pinterest_html(config)
+    
     # Generate footer HTML
     footer_html = generate_footer_html(config)
 
@@ -63,6 +67,7 @@ def generate_site_html(config, content_html):
 <body class="{body_class}">
 {header_html}{page_header_html}    {image_html}
     {spotlight_html}
+    {pinterest_html}
     {cards_html}
     {content_html}
 {footer_html}</body>
