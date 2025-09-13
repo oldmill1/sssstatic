@@ -10,8 +10,6 @@ def get_header_styles():
     return get_font_styles() + """
         /* Header Styles - Toronto Dating Photos Style */
         .site-header {
-            margin-bottom: 2rem;
-            padding: 1.5rem 0;
             border-bottom: none;
             display: flex;
             justify-content: space-between;
