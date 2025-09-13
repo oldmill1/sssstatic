@@ -5,6 +5,7 @@ Styles module for SSSStatic - contains CSS styles for generated sites
 
 from .styles.header import get_header_styles
 from .styles.cards import get_card_styles
+from .styles.spotlight import get_spotlight_styles
 
 
 
@@ -19,6 +20,7 @@ def get_global_css():
     from .styles.type import get_font_styles
     from .styles.cards import get_card_styles
     from .styles.header import get_header_styles
+    from .styles.spotlight import get_spotlight_styles
     return get_font_styles() + """
         :root {
             --card-bg: #161b22;
@@ -397,7 +399,7 @@ def get_global_css():
         }
         
         
-        """ + get_card_styles() + get_footer_styles()
+        """ + get_card_styles() + get_spotlight_styles() + get_footer_styles()
 
 
 

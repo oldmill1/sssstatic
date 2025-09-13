@@ -19,6 +19,7 @@ def generate_site_html(config, content_html):
     from .components.image import generate_image_html
     from .components.header import generate_header_html
     from .components.cards import generate_cards_html
+    from .components.spotlight import generate_spotlight_html
     from .styles.footer import generate_footer_html
     from .styles.type import get_google_fonts_imports
     
@@ -37,6 +38,9 @@ def generate_site_html(config, content_html):
     # Generate cards HTML if _card entries exist
     cards_html = generate_cards_html(config)
     
+    # Generate spotlight HTML if _spotlight exists
+    spotlight_html = generate_spotlight_html(config)
+    
     # Generate footer HTML
     footer_html = generate_footer_html(config)
 
@@ -51,6 +55,7 @@ def generate_site_html(config, content_html):
 </head>
 <body>
 {header_html}{page_header_html}    {image_html}
+    {spotlight_html}
     {cards_html}
     {content_html}
 {footer_html}</body>
