@@ -10,21 +10,7 @@ def get_config_template(project_name):
     return f"""# SSSStatic Configuration
 site:
   name: "{project_name}"
-  # google_analytics: "G-XXXXXXXXXX"  # Optional: Add your Google Analytics ID
 """
-
-
-def get_google_analytics_script(ga_id):
-    """Return Google Analytics tracking script."""
-    return f"""
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={ga_id}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-  gtag('config', '{ga_id}');
-</script>"""
 
 
 def get_smooth_scroll_script():
@@ -59,7 +45,6 @@ def generate_site_html(config, content_html):
     """Generate complete HTML page from config and content HTML."""
     from .components.page_header import generate_page_header_html
     from .components.image import generate_image_html
-    from .components.header import generate_header_html
     from .components.topbar import generate_topbar_html
     from .components.cards import generate_cards_html
     from .components.spotlight import generate_spotlight_html
@@ -76,12 +61,12 @@ def generate_site_html(config, content_html):
     # Use _title for both title and h1, fall back to site name if _title not available
     page_title = config.get('_title', config.get('site', {}).get('name', 'My Site'))
 
-    # Generate header HTML - use TopBar if configured, otherwise use Header
+    # Generate header HTML - use TopBar if configured, otherwise no header
     has_topbar = '_topbar' in config
     if has_topbar:
         header_html = generate_topbar_html(config)
     else:
-        header_html = generate_header_html(config)
+        header_html = ""  # No header component
 
     # Generate page header HTML - only render h1 if _title is present
     page_header_html = generate_page_header_html(config)
@@ -118,10 +103,6 @@ def generate_site_html(config, content_html):
     # Check if anchor links are present to add smooth scrolling JavaScript
     has_anchor_links = '_anchorLinks' in config
     
-    # Check if Google Analytics is configured
-    ga_id = config.get('site', {}).get('google_analytics')
-    ga_script = get_google_analytics_script(ga_id) if ga_id else ''
-    
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,7 +112,7 @@ def generate_site_html(config, content_html):
 {get_google_fonts_imports()}
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-{ga_script}</head>
+</head>
 <body class="{body_class}">
 {header_html}{page_header_html}    {image_html}
     {components_html}

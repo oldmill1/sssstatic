@@ -3,7 +3,6 @@
 Styles module for SSSStatic - contains CSS styles for generated sites
 """
 
-from .styles.header import get_header_styles
 from .styles.topbar import get_topbar_styles
 from .styles.cards import get_card_styles
 from .styles.spotlight import get_spotlight_styles
@@ -27,7 +26,6 @@ def get_global_css():
     from .styles.footer import get_footer_styles
     from .styles.type import get_font_styles
     from .styles.cards import get_card_styles
-    from .styles.header import get_header_styles
     from .styles.topbar import get_topbar_styles
     from .styles.spotlight import get_spotlight_styles
     from .styles.widescreen_spotlight import get_widescreen_spotlight_styles
@@ -69,7 +67,7 @@ def get_global_css():
             padding-top: 70px;
         }
         
-        """ + get_header_styles() + get_topbar_styles() + """
+        """ + get_topbar_styles() + """
         
         /* Minimal typography-focused header */
         .movie-header {
