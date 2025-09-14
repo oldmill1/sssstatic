@@ -35,3 +35,14 @@ Each component is activated by adding its corresponding key to your `_config.yml
 - `_card` - Project cards
 - `_showcase` - Photography workflow with image
 - `_sizzle` - Modern process section with steps
+
+## 📊 Analytics
+Add Google Analytics tracking to your site by including your GA4 measurement ID in the site configuration:
+
+```yaml
+site:
+  name: "My Website"
+  google_analytics: "G-XXXXXXXXXX"  # Your Google Analytics ID
+```
+
+The tracking code will be automatically included in all pages of your site.

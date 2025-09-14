@@ -10,7 +10,21 @@ def get_config_template(project_name):
     return f"""# SSSStatic Configuration
 site:
   name: "{project_name}"
+  # google_analytics: "G-XXXXXXXXXX"  # Optional: Add your Google Analytics ID
 """
+
+
+def get_google_analytics_script(ga_id):
+    """Return Google Analytics tracking script."""
+    return f"""
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={ga_id}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{ga_id}');
+</script>"""
 
 
 def get_smooth_scroll_script():
@@ -104,6 +118,10 @@ def generate_site_html(config, content_html):
     # Check if anchor links are present to add smooth scrolling JavaScript
     has_anchor_links = '_anchorLinks' in config
     
+    # Check if Google Analytics is configured
+    ga_id = config.get('site', {}).get('google_analytics')
+    ga_script = get_google_analytics_script(ga_id) if ga_id else ''
+    
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,7 +131,7 @@ def generate_site_html(config, content_html):
 {get_google_fonts_imports()}
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-</head>
+{ga_script}</head>
 <body class="{body_class}">
 {header_html}{page_header_html}    {image_html}
     {components_html}
