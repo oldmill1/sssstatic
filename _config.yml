@@ -2,6 +2,7 @@
 site:
   name: "SSSStatic Dev Server - UPDATED"
   description: "Testing the enhanced dev server functionality with file watching"
+  colorMode: "dark"
 
 # TopBar navigation with CTA button
 _topbar:

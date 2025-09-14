@@ -21,8 +21,8 @@ from .styles.map import get_map_styles
 
 
 
-def get_global_css():
-    """Return global CSS styles (dark theme is the default)."""
+def get_global_css(config=None):
+    """Return global CSS styles with conditional background based on colorMode."""
     from .styles.footer import get_footer_styles
     from .styles.type import get_font_styles
     from .styles.cards import get_card_styles
@@ -33,6 +33,18 @@ def get_global_css():
     from .styles.showcase import get_showcase_styles
     from .styles.slick import get_slick_styles
     from .styles.sizzle import get_sizzle_styles
+    
+    # Determine the background color based on config
+    if config and 'site' in config:
+        color_mode = config['site'].get('colorMode', 'dark')
+        if color_mode == 'light':
+            body_bg_color = '#f8f9fa'
+        else:  # dark mode or any other value defaults to dark
+            body_bg_color = '#0d1117'  # Dark black color
+    else:
+        # Default to dark mode if no config provided
+        body_bg_color = '#0d1117'
+    
     return get_font_styles() + """
         :root {
             --card-bg: #161b22;
@@ -49,13 +61,14 @@ def get_global_css():
             --card-link-hover: rgb(148, 202, 224);
             --status-unknown-bg: #484f58;
             --status-unknown-text: #f0f6fc;
+            --body-bg-color: """ + body_bg_color + """;
         }
         
         body {
             font-family: var(--font-body);
             line-height: 1.6;
             color: #f8f9fa;
-            background-color: #f8f9fa;
+            background-color: var(--body-bg-color);
             max-width: 1200px;
             margin: 0 auto;
             min-height: 100vh;

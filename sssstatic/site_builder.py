@@ -45,8 +45,8 @@ def generate_css_file(config):
     assets_dir = Path("_site") / "assets"
     assets_dir.mkdir(exist_ok=True)
 
-    # Get global CSS (dark theme is the default)
-    css_content = get_global_css()
+    # Get global CSS with config for conditional styling
+    css_content = get_global_css(config)
 
     # Write CSS file
     css_file = assets_dir / "styles.css"
