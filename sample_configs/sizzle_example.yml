@@ -1,0 +1,40 @@
+# SSSStatic Configuration - Sizzle Component Example
+site:
+  name: "Sizzle Process Example"
+
+_title: "Super Simple Process"
+
+# Sizzle component - Modern process section with steps
+_sizzle:
+  subtitle: "We're proud to offer a"
+  title: "No sweat process."
+  description: "Dating in Bombay shouldn't be this complicated yaar. We'll handle everything you need to absolutely slay on dating apps."
+  steps:
+    - icon: "📅"
+      title: "1. Book Online"
+      description: "Pick a slot that fits your Bombay hustle. Book up to 6 weeks ahead."
+    - icon: "📸"
+      title: "2. Get Photographed"
+      description: "No worries if you're camera shy! We'll teach you how to pose like a pro."
+    - icon: "🚀"
+      title: "3. Implement"
+      description: "We'll help you arrange photos and craft a bio that actually gets you matches."
+    - icon: "🧪"
+      title: "4. Test & Optimize"
+      description: "We'll show you how to track performance and keep optimizing until you're getting the matches you deserve."
+
+# Alternative simple usage - just provide a title
+# _sizzle: "Simple Process Title"
+
+# Alternative with custom steps
+# _sizzle:
+#   title: "Our Amazing Process"
+#   steps:
+#     - icon: "🎯"
+#       title: "Step 1"
+#       description: "First step description"
+#     - icon: "⚡"
+#       title: "Step 2"
+#       description: "Second step description"
+
+description: "This page demonstrates the Sizzle component - a modern, responsive process section with clean styling and hover effects. Perfect for showcasing workflows, processes, or step-by-step guides."

@@ -1,0 +1,35 @@
+# SSSStatic Configuration - Simple Example
+site:
+  name: "SSSStatic"
+
+# Cards to showcase projects
+_card:
+  - name: "Project Alpha"
+    url: "https://github.com/example/alpha"
+    description: "A sample project to test the navigation functionality."
+    status: "active"
+
+  - name: "Project Beta"
+    url: "https://github.com/example/beta"
+    description: "Another project for testing purposes."
+    status: "complete"
+
+  - name: "Project Gamma"
+    url: "https://github.com/example/gamma"
+    description: "Third project to fill out the cards section."
+    status: "experimental"
+
+# Multi-page setup to test navigation
+_page:
+  - _name: "About"
+    _title: "About This Site"
+    description: "This is a test page to demonstrate the navigation functionality."
+    features:
+      - "Multi-page navigation"
+      - "Card components"
+      - "Responsive design"
+      - "Dark theme"
+
+  - _name: "Contact"
+    _title: "Contact"
+    # Empty page for now - just testing navigation

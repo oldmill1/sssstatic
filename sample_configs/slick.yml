@@ -1,0 +1,33 @@
+# SSSStatic Configuration - Slick Component Example
+site:
+  name: "Slick Results"
+  description: "A modern two-column layout showcasing benefits with icons and an image"
+
+# Page title
+_title: "Dating Profile Results"
+
+# Slick component configuration
+_slick:
+  subtitle: "We're laser-focused on results."
+  title: "What kind of results can you expect to see?"
+  highlight_text: "results"
+  image: "phone.png"
+  benefits:
+    - icon: "📈"
+      title: "Increased Match Ratio"
+      description: "Most clients see a noticeable increase in the very first week, and your new match rate should stabilize by week 2-3."
+    - icon: "🧠"
+      title: "Algorithm Improvements"
+      description: "When your match rate goes up, the algorithm will automatically start showing your profile to more people."
+    - icon: "🥂"
+      title: "More Dates"
+      description: "Turn matches into dates more easily, and start meeting up with fun, interesting people on the regular."
+    - icon: "😍"
+      title: "Higher Quality Matches"
+      description: "Match with people you're <em>actually</em> excited to talk to. Level the playing field and meet people in your league (or above)."
+    - icon: "💬"
+      title: "Better Conversations"
+      description: "Tired of starting conversations only to get 1-word answers? A fine-tuned profile turns your charisma score to +10."
+    - icon: "👻"
+      title: "Less Ghosting"
+      description: "Conversation going great, then all of a sudden... <em>*poof*?</em> You won't be the profile they want to ghost anymore."
