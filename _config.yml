@@ -1,0 +1,10 @@
+# SSSStatic Configuration - Development Testing
+site:
+  name: "SSSStatic Dev Server - UPDATED"
+  description: "Testing the enhanced dev server functionality with file watching"
+
+# TopBar navigation with CTA button
+_topbar:
+  title: "Welcome to Sssstatic"
+  cta: "Get Started"
+  link: "#contact"
