@@ -12,6 +12,12 @@ def get_component_css():
     width: 100%;
     padding: 1rem;
     margin: 0;
+    box-sizing: border-box;
+}
+
+/* Remove padding when component-container is inside a column to avoid double padding */
+.column .component-container {
+    padding: 0;
 }
 
 /* Responsive component behavior */
@@ -19,11 +25,19 @@ def get_component_css():
     .component-container {
         padding: 1.5rem;
     }
+    
+    .column .component-container {
+        padding: 0;
+    }
 }
 
 @media (min-width: 1024px) {
     .component-container {
         padding: 2rem;
+    }
+    
+    .column .component-container {
+        padding: 0;
     }
 }
 

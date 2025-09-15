@@ -59,15 +59,18 @@ def generate_component_html(config):
                             content_htmls.append(sticker_html)
             
             if content_htmls:
-                # Build the component HTML with mixed content (no extra wrapper needed)
-                component_html = ''
+                # Build the component HTML with proper wrapper
+                component_html = '        <div class="component-container">\n'
                 for content_html in content_htmls:
-                    # Add each content component directly
-                    component_html += content_html + '\n'
+                    # Add each content component with proper indentation
+                    indented_html = '\n'.join('            ' + line for line in content_html.split('\n'))
+                    component_html += indented_html + '\n'
+                component_html += '        </div>\n'
                 return component_html
         
         # Fall back to HTML content if no content array
         if html_content:
+            # Wrap HTML content in component container
             component_html = '        <div class="component-container">\n'
             component_html += f'            {html_content}\n'
             component_html += '        </div>\n'
@@ -76,6 +79,7 @@ def generate_component_html(config):
         # If it's just a string, treat it as HTML
         html_content = str(component_data)
         if html_content:
+            # Wrap HTML content in component container
             component_html = '        <div class="component-container">\n'
             component_html += f'            {html_content}\n'
             component_html += '        </div>\n'
