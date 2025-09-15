@@ -28,17 +28,19 @@ def generate_sinema_html(config):
     sinema_html += '                        <div class="sinema-terminal-screen">\n'
     sinema_html += '                            <div class="sinema-terminal-content">\n'
     
-    # Boot sequence lines
-    boot_lines = [
+    # Boot sequence lines from config
+    config_boot_lines = sinema_data.get('boot_lines', [
         "SINEMA TERMINAL v1.0.0",
         "Initializing system...",
         "Loading kernel modules...",
         "Mounting filesystems...",
         "Starting services...",
         "System ready.",
-        "",
-        f"$ {terminal_text}"
-    ]
+        ""
+    ])
+    
+    # Add the terminal command at the end
+    boot_lines = config_boot_lines + [f"$ {terminal_text}"]
     
     for i, line in enumerate(boot_lines):
         delay = i * 300  # 300ms delay between each line

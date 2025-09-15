@@ -12,5 +12,15 @@ _topbar:
 
 # Sinema Terminal Component
 _sinema:
-  terminal_text: "hello world"
+  title: "SINEMA TERMINAL"
+  subtitle: "Vintage Computing Experience"
+  terminal_text: "Nice to meet you"
   boot_delay: 2000
+  # boot_lines:
+  #   - "SINEMA TERMINAL v1.0.0"
+  #   - "Initializing system..."
+  #   - "Loading kernel modules..."
+  #   - "Mounting filesystems..."
+  #   - "Starting services..."
+  #   - "System ready."
+  #   - ""
