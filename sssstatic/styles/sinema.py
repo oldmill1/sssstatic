@@ -48,12 +48,10 @@ def get_sinema_styles():
         
         .sinema-terminal-container {
             width: 100%;
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                0 2px 8px rgba(0, 0, 0, 0.05);
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
             position: relative;
         }
         
@@ -130,31 +128,6 @@ def get_sinema_styles():
             pointer-events: none;
         }
         
-        .sinema-terminal-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(0, 0, 0, 0.02) 2px,
-                    rgba(0, 0, 0, 0.02) 4px
-                ),
-                linear-gradient(
-                    135deg,
-                    rgba(255, 255, 255, 0.1) 0%,
-                    transparent 30%,
-                    rgba(255, 255, 255, 0.05) 60%,
-                    transparent 100%
-                );
-            pointer-events: none;
-            border-radius: 12px;
-        }
         
         .sinema-terminal-screen {
             background: #1a1a1a;
@@ -291,7 +264,7 @@ def get_sinema_styles():
             }
             
             .sinema-terminal-container {
-                padding: 1.5rem;
+                padding: 0;
             }
             
             .sinema-terminal-screen {
@@ -306,7 +279,7 @@ def get_sinema_styles():
             }
             
             .sinema-terminal-container {
-                padding: 1rem;
+                padding: 0;
             }
             
             .sinema-terminal-screen {
@@ -325,7 +298,7 @@ def get_sinema_styles():
             }
             
             .sinema-terminal-container {
-                padding: 0.75rem;
+                padding: 0;
             }
             
             .sinema-terminal-screen {
