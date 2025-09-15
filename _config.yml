@@ -56,7 +56,13 @@ _row:
               size: "medium"
               # icon: "star"
     - _component:
-        html: "<h1>Column 2</h1>"
+        content:
+          - _text:
+              content: "Doing more, using less. We’re using more recycled content in our products than ever before. And we’re recovering crucial materials from end-of-life devices to use again in new ones."
+              type: "p"
+              size: "small"
+              weight: "light"
+              lineHeight: "small"
     - _component:
         html: "<h1>Column 3</h1>"
     - _component:
