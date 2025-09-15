@@ -41,10 +41,10 @@ def get_global_css(config=None):
         if color_mode == 'light':
             body_bg_color = '#f8f9fa'
         else:  # dark mode or any other value defaults to dark
-            body_bg_color = '#0d1117'  # Dark black color
+            body_bg_color = '#000000'  # True dark black color
     else:
         # Default to dark mode if no config provided
-        body_bg_color = '#0d1117'
+        body_bg_color = '#000000'
     
     return get_font_styles() + """
         :root {
