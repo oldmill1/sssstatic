@@ -76,6 +76,7 @@ def get_sticker_styles():
         }
         
         .sticker-position-center {
+            display: block;
             margin-left: auto;
             margin-right: auto;
         }
