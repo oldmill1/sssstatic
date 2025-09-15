@@ -170,7 +170,8 @@ def get_sinema_styles():
             box-shadow: 
                 inset 0 0 20px rgba(0, 0, 0, 0.3),
                 inset 0 0 40px rgba(0, 0, 0, 0.1),
-                0 0 30px rgba(0, 0, 0, 0.2);
+                0 0 30px rgba(0, 0, 0, 0.2),
+                0 8px 16px rgba(0, 0, 0, 0.4);
         }
         
         /* Glassmorphic glare effect */
