@@ -29,14 +29,14 @@ _row:
     - _component:
         content:
           - _text:
-              content: "Good for the planet."
+              content: "Open Source"
               type: "h1"
               size: "xlarge"
               weight: "light"
               # paddingBlock: "1rem"
               lineHeight: "small"
           - _text:
-              content: "If your device is in good shape, we'll help get it to a new owner. Or, if it's seen better days, we can recycle it for free."
+              content: "The project is open source and free to use. Who knows what you'll build with it."
               type: "p"
               size: "medium"
               weight: "thin"
