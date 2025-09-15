@@ -41,7 +41,7 @@ def get_sieve_styles():
 .sieve-subheading {
     font-size: 1.5rem;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text-color);
     margin: 0 0 1.25rem 0;
     line-height: 1.3;
     letter-spacing: -0.01em;
@@ -111,15 +111,15 @@ def get_sieve_styles():
 /* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
     .sieve-heading {
-        color: #ffffff;
+        color: var(--text-color);
     }
     
     .sieve-subheading {
-        color: #ffffff;
+        color: var(--text-color);
     }
     
     .sieve-paragraph {
-        color: #e1e8ed;
+        color: var(--text-secondary);
     }
 }
 
