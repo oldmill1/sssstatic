@@ -1,0 +1,214 @@
+# sssstatic/styles/sinema.py
+"""
+Sinema styles module for SSSStatic - contains CSS styles for sinema component
+"""
+
+
+def get_sinema_styles():
+    """Return CSS styles for sinema component."""
+    from .type import get_font_styles
+    return get_font_styles() + """
+        /* Sinema Section - Minimal Terminal Display */
+        .sinema-section {
+            margin: 0; 
+            padding: 0;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sinema-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+        }
+        
+        .sinema-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+        
+        /* Terminal Section */
+        .sinema-terminal-section {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .sinema-terminal-container {
+            width: 100%;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e1e5e9;
+            position: relative;
+        }
+        
+        .sinema-terminal-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.02) 2px,
+                    rgba(0, 0, 0, 0.02) 4px
+                );
+            pointer-events: none;
+            border-radius: 12px;
+        }
+        
+        .sinema-terminal-screen {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        
+        .sinema-terminal-content {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #4ade80;
+            position: relative;
+        }
+        
+        .sinema-terminal-line {
+            opacity: 0;
+            animation: sinema-typewriter 0.1s ease-in-out forwards;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sinema-terminal-text {
+            display: inline-block;
+            text-shadow: 0 0 3px #4ade80;
+        }
+        
+        /* Terminal cursor */
+        .sinema-terminal-line:last-child::after {
+            content: '_';
+            animation: sinema-cursor 1s infinite;
+            color: #4ade80;
+            text-shadow: 0 0 3px #4ade80;
+        }
+        
+        /* Animations */
+        @keyframes sinema-typewriter {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes sinema-cursor {
+            0%, 50% {
+                opacity: 1;
+            }
+            51%, 100% {
+                opacity: 0;
+            }
+        }
+        
+        /* Scanlines effect */
+        .sinema-terminal-screen::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(74, 222, 128, 0.03) 1px,
+                    rgba(74, 222, 128, 0.03) 2px
+                );
+            pointer-events: none;
+            animation: sinema-scanlines 0.1s linear infinite;
+        }
+        
+        @keyframes sinema-scanlines {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(2px);
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .sinema-container {
+                padding: 1.5rem;
+            }
+            
+            .sinema-terminal-container {
+                padding: 1.5rem;
+            }
+            
+            .sinema-terminal-screen {
+                min-height: 350px;
+                padding: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sinema-container {
+                padding: 1rem;
+            }
+            
+            .sinema-terminal-container {
+                padding: 1rem;
+            }
+            
+            .sinema-terminal-screen {
+                min-height: 300px;
+                padding: 1rem;
+            }
+            
+            .sinema-terminal-content {
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .sinema-container {
+                padding: 0.75rem;
+            }
+            
+            .sinema-terminal-container {
+                padding: 0.75rem;
+            }
+            
+            .sinema-terminal-screen {
+                min-height: 250px;
+                padding: 0.75rem;
+            }
+            
+            .sinema-terminal-content {
+                font-size: 11px;
+            }
+        }
+    """

@@ -54,6 +54,7 @@ def generate_site_html(config, content_html):
     from .components.slick import generate_slick_html
     from .components.sizzle import generate_sizzle_html
     from .components.sly import generate_sly_html
+    from .components.sinema import generate_sinema_html
     from .components.map import generate_map_html
     from .styles.footer import generate_footer_html
     from .styles.type import get_google_fonts_imports
@@ -87,6 +88,7 @@ def generate_site_html(config, content_html):
         '_slick': generate_slick_html,
         '_sizzle': generate_sizzle_html,
         '_sly': generate_sly_html,
+        '_sinema': generate_sinema_html,
         '_map': generate_map_html,
     }
     
