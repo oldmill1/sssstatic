@@ -25,30 +25,21 @@ def generate_sinema_html(config):
     # Terminal Section
     sinema_html += '                <div class="sinema-terminal-section">\n'
     sinema_html += '                    <div class="sinema-terminal-container">\n'
+    sinema_html += '                        <!-- OS X Tiger Traffic Light Buttons -->\n'
+    sinema_html += '                        <div class="sinema-traffic-lights">\n'
+    sinema_html += '                            <div class="sinema-traffic-light red"></div>\n'
+    sinema_html += '                            <div class="sinema-traffic-light yellow"></div>\n'
+    sinema_html += '                            <div class="sinema-traffic-light green"></div>\n'
+    sinema_html += '                        </div>\n'
     sinema_html += '                        <div class="sinema-terminal-screen">\n'
     sinema_html += '                            <div class="sinema-terminal-content">\n'
     
-    # Boot sequence lines from config
-    config_boot_lines = sinema_data.get('boot_lines', [
-        "SINEMA TERMINAL v1.0.0",
-        "Initializing system...",
-        "Loading kernel modules...",
-        "Mounting filesystems...",
-        "Starting services...",
-        "System ready.",
-        ""
-    ])
+    # Only show the terminal command (no bootlines)
+    terminal_command = f"$ {terminal_text}"
     
-    # Add the terminal command at the end
-    boot_lines = config_boot_lines + [f"$ {terminal_text}"]
-    
-    for i, line in enumerate(boot_lines):
-        delay = i * 300  # 300ms delay between each line
-        if line.startswith("$"):
-            delay += boot_delay  # Additional delay before command
-        sinema_html += f'                                <div class="sinema-terminal-line" style="animation-delay: {delay}ms">\n'
-        sinema_html += f'                                    <span class="sinema-terminal-text">{line}</span>\n'
-        sinema_html += '                                </div>\n'
+    sinema_html += f'                                <div class="sinema-terminal-line" style="animation-delay: 0ms">\n'
+    sinema_html += f'                                    <span class="sinema-terminal-text">{terminal_command}</span>\n'
+    sinema_html += '                                </div>\n'
     
     sinema_html += '                            </div>\n'
     sinema_html += '                        </div>\n'

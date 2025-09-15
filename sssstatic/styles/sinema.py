@@ -52,6 +52,79 @@ def get_sinema_styles():
             position: relative;
         }
         
+        /* OS X Tiger Traffic Light Buttons */
+        .sinema-traffic-lights {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .sinema-traffic-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .sinema-traffic-light:hover {
+            transform: scale(1.1);
+        }
+        
+        .sinema-traffic-light.red {
+            background: linear-gradient(135deg, #ff5f56 0%, #ff3b30 50%, #d70015 100%);
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .sinema-traffic-light.yellow {
+            background: linear-gradient(135deg, #ffbd2e 0%, #ff9500 50%, #ff8c00 100%);
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .sinema-traffic-light.green {
+            background: linear-gradient(135deg, #27ca3f 0%, #30d158 50%, #34c759 100%);
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Glossy aqua glass effect */
+        .sinema-traffic-light::before {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        /* Subtle inner glow */
+        .sinema-traffic-light::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
         .sinema-terminal-container::before {
             content: '';
             position: absolute;
