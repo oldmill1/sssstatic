@@ -12,6 +12,22 @@ KEY PRINCIPLES
 3. Provide fallback values for variables (var(--variable-name, #fallback))
 4. Let the theme system handle color logic, not individual components
 
+⚠️  CRITICAL WARNING ⚠️
+----------------------
+DO NOT use hardcoded color values anywhere in the codebase!
+Hardcoded colors break the entire theming system and affect the whole site.
+Always rely on CSS variables for text colors as they are set at build time
+and determine the visual consistency across all components.
+
+Examples of what NOT to do:
+- color: #ffffff;
+- color: #000000;
+- color: #80b6cc;
+- background-color: #f5f5f5;
+
+These hardcoded values will not adapt to theme changes and create
+inconsistent visual experiences across different color modes.
+
 CORE VARIABLES
 --------------
 --text-color: Primary text color (adapts to theme)
