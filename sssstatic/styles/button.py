@@ -1,6 +1,41 @@
 # sssstatic/styles/button.py
 """
 Button styles module for SSSStatic - contains CSS styles for centralized button component
+
+BUTTON TYPES AVAILABLE:
+
+1. BUTTON SIZES:
+   - .sss-button-small: Compact button (0.875rem font, 0.5rem padding, 8px radius)
+   - .sss-button-medium: Standard button (1rem font, 0.875rem padding, 12px radius) 
+   - .sss-button-large: Prominent button (1.125rem font, 1rem padding, 16px radius)
+
+2. BUTTON VARIANTS:
+   - .sss-button-primary: Apple-style blue button (#007AFF) - Main action buttons
+   - .sss-button-secondary: Transparent with blue border - Secondary actions
+   - .sss-button-gradient: Purple gradient with shadow - Premium/featured buttons
+   - .sss-button-cta: Dark button (#1a1a1a) - Call-to-action buttons
+
+3. BUTTON ICONS (add after button text):
+   - .sss-button-icon-lightning: ⚡ (for energy/action)
+   - .sss-button-icon-arrow: → (for navigation/next)
+   - .sss-button-icon-star: ★ (for favorites/rating)
+   - .sss-button-icon-heart: ♥ (for likes/love)
+   - .sss-button-icon-check: ✓ (for success/completion)
+   - .sss-button-icon-plus: + (for add/create)
+   - .sss-button-icon-minus: - (for remove/delete)
+
+4. BUTTON GROUPS (for multiple buttons):
+   - .sss-button-group: Base flex container
+   - .sss-button-group-left/center/right: Alignment options
+   - .sss-button-group-small/medium/large: Gap spacing (0.5rem/1rem/1.5rem)
+
+USAGE EXAMPLES:
+- Primary CTA: "sss-button sss-button-primary sss-button-large sss-button-icon-arrow"
+- Secondary action: "sss-button sss-button-secondary sss-button-medium"
+- Premium feature: "sss-button sss-button-gradient sss-button-large sss-button-icon-star"
+- Compact action: "sss-button sss-button-cta sss-button-small sss-button-icon-plus"
+
+All buttons include hover effects, focus states for accessibility, and responsive behavior.
 """
 
 
@@ -12,9 +47,9 @@ def get_button_styles():
         
         /* Base button styles */
         .sss-button {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: "myriad-pro", system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 500;
-            border-radius: 12px;
+            border-radius: 1000px;
             border: none;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -23,56 +58,176 @@ def get_button_styles():
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            letter-spacing: -0.01em;
+            letter-spacing: 0.0375em;
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
             vertical-align: baseline;
             position: relative;
             overflow: hidden;
+            outline: none;
         }
         
         /* Button sizes */
         .sss-button-small {
-            font-size: 0.875rem;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            font-size: 1.5rem;
+            height: 1.75em;
+            padding: 0 1.5em;
+            min-width: 4em;
         }
         
         .sss-button-medium {
-            font-size: 1rem;
-            padding: 0.875rem 2rem;
+            font-size: 2rem;
+            height: 1.75em;
+            padding: 0 2em;
+            min-width: 6em;
         }
         
         .sss-button-large {
-            font-size: 1.125rem;
-            padding: 1rem 2.5rem;
-            border-radius: 16px;
+            font-size: 3rem;
+            height: 1.75em;
+            padding: 0 2em;
+            min-width: 6em;
         }
         
-        /* Primary button - Apple-style blue */
+        /* Primary button - Sophisticated gradient with shine effects */
         .sss-button-primary {
-            background: #007AFF;
+            background: linear-gradient(rgba(0, 65, 184, 0.625), rgba(45, 115, 199, 0.625), rgba(33, 160, 196, 0.625));
             color: #ffffff;
             border: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0.375em 0.5em rgba(0, 0, 0, 0.3), 
+                        0 0.125em 0.125em rgba(0, 78, 187, 0.5), 
+                        inset 0 0.25em 0.5em rgba(0, 17, 49, 0.8),
+                        inset 0 0.375em 0.5em 0.25em rgba(0, 78, 187, 0.75);
         }
         
         .sss-button-primary:hover {
-            background: #0056CC;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 0.5em 0.6em rgba(0, 0, 0, 0.35), 
+                        0 0.15em 0.15em rgba(0, 78, 187, 0.6), 
+                        inset 0 0.25em 0.5em rgba(0, 17, 49, 0.8),
+                        inset 0 0.375em 0.5em 0.25em rgba(0, 78, 187, 0.75);
         }
         
-        /* Secondary button - Transparent with border */
+        .sss-button-primary:focus,
+        .sss-button-primary:active {
+            box-shadow: 0 0.375em 0.5em rgba(0, 0, 0, 0.3), 
+                        0 0.125em 0.125em rgba(0, 78, 187, 0.5), 
+                        inset 0 0.25em 0.5em rgba(0, 17, 49, 0.8),
+                        inset 0 0.375em 0.5em 0.25em rgba(0, 78, 187, 0.75),
+                        0 0 0.5em rgba(52, 106, 227, 0.5);
+        }
+        
+        /* Top shine effect for primary button */
+        .sss-button-primary::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 33%;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
+            width: calc(100% - 0.875em);
+            border-radius: 2em 2em 0.5em 0.5em;
+            top: 5%;
+            filter: blur(1px);
+            z-index: 2;
+        }
+        
+        /* Bottom glow effect for primary button */
+        .sss-button-primary::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 33%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5));
+            width: calc(100% - 1.25em);
+            border-radius: 0.75em;
+            bottom: 10%;
+            filter: blur(3px);
+        }
+        
+        /* Text styling for primary button */
+        .sss-button-primary .sss-button-text {
+            position: relative;
+            top: -1px;
+            z-index: 1;
+            letter-spacing: 0.0375em;
+            -webkit-text-stroke-width: 0.025em;
+            -webkit-text-stroke-color: #000000;
+            text-shadow: 0 0.25em 0.2em rgba(30, 77, 161, 0.5);
+        }
+        
+        /* Secondary button - Sophisticated gradient with shine effects */
         .sss-button-secondary {
-            background: transparent;
-            color: #007AFF;
-            border: 1px solid #007AFF;
+            background: linear-gradient(rgba(160, 160, 160, 0.625), rgba(255, 255, 255, 0.625));
+            color: #ffffff;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0.375em 0.5em rgba(0, 0, 0, 0.2), 
+                        0 0.125em 0.125em rgba(0, 0, 0, 0.3),  
+                        inset 0 0.25em 0.25em rgba(0, 0, 0, 0.4),
+                        inset 0 0.375em 0.5em 0.25em #BBBBBB;
         }
         
         .sss-button-secondary:hover {
-            background: rgba(0, 122, 255, 0.1);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
+            box-shadow: 0 0.5em 0.6em rgba(0, 0, 0, 0.25), 
+                        0 0.15em 0.15em rgba(0, 0, 0, 0.35),  
+                        inset 0 0.25em 0.25em rgba(0, 0, 0, 0.4),
+                        inset 0 0.375em 0.5em 0.25em #BBBBBB;
+        }
+        
+        .sss-button-secondary:focus,
+        .sss-button-secondary:active {
+            box-shadow: 0 0.375em 0.5em rgba(0, 0, 0, 0.2), 
+                        0 0.125em 0.125em rgba(0, 0, 0, 0.3),  
+                        inset 0 0.25em 0.25em rgba(0, 0, 0, 0.4),
+                        inset 0 0.375em 0.5em 0.25em #BBBBBB,
+                        0 0 0.5em rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Top shine effect for secondary button */
+        .sss-button-secondary::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 33%;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
+            width: calc(100% - 0.875em);
+            border-radius: 2em 2em 0.5em 0.5em;
+            top: 5%;
+            filter: blur(1px);
+            z-index: 2;
+        }
+        
+        /* Bottom glow effect for secondary button */
+        .sss-button-secondary::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 33%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5));
+            width: calc(100% - 1.25em);
+            border-radius: 0.75em;
+            bottom: 10%;
+            filter: blur(3px);
+        }
+        
+        /* Text styling for secondary button */
+        .sss-button-secondary .sss-button-text {
+            position: relative;
+            top: -1px;
+            z-index: 1;
+            letter-spacing: 0.0375em;
+            -webkit-text-stroke-width: 0.025em;
+            -webkit-text-stroke-color: #000000;
+            text-shadow: 0 0.25em 0.2em rgba(0, 0, 0, 0.25);
         }
         
         /* Gradient button - Purple gradient with shadow */
@@ -231,16 +386,15 @@ def get_button_styles():
         
         /* Focus styles for accessibility */
         .sss-button:focus {
-            outline: 2px solid #007AFF;
-            outline-offset: 2px;
+            outline: none;
         }
         
         .sss-button-gradient:focus {
-            outline-color: #B384C9;
+            outline: none;
         }
         
         .sss-button-cta:focus {
-            outline-color: #ffffff;
+            outline: none;
         }
         
         /* Disabled state */

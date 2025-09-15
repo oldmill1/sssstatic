@@ -42,6 +42,12 @@ _row:
               weight: "thin"
               lineHeight: "medium"
               paddingBlock: "0.5rem"
+          - _button:
+              text: "View on GitHub"
+              url: "https://github.com/yourusername/sssstatic"
+              style: "primary"
+              size: "medium"
+              icon: "star"
     - _component:
         html: "<h1>Column 2</h1>"
     - _component:

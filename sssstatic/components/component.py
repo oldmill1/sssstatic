@@ -11,32 +11,50 @@ def generate_component_html(config):
     if not component_data:
         return ""
     
-    # Import text component generator
+    # Import component generators
     from .text import generate_text_html
+    from .button import generate_button_html
     
     # Check if it's a dict with content array or html property
     if isinstance(component_data, dict):
-        # Check for content array (array of _text components)
+        # Check for content array (array of _text and _button components)
         content_array = component_data.get('content', [])
         html_content = component_data.get('html', '')
         
         if content_array and isinstance(content_array, list):
-            # Generate HTML from text components
-            text_htmls = []
-            for text_config in content_array:
-                if isinstance(text_config, dict) and '_text' in text_config:
-                    # Create a temporary config for the text component
-                    temp_config = text_config
-                    text_html = generate_text_html(temp_config)
-                    if text_html:
-                        text_htmls.append(text_html)
+            # Generate HTML from text and button components
+            content_htmls = []
+            for content_config in content_array:
+                if isinstance(content_config, dict):
+                    # Handle _text components
+                    if '_text' in content_config:
+                        temp_config = content_config
+                        text_html = generate_text_html(temp_config)
+                        if text_html:
+                            content_htmls.append(text_html)
+                    
+                    # Handle _button components
+                    elif '_button' in content_config:
+                        button_config = content_config['_button']
+                        if isinstance(button_config, dict):
+                            # Extract button parameters
+                            text = button_config.get('text', 'Button')
+                            url = button_config.get('url', '#')
+                            style = button_config.get('style', 'primary')
+                            size = button_config.get('size', 'medium')
+                            icon = button_config.get('icon', None)
+                            anchor_link = button_config.get('anchor_link', False)
+                            
+                            button_html = generate_button_html(text, url, style, size, icon, anchor_link)
+                            if button_html:
+                                content_htmls.append(button_html)
             
-            if text_htmls:
-                # Build the component HTML with text components (no extra wrapper needed)
+            if content_htmls:
+                # Build the component HTML with mixed content (no extra wrapper needed)
                 component_html = ''
-                for text_html in text_htmls:
-                    # Add each text component directly
-                    component_html += text_html + '\n'
+                for content_html in content_htmls:
+                    # Add each content component directly
+                    component_html += content_html + '\n'
                 return component_html
         
         # Fall back to HTML content if no content array
