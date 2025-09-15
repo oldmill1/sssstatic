@@ -21,8 +21,7 @@ _row:
         terminal_text: "Nice to meet you"
         boot_delay: 2000
     - _sieve:
-        heading: "Welcome to SSSStatic"
-        subheading: "A Modern Static Site Generator"
+        heading: "Build this website with SSSStatic"
+        subheading: "You can make one in just thirty seconds."
         paragraphs:
-          - "SSSStatic is a powerful static site generator that combines simplicity with flexibility. Built with Python, it provides an intuitive YAML-based configuration system that makes creating beautiful websites effortless."
-          - "Whether you're building a portfolio, documentation site, or a simple landing page, SSSStatic has the components and styling you need to create something truly unique."
+          - "Perfect for portfolios, docs, and landing pages."

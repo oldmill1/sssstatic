@@ -11,7 +11,7 @@ def get_sieve_styles():
 /* Sieve Component Styles */
 .sieve-section {
     width: 100%;
-    padding: 3rem 1rem;
+    padding: 1.5rem 1rem;
     margin: 0;
     background: transparent;
 }
@@ -64,7 +64,7 @@ def get_sieve_styles():
 /* Responsive Design */
 @media (min-width: 768px) {
     .sieve-section {
-        padding: 4rem 2rem;
+        padding: 2rem 1.5rem;
     }
     
     .sieve-heading {
@@ -85,7 +85,7 @@ def get_sieve_styles():
 
 @media (min-width: 1024px) {
     .sieve-section {
-        padding: 5rem 2rem;
+        padding: 2.5rem 2rem;
     }
     
     .sieve-container {
