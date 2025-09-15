@@ -48,6 +48,13 @@ _row:
               style: "primary"
               size: "medium"
               icon: "star"
+          - _button:
+              text: "View on GitHub"
+              url: "https://github.com/yourusername/sssstatic"
+              style: "primary"
+              variant: "link"
+              size: "medium"
+              # icon: "star"
     - _component:
         html: "<h1>Column 2</h1>"
     - _component:

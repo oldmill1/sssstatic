@@ -41,11 +41,12 @@ def generate_component_html(config):
                             text = button_config.get('text', 'Button')
                             url = button_config.get('url', '#')
                             style = button_config.get('style', 'primary')
+                            variant = button_config.get('variant', 'default')
                             size = button_config.get('size', 'medium')
                             icon = button_config.get('icon', None)
                             anchor_link = button_config.get('anchor_link', False)
                             
-                            button_html = generate_button_html(text, url, style, size, icon, anchor_link)
+                            button_html = generate_button_html(text, url, style, variant, size, icon, anchor_link)
                             if button_html:
                                 content_htmls.append(button_html)
             

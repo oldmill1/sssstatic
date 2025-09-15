@@ -86,7 +86,7 @@ def generate_showcase_html(config):
         from .button import generate_button_html
         anchor_link = button_url.startswith('#')
         showcase_html += '                '
-        showcase_html += generate_button_html(button_text, button_url, 'gradient', 'medium', None, anchor_link)
+        showcase_html += generate_button_html(button_text, button_url, 'gradient', 'default', 'medium', None, anchor_link)
         showcase_html += '\n            </div>\n'
     else:
         # Default: Image first (left side)
@@ -128,7 +128,7 @@ def generate_showcase_html(config):
         from .button import generate_button_html
         anchor_link = button_url.startswith('#')
         showcase_html += '                '
-        showcase_html += generate_button_html(button_text, button_url, 'gradient', 'medium', None, anchor_link)
+        showcase_html += generate_button_html(button_text, button_url, 'gradient', 'default', 'medium', None, anchor_link)
         showcase_html += '\n            </div>\n'
     showcase_html += '        </div>\n'
     showcase_html += '    </section>\n'

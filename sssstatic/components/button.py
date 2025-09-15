@@ -4,7 +4,7 @@ Button component module for SSSStatic - centralized button component
 """
 
 
-def generate_button_html(text, url='#', style='primary', size='medium', icon=None, anchor_link=False):
+def generate_button_html(text, url='#', style='primary', variant='default', size='medium', icon=None, anchor_link=False):
     """
     Generate HTML for a button component.
     
@@ -12,6 +12,7 @@ def generate_button_html(text, url='#', style='primary', size='medium', icon=Non
         text (str): Button text
         url (str): Button URL (default: '#')
         style (str): Button style - 'primary', 'secondary', 'gradient', 'cta' (default: 'primary')
+        variant (str): Button variant - 'default', 'warning', 'success', 'neutral', 'link' (default: 'default')
         size (str): Button size - 'small', 'medium', 'large' (default: 'medium')
         icon (str): Icon to display (optional)
         anchor_link (bool): Whether this is an anchor link for smooth scrolling (default: False)
@@ -26,6 +27,10 @@ def generate_button_html(text, url='#', style='primary', size='medium', icon=Non
     
     # Build CSS classes
     css_classes = ['sss-button', f'sss-button-{style}', f'sss-button-{size}']
+    
+    # Add variant class if provided and style is primary
+    if style == 'primary' and variant:
+        css_classes.append(f'sss-button-variant-{variant}')
     
     # Add anchor link class if needed
     if anchor_link and url.startswith('#'):
@@ -81,11 +86,12 @@ def generate_button_group_html(buttons, alignment='center', gap='medium'):
             text = button.get('text', 'Button')
             url = button.get('url', '#')
             style = button.get('style', 'primary')
+            variant = button.get('variant', 'default')
             size = button.get('size', 'medium')
             icon = button.get('icon', None)
             anchor_link = button.get('anchor_link', False)
             
-            button_html = generate_button_html(text, url, style, size, icon, anchor_link)
+            button_html = generate_button_html(text, url, style, variant, size, icon, anchor_link)
             button_group_html += f'    {button_html}\n'
         else:
             # If it's just a string, treat it as button text
@@ -99,10 +105,19 @@ def generate_button_group_html(buttons, alignment='center', gap='medium'):
 
 # Button style mappings for easy reference
 BUTTON_STYLES = {
-    'primary': 'Blue background button (Apple-style)',
+    'primary': 'Primary button style with variants',
     'secondary': 'Transparent button with border',
     'gradient': 'Purple gradient button with shadow',
     'cta': 'Dark CTA button with icon'
+}
+
+# Button variant mappings for primary style
+BUTTON_VARIANTS = {
+    'default': 'Blue-green gradient (default)',
+    'warning': 'Orange-red gradient (warning)',
+    'success': 'Green gradient (success)',
+    'neutral': 'Gray-white gradient (neutral)',
+    'link': 'Text-only link-style'
 }
 
 BUTTON_SIZES = {

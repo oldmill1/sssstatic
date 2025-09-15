@@ -56,7 +56,7 @@ def generate_topbar_html(config):
     anchor_link = cta_link.startswith('#')
     topbar_html += '            <div class="topbar-cta-wrapper">\n'
     topbar_html += '                '
-    topbar_html += generate_button_html(cta_text, cta_link, 'cta', 'small', 'lightning', anchor_link)
+    topbar_html += generate_button_html(cta_text, cta_link, 'cta', 'default', 'small', 'lightning', anchor_link)
     topbar_html += '\n            </div>\n'
     
     topbar_html += '        </div>\n'

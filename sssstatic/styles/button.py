@@ -87,7 +87,48 @@ def get_button_styles():
             min-width: 6em;
         }
         
-        /* Override primary button sizes to use custom padding */
+        /* Override button sizes to use custom padding for gradient buttons */
+        .sss-button-default.sss-button-small,
+        .sss-button-warning.sss-button-small,
+        .sss-button-success.sss-button-small,
+        .sss-button-neutral.sss-button-small {
+            padding: 0.375rem 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .sss-button-default.sss-button-medium,
+        .sss-button-warning.sss-button-medium,
+        .sss-button-success.sss-button-medium,
+        .sss-button-neutral.sss-button-medium {
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .sss-button-default.sss-button-large,
+        .sss-button-warning.sss-button-large,
+        .sss-button-success.sss-button-large,
+        .sss-button-neutral.sss-button-large {
+            padding: 0.625rem 2rem;
+            font-size: 1.125rem;
+        }
+        
+        /* Link button sizes */
+        .sss-button-link.sss-button-small {
+            padding: 0.125rem 0.375rem;
+            font-size: 0.875rem;
+        }
+        
+        .sss-button-link.sss-button-medium {
+            padding: 0.25rem 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .sss-button-link.sss-button-large {
+            padding: 0.375rem 0.75rem;
+            font-size: 1.125rem;
+        }
+        
+        /* Legacy primary button - maps to default for backward compatibility */
         .sss-button-primary.sss-button-small {
             padding: 0.375rem 1rem;
             font-size: 0.875rem;
@@ -103,7 +144,7 @@ def get_button_styles():
             font-size: 1.125rem;
         }
         
-        /* Primary button - Custom button-7 design */
+        /* Primary button - Custom button-7 design with variants */
         .sss-button-primary {
             touch-action: manipulation;
             cursor: pointer;
@@ -126,17 +167,82 @@ def get_button_styles():
         
         .sss-button-primary:hover {
             filter: brightness(1.1);
+            text-decoration: none;
         }
         
         .sss-button-primary:active {
             transform: scale(.96);
+            text-decoration: none;
         }
         
         .sss-button-primary:focus {
             outline: none;
         }
         
-        /* Text styling for primary button with gradient text */
+        /* Primary button variants */
+        .sss-button-primary.sss-button-variant-default {
+            /* Default blue-green gradient - already defined above */
+        }
+        
+        .sss-button-primary.sss-button-variant-warning {
+            border: 1px solid #D84315;
+            background-image: linear-gradient(-180deg, #FF7043 0%, #D84315 100%);
+            box-shadow: 0 0.5rem 0.625rem 0 rgba(0,0,0,0.2),
+                        0 -0.125rem 0.75rem rgba(211, 47, 47, 1) inset,
+                        0 0.375rem 0.125rem rgba(255,255,255, 0.4) inset,
+                        0 0.125rem 0.25rem 0 rgba(255, 87, 34, 1) inset;
+        }
+        
+        .sss-button-primary.sss-button-variant-success {
+            border: 1px solid #1B5E20;
+            background-image: linear-gradient(-180deg, #66BB6A 0%, #2E7D32 100%);
+            box-shadow: 0 0.5rem 0.625rem 0 rgba(0,0,0,0.2),
+                        0 -0.125rem 0.75rem rgba(27, 94, 32, 1) inset,
+                        0 0.375rem 0.125rem rgba(255,255,255, 0.4) inset,
+                        0 0.125rem 0.25rem 0 rgba(76, 175, 80, 1) inset;
+        }
+        
+        .sss-button-primary.sss-button-variant-neutral {
+            border: 1px solid #424242;
+            background-image: linear-gradient(-180deg, #E0E0E0 0%, #9E9E9E 100%);
+            box-shadow: 0 0.5rem 0.625rem 0 rgba(0,0,0,0.2),
+                        0 -0.125rem 0.75rem rgba(66, 66, 66, 1) inset,
+                        0 0.375rem 0.125rem rgba(255,255,255, 0.4) inset,
+                        0 0.125rem 0.25rem 0 rgba(158, 158, 158, 1) inset;
+        }
+        
+        .sss-button-primary.sss-button-variant-link {
+            border: none;
+            background: transparent;
+            box-shadow: none;
+            color: #81C4F7;
+            text-decoration: none;
+            padding: 0;
+            border-radius: 0;
+            font-weight: 500;
+            display: inline;
+            text-align: left;
+        }
+        
+        .sss-button-primary.sss-button-variant-link:hover {
+            color: #1976D2;
+            text-decoration: none;
+            background: transparent;
+            filter: none;
+            transform: none;
+        }
+        
+        .sss-button-primary.sss-button-variant-link:active {
+            color: #0D47A1;
+            transform: none;
+        }
+        
+        .sss-button-primary.sss-button-variant-link:focus {
+            outline: 1px solid #4FC3F7;
+            outline-offset: 1px;
+        }
+        
+        /* Text styling for primary button variants */
         .sss-button-primary .sss-button-text {
             color: transparent;
             background-image: linear-gradient(0deg, #81C784 -10%, #FEFAFD 100%);
@@ -145,8 +251,36 @@ def get_button_styles():
             filter: drop-shadow(0 2px 2px hsla(120, 100%, 20%, 1));
         }
         
-        /* Top shine effect for primary button */
-        .sss-button-primary::before {
+        .sss-button-primary.sss-button-variant-warning .sss-button-text {
+            background-image: linear-gradient(0deg, #FFAB91 -10%, #FEFAFD 100%);
+            filter: drop-shadow(0 2px 2px hsla(14, 100%, 20%, 1));
+        }
+        
+        .sss-button-primary.sss-button-variant-success .sss-button-text {
+            background-image: linear-gradient(0deg, #A5D6A7 -10%, #FEFAFD 100%);
+            filter: drop-shadow(0 2px 2px hsla(120, 100%, 20%, 1));
+        }
+        
+        .sss-button-primary.sss-button-variant-neutral .sss-button-text {
+            background-image: linear-gradient(0deg, #F5F5F5 -10%, #424242 100%);
+            filter: drop-shadow(0 2px 2px hsla(0, 0%, 20%, 1));
+        }
+        
+        .sss-button-primary.sss-button-variant-link .sss-button-text {
+            color: inherit;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            filter: none;
+            text-decoration: inherit;
+        }
+        
+        /* Shine effects for primary button variants (except link) */
+        .sss-button-primary:not(.sss-button-variant-link)::before,
+        .sss-button-primary.sss-button-variant-default::before,
+        .sss-button-primary.sss-button-variant-warning::before,
+        .sss-button-primary.sss-button-variant-success::before,
+        .sss-button-primary.sss-button-variant-neutral::before {
             content: "";
             display: block;
             height: 0.125rem;
@@ -162,8 +296,11 @@ def get_button_styles():
             background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
         }
         
-        /* Bottom glow effect for primary button */
-        .sss-button-primary::after {
+        .sss-button-primary:not(.sss-button-variant-link)::after,
+        .sss-button-primary.sss-button-variant-default::after,
+        .sss-button-primary.sss-button-variant-warning::after,
+        .sss-button-primary.sss-button-variant-success::after,
+        .sss-button-primary.sss-button-variant-neutral::after {
             content: "";
             display: block;
             height: 0.125rem;
@@ -182,12 +319,28 @@ def get_button_styles():
         
         /* Adjust shine effects for different button sizes */
         .sss-button-primary.sss-button-small::before,
-        .sss-button-primary.sss-button-small::after {
+        .sss-button-primary.sss-button-small::after,
+        .sss-button-primary.sss-button-variant-default.sss-button-small::before,
+        .sss-button-primary.sss-button-variant-default.sss-button-small::after,
+        .sss-button-primary.sss-button-variant-warning.sss-button-small::before,
+        .sss-button-primary.sss-button-variant-warning.sss-button-small::after,
+        .sss-button-primary.sss-button-variant-success.sss-button-small::before,
+        .sss-button-primary.sss-button-variant-success.sss-button-small::after,
+        .sss-button-primary.sss-button-variant-neutral.sss-button-small::before,
+        .sss-button-primary.sss-button-variant-neutral.sss-button-small::after {
             width: calc(100% - 1rem);
         }
         
         .sss-button-primary.sss-button-large::before,
-        .sss-button-primary.sss-button-large::after {
+        .sss-button-primary.sss-button-large::after,
+        .sss-button-primary.sss-button-variant-default.sss-button-large::before,
+        .sss-button-primary.sss-button-variant-default.sss-button-large::after,
+        .sss-button-primary.sss-button-variant-warning.sss-button-large::before,
+        .sss-button-primary.sss-button-variant-warning.sss-button-large::after,
+        .sss-button-primary.sss-button-variant-success.sss-button-large::before,
+        .sss-button-primary.sss-button-variant-success.sss-button-large::after,
+        .sss-button-primary.sss-button-variant-neutral.sss-button-large::before,
+        .sss-button-primary.sss-button-variant-neutral.sss-button-large::after {
             width: calc(100% - 2rem);
         }
         

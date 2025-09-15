@@ -9,9 +9,14 @@ The button component consolidates all existing button implementations into a sin
 ## Available Button Styles
 
 ### 1. Primary (`primary`)
-- **Description**: Custom gradient button with blue-to-green gradient and sophisticated shine effects
-- **Use Case**: Main call-to-action buttons
-- **Color**: Blue-to-green gradient (#4FC3F7 to #2E7D32) with gradient text effect
+- **Description**: Beautiful gradient button with sophisticated shine effects and multiple variants
+- **Use Case**: Main call-to-action buttons, primary actions
+- **Variants**: 
+  - `default`: Blue-green gradient (#4FC3F7 to #2E7D32)
+  - `warning`: Orange-red gradient (#FF7043 to #D84315)
+  - `success`: Green gradient (#66BB6A to #2E7D32)
+  - `neutral`: Gray-white gradient (#E0E0E0 to #9E9E9E)
+  - `link`: Text-only link-style (#1976D2)
 - **Hover**: Brightness increase (1.1x) with scale animation on click
 
 ### 2. Secondary (`secondary`)
@@ -55,14 +60,23 @@ The button component consolidates all existing button implementations into a sin
 ```python
 from sssstatic.components.button import generate_button_html
 
-# Basic primary button
-button_html = generate_button_html("Get Started", "https://example.com", "primary")
+# Primary button with default variant (blue-green gradient)
+button_html = generate_button_html("Get Started", "https://example.com", "primary", "default")
 
-# Button with icon
-button_html = generate_button_html("Contact Us", "/contact", "cta", "medium", "lightning")
+# Primary button with warning variant (orange-red gradient)
+button_html = generate_button_html("Delete Account", "/delete", "primary", "warning")
+
+# Primary button with success variant (green gradient)
+button_html = generate_button_html("Save Changes", "/save", "primary", "success")
+
+# Primary button with link variant (text-only)
+button_html = generate_button_html("Learn More", "/learn", "primary", "link")
+
+# Other button styles (no variants)
+button_html = generate_button_html("Contact Us", "/contact", "cta", "default", "medium", "lightning")
 
 # Anchor link button (for smooth scrolling)
-button_html = generate_button_html("Scroll to Top", "#top", "primary", "medium", None, True)
+button_html = generate_button_html("Scroll to Top", "#top", "primary", "default", "medium", None, True)
 ```
 
 ### Button Groups
@@ -71,8 +85,9 @@ button_html = generate_button_html("Scroll to Top", "#top", "primary", "medium",
 from sssstatic.components.button import generate_button_group_html
 
 buttons_config = [
-    {"text": "Primary Action", "url": "/primary", "style": "primary"},
-    {"text": "Secondary Action", "url": "/secondary", "style": "secondary"},
+    {"text": "Get Started", "url": "/start", "style": "primary", "variant": "default"},
+    {"text": "Delete Account", "url": "/delete", "style": "primary", "variant": "warning"},
+    {"text": "Save Changes", "url": "/save", "style": "primary", "variant": "success"},
     {"text": "Learn More", "url": "/learn", "style": "gradient", "icon": "arrow"}
 ]
 
@@ -93,6 +108,7 @@ Each button in a group can have the following properties:
 - `text` (str): Button text
 - `url` (str): Button URL
 - `style` (str): Button style ('primary', 'secondary', 'gradient', 'cta')
+- `variant` (str): Button variant for primary style ('default', 'warning', 'success', 'neutral', 'link')
 - `size` (str): Button size ('small', 'medium', 'large')
 - `icon` (str): Icon to display
 - `anchor_link` (bool): Whether this is an anchor link for smooth scrolling
