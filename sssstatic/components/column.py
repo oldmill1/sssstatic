@@ -24,6 +24,7 @@ def generate_column_html(config):
     from .sslogan import generate_sslogan_html
     from .map import generate_map_html
     from .component import generate_component_html
+    from .text import generate_text_html
     
     # Component mapping for dynamic generation
     component_generators = {
@@ -39,6 +40,7 @@ def generate_column_html(config):
         '_sslogan': generate_sslogan_html,
         '_map': generate_map_html,
         '_component': generate_component_html,
+        '_text': generate_text_html,
     }
     
     # Collect all components first to determine layout

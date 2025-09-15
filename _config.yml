@@ -27,7 +27,21 @@ _row:
           - "From idea to a beautiful, responsive website in just a few lines of text. Perfect for portfolios, docs, and landing pages."
   - _column:
     - _component:
-        html: "<h1>Column 1</h1>"
+        content:
+          - _text:
+              content: "Good for the planet."
+              type: "h1"
+              size: "xlarge"
+              weight: "light"
+              # paddingBlock: "1rem"
+              lineHeight: "small"
+          - _text:
+              content: "If your device is in good shape, we'll help get it to a new owner. Or, if it's seen better days, we can recycle it for free."
+              type: "p"
+              size: "medium"
+              weight: "thin"
+              lineHeight: "medium"
+              paddingBlock: "0.5rem"
     - _component:
         html: "<h1>Column 2</h1>"
     - _component:
