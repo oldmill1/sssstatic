@@ -4,7 +4,7 @@ Button component module for SSSStatic - centralized button component
 """
 
 
-def generate_button_html(text, url='#', style='primary', variant='default', size='medium', icon=None, anchor_link=False):
+def generate_button_html(text, url='#', style='primary', variant='default', size='medium', icon=None, anchor_link=False, align='center'):
     """
     Generate HTML for a button component.
     
@@ -26,7 +26,7 @@ def generate_button_html(text, url='#', style='primary', variant='default', size
         scroll_to = url[1:]  # Remove the # symbol
     
     # Build CSS classes
-    css_classes = ['sss-button', f'sss-button-{style}', f'sss-button-{size}']
+    css_classes = ['sss-button', f'sss-button-{style}', f'sss-button-{size}', f'align-{align}']
     
     # Add variant class if provided and style is primary
     if style == 'primary' and variant:

@@ -37,6 +37,7 @@ def generate_sticker_html(config):
     opacity = sticker_data.get('opacity', 1.0)
     rotation = sticker_data.get('rotation', 0)
     animation = sticker_data.get('animation', 'none')
+    align = sticker_data.get('align', 'center')  # left, center, right
     
     if not name:
         return ""
@@ -45,6 +46,7 @@ def generate_sticker_html(config):
     css_classes = ['sticker-component']
     css_classes.append(f'sticker-size-{size}')
     css_classes.append(f'sticker-position-{position}')
+    css_classes.append(f'align-{align}')
     
     if animation != 'none':
         css_classes.append(f'sticker-animation-{animation}')

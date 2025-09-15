@@ -46,8 +46,9 @@ def generate_component_html(config):
                             size = button_config.get('size', 'medium')
                             icon = button_config.get('icon', None)
                             anchor_link = button_config.get('anchor_link', False)
+                            align = button_config.get('align', 'center')
                             
-                            button_html = generate_button_html(text, url, style, variant, size, icon, anchor_link)
+                            button_html = generate_button_html(text, url, style, variant, size, icon, anchor_link, align)
                             if button_html:
                                 content_htmls.append(button_html)
                     

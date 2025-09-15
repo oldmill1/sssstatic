@@ -68,4 +68,17 @@ def get_component_css():
     color: rgb(148, 202, 224);
     text-decoration: underline;
 }
+
+/* Individual component alignment */
+.align-left {
+    align-self: flex-start !important;
+}
+
+.align-center {
+    align-self: center !important;
+}
+
+.align-right {
+    align-self: flex-end !important;
+}
 """

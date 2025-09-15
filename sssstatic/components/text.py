@@ -43,6 +43,7 @@ def generate_text_html(config):
     emoji_left = text_data.get('emojiLeft', '')
     emoji_right = text_data.get('emojiRight', '')
     emoji_top = text_data.get('emojiTop', '')
+    align = text_data.get('align', 'center')  # left, center, right
     
     if not text_content:
         return ""
@@ -52,6 +53,7 @@ def generate_text_html(config):
     css_classes.append(f'text-size-{size}')
     css_classes.append(f'text-weight-{weight}')
     css_classes.append(f'text-line-height-{line_height}')
+    css_classes.append(f'align-{align}')
     
     # Build inline styles for padding (use margin instead to avoid bleeding)
     inline_styles = []
