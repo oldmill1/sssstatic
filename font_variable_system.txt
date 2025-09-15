@@ -1,0 +1,60 @@
+SSSStatic CSS Variables System
+==============================
+
+OVERVIEW
+--------
+SSSStatic uses a comprehensive CSS custom properties (variables) system to promote flexibility, consistency, and maintainability across all components. This system allows for easy theming, build-time color mode switching, and component reusability.
+
+KEY PRINCIPLES
+--------------
+1. NEVER hardcode colors in component styles
+2. ALWAYS use CSS custom properties (var(--variable-name))
+3. Provide fallback values for variables (var(--variable-name, #fallback))
+4. Let the theme system handle color logic, not individual components
+
+CORE VARIABLES
+--------------
+--text-color: Primary text color (adapts to theme)
+--text-secondary: Secondary text color (lighter/darker than primary)
+--accent-color: Brand/accent color (typically blue #80b6cc)
+--background-color: Main background color
+--heading-font: Font family for headings
+--body-font: Font family for body text
+
+USAGE EXAMPLES
+--------------
+✅ CORRECT:
+.sieve-subheading {
+    color: var(--text-color);
+    font-family: var(--heading-font, 'Inter', sans-serif);
+}
+
+❌ WRONG:
+.sieve-subheading {
+    color: #ffffff;  /* Hardcoded - breaks theming */
+    font-family: 'Inter', sans-serif;  /* Hardcoded - not flexible */
+}
+
+THEME ADAPTATION
+----------------
+The variables automatically adapt to the theme set at build time:
+- Light mode: --text-color becomes dark (e.g., #000000)
+- Dark mode: --text-color becomes light (e.g., #ffffff)
+- Components automatically inherit the correct colors
+
+BENEFITS
+--------
+- Flexibility: Easy theme switching without touching components
+- Consistency: All components use the same color palette
+- Maintainability: Change colors in one place, update everywhere
+- Reusability: Components work across different projects/themes
+- Scalability: Easy to add new themes or color schemes
+
+IMPLEMENTATION NOTES
+-------------------
+- Variables are defined in the main theme system (theme_styles.py)
+- Components should only reference variables, never define them
+- Fallback values ensure graceful degradation if variables are missing
+- The system supports both light/dark modes and custom themes
+
+This system is what makes SSSStatic components truly flexible and theme-aware.
