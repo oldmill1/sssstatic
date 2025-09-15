@@ -53,7 +53,7 @@ _row:
               url: "https://github.com/yourusername/sssstatic"
               style: "primary"
               variant: "link"
-              size: "medium"¡
+              size: "medium"
               # icon: "star"
     - _component:
         html: "<h1>Column 2</h1>"
