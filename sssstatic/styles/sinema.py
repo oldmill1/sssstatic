@@ -16,6 +16,12 @@ def get_sinema_styles():
             display: flex;
             align-items: center;
             justify-content: center;
+            border-left: none !important;
+            padding-left: 0 !important;
+        }
+        
+        .sinema-section::before {
+            display: none !important;
         }
         
         .sinema-container {
@@ -48,7 +54,6 @@ def get_sinema_styles():
             box-shadow: 
                 0 8px 32px rgba(0, 0, 0, 0.1),
                 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e1e5e9;
             position: relative;
         }
         

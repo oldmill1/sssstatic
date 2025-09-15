@@ -41,6 +41,7 @@ def get_global_css(config=None):
     from .styles.type import get_font_styles
     from .styles.cards import get_card_styles
     from .styles.topbar import get_topbar_styles
+    from .styles.row import get_row_styles
     from .styles.spotlight import get_spotlight_styles
     from .styles.widescreen_spotlight import get_widescreen_spotlight_styles
     from .styles.pinterest import get_pinterest_styles
@@ -443,7 +444,7 @@ def get_global_css(config=None):
         }
         
         
-        """ + get_card_styles() + get_spotlight_styles() + get_widescreen_spotlight_styles() + get_pinterest_styles() + get_showcase_styles() + get_slick_styles() + get_sizzle_styles() + get_sly_styles() + get_sinema_styles() + get_map_styles() + get_footer_styles()
+        """ + get_card_styles() + get_row_styles() + get_spotlight_styles() + get_widescreen_spotlight_styles() + get_pinterest_styles() + get_showcase_styles() + get_slick_styles() + get_sizzle_styles() + get_sly_styles() + get_sinema_styles() + get_map_styles() + get_footer_styles()
 
 
 

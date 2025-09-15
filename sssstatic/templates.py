@@ -46,6 +46,7 @@ def generate_site_html(config, content_html, dev_mode=False):
     from .components.page_header import generate_page_header_html
     from .components.image import generate_image_html
     from .components.topbar import generate_topbar_html
+    from .components.row import generate_row_html
     from .components.cards import generate_cards_html
     from .components.spotlight import generate_spotlight_html
     from .components.widescreen_spotlight import generate_widescreen_spotlight_html
@@ -85,6 +86,7 @@ def generate_site_html(config, content_html, dev_mode=False):
 
     # Component mapping for dynamic generation
     component_generators = {
+        '_row': generate_row_html,
         '_card': generate_cards_html,
         '_spotlight': generate_spotlight_html,
         '_widescreen_spotlight': generate_widescreen_spotlight_html,

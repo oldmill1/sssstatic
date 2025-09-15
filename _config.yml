@@ -12,9 +12,10 @@ _topbar:
   link: "#contact"
   size: "large"
 
-# Sinema Terminal Component
-_sinema:
-  title: "SINEMA TERMINAL"
-  subtitle: "Vintage Computing Experience"
-  terminal_text: "Nice to meet you"
-  boot_delay: 2000
+# Row component containing sinema
+_row:
+  - _sinema:
+      title: "SINEMA TERMINAL"
+      subtitle: "Vintage Computing Experience"
+      terminal_text: "Nice to meet you"
+      boot_delay: 2000
