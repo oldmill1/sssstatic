@@ -22,7 +22,7 @@ def generate_row_html(config):
     from .sizzle import generate_sizzle_html
     from .sly import generate_sly_html
     from .sinema import generate_sinema_html
-    from .sieve import generate_sieve_html
+    from .sslogan import generate_sslogan_html
     from .map import generate_map_html
     from .column import generate_column_html
     from .component import generate_component_html
@@ -38,7 +38,7 @@ def generate_row_html(config):
         '_sizzle': generate_sizzle_html,
         '_sly': generate_sly_html,
         '_sinema': generate_sinema_html,
-        '_sieve': generate_sieve_html,
+        '_sslogan': generate_sslogan_html,
         '_map': generate_map_html,
         '_column': generate_column_html,
         '_component': generate_component_html,

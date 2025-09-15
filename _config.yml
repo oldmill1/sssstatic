@@ -20,7 +20,7 @@ _row:
         subtitle: "Vintage Computing Experience"
         terminal_text: "Nice to meet you"
         boot_delay: 2000
-    - _sieve:
+    - _sslogan:
         heading: "Build this website with SSSStatic 🪄"
         subheading: "Go live in thirty seconds. 🚀"
         paragraphs:

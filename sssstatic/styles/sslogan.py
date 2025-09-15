@@ -1,34 +1,34 @@
-# sssstatic/styles/sieve.py
+# sssstatic/styles/sslogan.py
 """
-Sieve styles for SSSStatic - CSS for typography-based content display
+SSlogan styles for SSSStatic - CSS for typography-based content display
 """
 
 
-def get_sieve_styles():
-    """Return CSS styles for sieve component."""
+def get_sslogan_styles():
+    """Return CSS styles for sslogan component."""
     from .type import get_font_styles
     return get_font_styles() + """
-/* Sieve Component Styles */
-.sieve-section {
+/* SSlogan Component Styles */
+.sslogan-section {
     width: 100%;
     padding: 1.5rem 1rem;
     margin: 0;
     background: transparent;
 }
 
-.sieve-container {
+.sslogan-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 0;
 }
 
-.sieve-content {
+.sslogan-content {
     text-align: left;
     line-height: 1.6;
 }
 
 /* Typography Hierarchy */
-.sieve-heading {
+.sslogan-heading {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-color, #ffffff);
@@ -38,7 +38,7 @@ def get_sieve_styles():
     font-family: var(--heading-font, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
 }
 
-.sieve-subheading {
+.sslogan-subheading {
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--text-color);
@@ -48,7 +48,7 @@ def get_sieve_styles():
     font-family: var(--heading-font, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
 }
 
-.sieve-paragraph {
+.sslogan-paragraph {
     font-size: 1.125rem;
     font-weight: 400;
     color: var(--text-secondary, #e1e8ed);
@@ -57,52 +57,52 @@ def get_sieve_styles():
     font-family: var(--body-font, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
 }
 
-.sieve-paragraph:last-child {
+.sslogan-paragraph:last-child {
     margin-bottom: 0;
 }
 
 /* Responsive Design */
 @media (min-width: 768px) {
-    .sieve-section {
+    .sslogan-section {
         padding: 2rem 1.5rem;
     }
     
-    .sieve-heading {
+    .sslogan-heading {
         font-size: 3rem;
         margin-bottom: 2rem;
     }
     
-    .sieve-subheading {
+    .sslogan-subheading {
         font-size: 1.75rem;
         margin-bottom: 1.5rem;
     }
     
-    .sieve-paragraph {
+    .sslogan-paragraph {
         font-size: 1.25rem;
         margin-bottom: 1.75rem;
     }
 }
 
 @media (min-width: 1024px) {
-    .sieve-section {
+    .sslogan-section {
         padding: 2.5rem 2rem;
     }
     
-    .sieve-container {
+    .sslogan-container {
         max-width: 900px;
     }
     
-    .sieve-heading {
+    .sslogan-heading {
         font-size: 3.5rem;
         margin-bottom: 2.5rem;
     }
     
-    .sieve-subheading {
+    .sslogan-subheading {
         font-size: 2rem;
         margin-bottom: 2rem;
     }
     
-    .sieve-paragraph {
+    .sslogan-paragraph {
         font-size: 1.375rem;
         margin-bottom: 2rem;
     }
@@ -110,31 +110,31 @@ def get_sieve_styles():
 
 /* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
-    .sieve-heading {
+    .sslogan-heading {
         color: var(--text-color);
     }
     
-    .sieve-subheading {
+    .sslogan-subheading {
         color: var(--text-color);
     }
     
-    .sieve-paragraph {
+    .sslogan-paragraph {
         color: var(--text-secondary);
     }
 }
 
 /* Focus states for accessibility */
-.sieve-heading:focus,
-.sieve-subheading:focus {
+.sslogan-heading:focus,
+.sslogan-subheading:focus {
     outline: 2px solid var(--accent-color, #80b6cc);
     outline-offset: 2px;
     border-radius: 4px;
 }
 
 /* Smooth transitions */
-.sieve-heading,
-.sieve-subheading,
-.sieve-paragraph {
+.sslogan-heading,
+.sslogan-subheading,
+.sslogan-paragraph {
     transition: color 0.2s ease-in-out;
 }
 """

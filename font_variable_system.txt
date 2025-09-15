@@ -40,13 +40,13 @@ CORE VARIABLES
 USAGE EXAMPLES
 --------------
 ✅ CORRECT:
-.sieve-subheading {
+.sslogan-subheading {
     color: var(--text-color);
     font-family: var(--heading-font, 'Inter', sans-serif);
 }
 
 ❌ WRONG:
-.sieve-subheading {
+.sslogan-subheading {
     color: #ffffff;  /* Hardcoded - breaks theming */
     font-family: 'Inter', sans-serif;  /* Hardcoded - not flexible */
 }
