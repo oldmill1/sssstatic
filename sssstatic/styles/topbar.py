@@ -8,10 +8,12 @@ def get_topbar_styles(config=None):
     """Return CSS styles for TopBar component with responsive colors."""
     from .type import get_font_styles
     
-    # Get custom font from topbar config
+    # Get custom font and size from topbar config
     custom_font = None
+    topbar_size = 'small'  # default size
     if config and '_topbar' in config:
         custom_font = config['_topbar'].get('titleFont', None)
+        topbar_size = config['_topbar'].get('size', 'small')
     
     # Determine colors based on color mode
     if config and 'site' in config:
@@ -48,6 +50,29 @@ def get_topbar_styles(config=None):
         topbar_cta_bg_hover = '#333333'
         topbar_cta_border = '#333'
     
+    # Define size variables based on topbar_size
+    if topbar_size == 'large':
+        container_height = '90px'
+        brand_font_size = 'var(--font-size-3xl)'
+        brand_letter_spacing = '1px'
+        cta_padding = '1rem 2rem'
+        cta_font_size = 'var(--font-size-lg)'
+        container_padding = '0 2.5rem'
+    elif topbar_size == 'medium':
+        container_height = '80px'
+        brand_font_size = 'var(--font-size-2xl)'
+        brand_letter_spacing = '0.75px'
+        cta_padding = '0.875rem 1.75rem'
+        cta_font_size = 'var(--font-size-base)'
+        container_padding = '0 2rem'
+    else:  # small (default)
+        container_height = '70px'
+        brand_font_size = 'var(--font-size-xl)'
+        brand_letter_spacing = '0.5px'
+        cta_padding = '0.75rem 1.5rem'
+        cta_font_size = 'var(--font-size-base)'
+        container_padding = '0 2rem'
+    
     return get_font_styles() + f"""
         /* TopBar Styles - Responsive Color Mode Navigation */
         .topbar {{
@@ -64,21 +89,21 @@ def get_topbar_styles(config=None):
         .topbar-container {{
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: {container_padding};
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 70px;
+            min-height: {container_height};
             gap: 2rem;
         }}
         
         .topbar-brand {{
             font-family: {f'"{custom_font}", ' if custom_font else ''}var(--font-primary);
-            font-size: var(--font-size-xl);
+            font-size: {brand_font_size};
             font-weight: var(--font-weight-bold);
             color: {topbar_text};
             text-decoration: none;
-            letter-spacing: 0.5px;
+            letter-spacing: {brand_letter_spacing};
             margin: 0;
             transition: color 0.2s ease;
             flex-shrink: 0;
@@ -133,12 +158,12 @@ def get_topbar_styles(config=None):
             color: {topbar_text};
             text-decoration: none;
             border-radius: 8px;
-            padding: 0.75rem 1.5rem;
+            padding: {cta_padding};
             display: flex;
             align-items: center;
             gap: 0.5rem;
             font-family: var(--font-primary);
-            font-size: var(--font-size-base);
+            font-size: {cta_font_size};
             font-weight: var(--font-weight-medium);
             transition: all 0.2s ease;
             border: 1px solid {topbar_cta_border};
@@ -181,7 +206,7 @@ def get_topbar_styles(config=None):
             }}
             
             .topbar-brand {{
-                font-size: var(--font-size-lg);
+                font-size: {brand_font_size if topbar_size == 'small' else 'var(--font-size-lg)'};
                 order: 1;
                 flex: 1;
                 text-align: left;
@@ -204,8 +229,8 @@ def get_topbar_styles(config=None):
             }}
             
             .topbar-cta {{
-                padding: 0.5rem 1rem;
-                font-size: var(--font-size-sm);
+                padding: {cta_padding if topbar_size == 'small' else '0.5rem 1rem'};
+                font-size: {cta_font_size if topbar_size == 'small' else 'var(--font-size-sm)'};
             }}
             
             .topbar-link {{

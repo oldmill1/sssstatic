@@ -6,10 +6,11 @@ site:
 
 # TopBar navigation with CTA button
 _topbar:
-  title: "Welcome to Sssstatic"
-  titleFont: "Bitcount Grid Double"
+  title: "sssstatic"
+  titleFont: "Original Surfer"
   cta: "Get Started"
   link: "#contact"
+  size: "large"
 
 # Sinema Terminal Component
 _sinema:

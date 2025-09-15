@@ -22,6 +22,19 @@ from .styles.map import get_map_styles
 
 
 
+def get_topbar_padding(config=None):
+    """Return the appropriate body padding based on topbar size."""
+    if config and '_topbar' in config:
+        topbar_size = config['_topbar'].get('size', 'small')
+        if topbar_size == 'large':
+            return '90px'
+        elif topbar_size == 'medium':
+            return '80px'
+        else:  # small (default)
+            return '70px'
+    return '70px'  # default
+
+
 def get_global_css(config=None):
     """Return global CSS styles with conditional background based on colorMode."""
     from .styles.footer import get_footer_styles
@@ -78,7 +91,7 @@ def get_global_css(config=None):
         
         /* When TopBar is used, adjust body padding */
         body.has-topbar {
-            padding-top: 70px;
+            padding-top: """ + get_topbar_padding(config) + """;
         }
         
         """ + get_topbar_styles(config) + """
