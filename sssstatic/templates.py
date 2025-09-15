@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>"""
 
 
-def generate_site_html(config, content_html):
+def generate_site_html(config, content_html, dev_mode=False):
     """Generate complete HTML page from config and content HTML."""
     from .components.page_header import generate_page_header_html
     from .components.image import generate_image_html
@@ -105,6 +105,13 @@ def generate_site_html(config, content_html):
     # Check if anchor links are present to add smooth scrolling JavaScript
     has_anchor_links = '_anchorLinks' in config
     
+    # Add timestamp to CSS link in dev mode for cache busting
+    css_link = "assets/styles.css"
+    if dev_mode:
+        import time
+        timestamp = int(time.time())
+        css_link = f"assets/styles.css?v={timestamp}"
+    
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,7 +119,7 @@ def generate_site_html(config, content_html):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{page_title}</title>
 {get_google_fonts_imports()}
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="{css_link}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body class="{body_class}">

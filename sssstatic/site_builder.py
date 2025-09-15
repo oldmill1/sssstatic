@@ -39,11 +39,63 @@ def copy_assets():
     return False
 
 
-def generate_css_file(config):
+def generate_css_file(config, dev_mode=False):
     """Generate styles.css file in assets folder."""
     # Create assets directory in _site
     assets_dir = Path("_site") / "assets"
     assets_dir.mkdir(exist_ok=True)
+
+    # In dev mode, reload modules to pick up changes
+    if dev_mode:
+        import importlib
+        import sys
+        
+        # Reload all style and component modules
+        modules_to_reload = [
+            # Style modules
+            'sssstatic.styles.sinema',
+            'sssstatic.styles.cards',
+            'sssstatic.styles.spotlight',
+            'sssstatic.styles.widescreen_spotlight',
+            'sssstatic.styles.pinterest',
+            'sssstatic.styles.showcase',
+            'sssstatic.styles.slick',
+            'sssstatic.styles.sizzle',
+            'sssstatic.styles.sly',
+            'sssstatic.styles.map',
+            'sssstatic.styles.footer',
+            'sssstatic.styles.topbar',
+            'sssstatic.styles.type',
+            'sssstatic.theme_styles',
+            # Component modules
+            'sssstatic.components.sinema',
+            'sssstatic.components.cards',
+            'sssstatic.components.spotlight',
+            'sssstatic.components.widescreen_spotlight',
+            'sssstatic.components.pinterest',
+            'sssstatic.components.showcase',
+            'sssstatic.components.slick',
+            'sssstatic.components.sizzle',
+            'sssstatic.components.sly',
+            'sssstatic.components.map',
+            'sssstatic.components.page_header',
+            'sssstatic.components.image',
+            'sssstatic.components.topbar',
+            'sssstatic.templates'
+        ]
+        
+        for module_name in modules_to_reload:
+            try:
+                if module_name in sys.modules:
+                    importlib.reload(sys.modules[module_name])
+                    console.print(f"[dim]>>> Reloaded module: {module_name}[/dim]")
+                else:
+                    # Import the module first, then reload it
+                    __import__(module_name)
+                    importlib.reload(sys.modules[module_name])
+                    console.print(f"[dim]>>> Imported and reloaded module: {module_name}[/dim]")
+            except Exception as e:
+                console.print(f"[dim red]>>> Failed to reload {module_name}: {e}[/dim red]")
 
     # Get global CSS with config for conditional styling
     css_content = get_global_css(config)
@@ -119,7 +171,7 @@ def generate_page_html(page_config, base_config):
     return generate_site_html(page_merged_config, content_html)
 
 
-def build_site():
+def build_site(dev_mode=False):
     """Main build function - reads config and generates HTML."""
     config_path = Path("_config.yml")
 
@@ -150,13 +202,13 @@ def build_site():
     copy_assets()
 
     # Generate CSS file in assets folder
-    generate_css_file(config)
+    generate_css_file(config, dev_mode)
 
     # Generate main index.html
     # Create a config that includes all necessary components for template generation
     template_config = dict(config)  # Start with full config
     
-    html = generate_site_html(template_config, content_html)
+    html = generate_site_html(template_config, content_html, dev_mode)
     output_file = output_dir / "index.html"
     output_file.write_text(html, encoding='utf-8')
     console.print(f"[bright_blue]>>> Generated index.html[/bright_blue]")
@@ -174,3 +226,5 @@ def build_site():
     console.print(f"[dim]>>> Styles: {output_dir / 'assets' / 'styles.css'}[/dim]")
 
     return True
+
+

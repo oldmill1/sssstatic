@@ -33,6 +33,13 @@ class SSSStaticHandler(SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
         self.send_header('Pragma', 'no-cache')
         self.send_header('Expires', '0')
+        
+        # Add ETag with timestamp for CSS files to force refresh
+        if self.path.endswith('.css'):
+            import time
+            etag = f'"{int(time.time())}"'
+            self.send_header('ETag', etag)
+        
         super().end_headers()
 
 
@@ -53,14 +60,19 @@ class DevBuildHandler(FileSystemEventHandler):
             
         # Check if the file is a Python file, YAML file, or config file
         file_path = Path(event.src_path)
+        console.print(f"[dim]>>> File modified: {file_path}[/dim]")
+        
         if file_path.suffix not in ['.py', '.yml', '.yaml'] and file_path.name != '_config.yml':
+            console.print(f"[dim]>>> Ignoring file (not watched): {file_path}[/dim]")
             return
             
         # Avoid rapid successive builds
         current_time = time.time()
         if current_time - self.last_build_time < self.build_cooldown or self.is_building:
+            console.print(f"[dim]>>> Skipping build (cooldown or building): {file_path}[/dim]")
             return
             
+        console.print(f"[dim]>>> Triggering build for: {file_path}[/dim]")
         self.last_build_time = current_time
         self._trigger_build()
     
@@ -94,16 +106,32 @@ class DevBuildHandler(FileSystemEventHandler):
             config_dir = self.config_path.parent
             os.chdir(config_dir)
             
-            # Build the site
-            success = build_site()
+            # Check if _site directory exists before build
+            site_dir = config_dir / "_site"
+            console.print(f"[dim]>>> Building from: {config_dir}[/dim]")
+            console.print(f"[dim]>>> Site directory: {site_dir}[/dim]")
+            
+            # Build the site in dev mode
+            success = build_site(dev_mode=True)
             
             if success:
                 console.print(f"[bold green]✅ Site rebuilt successfully![/bold green]")
+                # Check if files were actually updated
+                css_file = site_dir / "assets" / "styles.css"
+                html_file = site_dir / "index.html"
+                if css_file.exists():
+                    css_mtime = css_file.stat().st_mtime
+                    console.print(f"[dim]>>> CSS file updated: {css_mtime}[/dim]")
+                if html_file.exists():
+                    html_mtime = html_file.stat().st_mtime
+                    console.print(f"[dim]>>> HTML file updated: {html_mtime}[/dim]")
             else:
                 console.print(f"[bold red]❌ Site rebuild failed![/bold red]")
                 
         except Exception as e:
             console.print(f"[bold red]❌ Unexpected error during rebuild: {e}[/bold red]")
+            import traceback
+            console.print(f"[dim red]{traceback.format_exc()}[/dim red]")
         finally:
             # Restore original directory
             os.chdir(original_dir)
@@ -184,7 +212,7 @@ def start_enhanced_dev_server(port=8000):
     os.chdir(config_dir)
     
     try:
-        if not build_site():
+        if not build_site(dev_mode=True):
             show_critical_error("Build failed", "Could not build site from config")
             return False
     finally:
