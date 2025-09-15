@@ -55,19 +55,7 @@ def get_column_css():
     min-width: 0; /* Prevents flex items from overflowing */
 }
 
-/* Multiple columns in a row */
-.row-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-@media (min-width: 768px) {
-    .row-section {
-        flex-direction: row;
-        gap: 2rem;
-    }
-}
+/* Multiple columns in a row - handled by row styles */
 
 /* Column content spacing */
 .column > * {

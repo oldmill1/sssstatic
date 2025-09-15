@@ -1,6 +1,7 @@
 # sssstatic/components/row.py
 """
 Row component for SSSStatic - container for organizing components in rows/sections
+Enhanced to support multiple columns and vertical stacking
 """
 
 
@@ -43,11 +44,50 @@ def generate_row_html(config):
         '_component': generate_component_html,
     }
     
+    # Handle multiple rows (vertical stacking)
+    if isinstance(row_data, list) and len(row_data) > 1:
+        # Check if we have multiple rows or multiple columns in one row
+        # If any item has multiple components, treat as multiple columns
+        has_multiple_components = any(
+            isinstance(item, dict) and len(item) > 1 
+            for item in row_data
+        )
+        
+        if has_multiple_components:
+            # Multiple columns in a single row
+            return _generate_single_row_with_columns(row_data, component_generators)
+        else:
+            # Multiple rows - stack them vertically
+            rows_html = ""
+            for row_item in row_data:
+                if isinstance(row_item, dict):
+                    # Each row item should contain components
+                    row_html = '    <section class="row-section">\n'
+                    
+                    # Process components within this row
+                    for component_key, component_config in row_item.items():
+                        if component_key in component_generators:
+                            temp_config = {component_key: component_config}
+                            component_html = component_generators[component_key](temp_config)
+                            if component_html:
+                                row_html += component_html
+                    
+                    row_html += '    </section>\n'
+                    rows_html += row_html
+            
+            return rows_html
+    
+    # Single row with multiple columns
+    return _generate_single_row_with_columns(row_data, component_generators)
+
+
+def _generate_single_row_with_columns(row_data, component_generators):
+    """Generate HTML for a single row with multiple columns."""
     row_html = '    <section class="row-section">\n'
     
     # Handle different row data structures
     if isinstance(row_data, list):
-        # If it's a list, process each item
+        # If it's a list, process each item as a column
         for item in row_data:
             if isinstance(item, dict):
                 # Each item should be a component

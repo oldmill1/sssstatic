@@ -12,7 +12,7 @@ _topbar:
   link: "#contact"
   size: "large"
 
-# Row component containing sinema
+# Multiple rows - each row is a separate section
 _row:
   - _column:
     - _sinema:
@@ -21,7 +21,16 @@ _row:
         terminal_text: "Nice to meet you"
         boot_delay: 2000
     - _sieve:
-        heading: "Build this website with SSSStatic"
-        subheading: "You can make one in just thirty seconds."
+        heading: "Build this website with SSSStatic 🪄"
+        subheading: "Go live in thirty seconds. 🚀"
         paragraphs:
-          - "Go from idea to a beautiful, responsive website in just a few lines of text. Perfect for portfolios, docs, and landing pages."
+          - "From idea to a beautiful, responsive website in just a few lines of text. Perfect for portfolios, docs, and landing pages."
+  - _column:
+    - _component:
+        html: "<h1>Column 1</h1>"
+    - _component:
+        html: "<h1>Column 2</h1>"
+    - _component:
+        html: "<h1>Column 3</h1>"
+    - _component:
+        html: "<h1>Column 4</h1>"
