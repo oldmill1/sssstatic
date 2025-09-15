@@ -36,7 +36,7 @@ def get_component_css():
 .component-container h6 {
     margin-top: 0;
     margin-bottom: 1rem;
-    color: #f8f9fa;
+    color: var(--text-color);
 }
 
 .component-container p {

@@ -51,16 +51,19 @@ def get_global_css(config=None):
     from .styles.slick import get_slick_styles
     from .styles.sizzle import get_sizzle_styles
     
-    # Determine the background color based on config
+    # Determine the background color and text color based on config
     if config and 'site' in config:
         color_mode = config['site'].get('colorMode', 'dark')
         if color_mode == 'light':
             body_bg_color = '#f8f9fa'
+            text_color = '#1a1a1a'  # Dark text for light background
         else:  # dark mode or any other value defaults to dark
             body_bg_color = '#000000'  # True dark black color
+            text_color = '#f8f9fa'  # Light text for dark background
     else:
         # Default to dark mode if no config provided
         body_bg_color = '#000000'
+        text_color = '#f8f9fa'
     
     return get_font_styles() + """
         :root {
@@ -79,6 +82,7 @@ def get_global_css(config=None):
             --status-unknown-bg: #484f58;
             --status-unknown-text: #f0f6fc;
             --body-bg-color: """ + body_bg_color + """;
+            --text-color: """ + text_color + """;
         }
         
         body {
@@ -128,17 +132,17 @@ def get_global_css(config=None):
             text-transform: lowercase;
         }
         
-        /* Fallback h1 for single-line titles */
+        /* Global h1 styling for unstyled headings */
         h1 {
-            font-family: var(--font-mono);
-            font-size: var(--font-size-xl);
+            font-family: var(--font-primary);
+            font-size: 22px;
             font-weight: var(--font-weight-semibold);
-            text-align: center;
+            text-align: left;
             margin: 2rem 0 1rem 0;
             padding: 0;
-            color: rgb(128, 182, 204);
+            color: var(--text-color);
             line-height: 1.4;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         
         /* Responsive adjustments */
