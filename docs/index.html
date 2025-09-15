@@ -3,51 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSSStatic - Simple Static Site Generator</title>
+    <title>SSSStatic Dev Server - UPDATED</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Original+Surfer:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Original+Surfer:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
-<body>
-    <nav class="site-navigation">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="documentation.html" class="nav-link">Documentation</a></li>
-            <li class="nav-item"><a href="examples.html" class="nav-link">Examples</a></li>
-            <li class="nav-item"><a href="community.html" class="nav-link">Community</a></li>
-        </ul>
-    </nav>
-    <h1>SSSStatic - Simple Static Site Generator</h1>
+<body class="has-topbar">
+    <div class="topbar">
+        <div class="topbar-container">
+            <a href="index.html" class="topbar-brand">sssstatic</a>
+            <div class="topbar-cta-wrapper">
+                <a href="#contact" class="sss-button sss-button-cta sss-button-small align-center anchor-link sss-button-icon-lightning" data-scroll-to="contact"><span class="sss-button-text">Get Started</span></a>
+            </div>
+        </div>
+    </div>
     
-    
-    
-    <section>
-<h2>Features</h2>
-<ol>
-<li><code>YAML-based configuration - no complex templating</code></li>
-<li><code>Multiple built-in themes</code> <dim>(dark/light)</dim></li>
-<li><code>Multi-page support with automatic navigation</code></li>
-<li><code>Hero banners, cards, and responsive design</code></li>
-<li><code>Markdown-style links support</code></li>
-<li><code>Zero dependencies - pure Python</code></li>
-<li><code>Command-line interface for easy usage</code></li>
-</ol>
-</section>
-<section>
-<h2>Quick Start</h2>
-<ol>
-<li><code>Install: `pip install sssstatic`</code></li>
-<li><code>Create: `sssstatic create new`</code></li>
-<li><code>Build: `sssstatic build`</code></li>
-<li><code>Serve: `sssstatic serve`</code></li>
-</ol>
-</section>
+        <section class="row-section">
+        <div class="columns-container">
+            <div class="column column-1">
+                    <section class="sinema-section">
+                        <div class="sinema-container">
+                            <div class="sinema-content-wrapper">
+                                <div class="sinema-terminal-section">
+                                    <div class="sinema-terminal-container">
+                                        <!-- OS X Tiger Traffic Light Buttons -->
+                                        <div class="sinema-traffic-lights">
+                                            <div class="sinema-traffic-light red"></div>
+                                            <div class="sinema-traffic-light yellow"></div>
+                                            <div class="sinema-traffic-light green"></div>
+                                        </div>
+                                        <div class="sinema-terminal-screen">
+                                            <div class="sinema-terminal-content">
+                                                <div class="sinema-terminal-line" style="animation-delay: 0ms">
+                                                    <span class="sinema-terminal-text">$ Nice to meet you</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                
+            </div>
+            <div class="column column-2">
+                    <section class="sslogan-section">
+                        <div class="sslogan-container">
+                            <div class="sslogan-content">
+                                <h1 class="sslogan-heading">Build this website with SSSStatic</h1>
+                                <h2 class="sslogan-subheading">Go live in thirty seconds. 🚀</h2>
+                                <p class="sslogan-paragraph">From idea to a beautiful, responsive website in just a few lines of text. Perfect for portfolios, docs, and landing pages.</p>
+                            </div>
+                        </div>
+                    </section>
+                
+            </div>
+        </div>
+    </section>
+    <section class="row-section">
+        <div class="columns-container">
+            <div class="column column-1">
+                        <div class="component-container" style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 0.5rem;">
+                                    <h1 class="text-component text-size-xlarge text-weight-light text-line-height-small align-center">
+                                        <span class="text-content">Open Source</span>
+                                    </h1>
+                            
+                                    <p class="text-component text-size-medium text-weight-thin text-line-height-medium align-center" style="margin-top: 0.5rem;; margin-bottom: 0.5rem;">
+                                        <span class="text-content">The project is open source and free to use. Who knows what you'll build with it.</span>
+                                    </p>
+                            
+                            <a href="https://github.com/yourusername/sssstatic" class="sss-button sss-button-primary sss-button-medium align-left sss-button-variant-default sss-button-icon-star"><span class="sss-button-text">View on GitHub</span></a>
+                            <a href="https://github.com/yourusername/sssstatic" class="sss-button sss-button-primary sss-button-medium align-left sss-button-variant-link"><span class="sss-button-text">View on GitHub</span></a>
+                        </div>
+                
+            </div>
+            <div class="column column-2">
+                        <div class="component-container" style="background-color: #1B1F23; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 0.5rem; padding: 1rem; min-height: 200px;">
+                                    <div class="sticker-component sticker-size-large sticker-position-center align-center sticker-animation-bounce" style="background-image: url(/assets/stickers/rocket.png);"></div>
+                            
+                                    <p class="text-component text-size-medium text-weight-light text-line-height-medium align-center">
+                                        <span class="text-content">People don't appreciate the value of a good sticker.</span>
+                                    </p>
+                            
+                            <a href="https://github.com/yourusername/sssstatic" class="sss-button sss-button-primary sss-button-medium align-left sss-button-variant-link"><span class="sss-button-text">View Sticker Gallary</span></a>
+                        </div>
+                
+            </div>
+            <div class="column column-3">
+                        <div class="component-container" style="background-color: #1B1F23; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 0.5rem; padding: 1rem; min-height: 200px;">
+                                    <div class="sticker-component sticker-size-large sticker-position-center align-center" style="background-image: url(/assets/stickers/computer.png);"></div>
+                            
+                                    <p class="text-component text-size-medium text-weight-light text-line-height-medium align-center">
+                                        <span class="text-content">Build in dev server mode for instant gratification. Imagine it. Ship it.</span>
+                                    </p>
+                            
+                            <a href="https://github.com/yourusername/sssstatic" class="sss-button sss-button-primary sss-button-medium align-left sss-button-variant-link"><span class="sss-button-text">View Examples</span></a>
+                        </div>
+                
+            </div>
+            <div class="column column-4">
+                        <div class="component-container" style="background-color: #1B1F23; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 0.5rem; padding: 1rem; min-height: 200px;">
+                                    <div class="sticker-component sticker-size-large sticker-position-center align-center" style="background-image: url(/assets/stickers/cmoon.png);"></div>
+                            
+                                    <p class="text-component text-size-medium text-weight-light text-line-height-medium align-center">
+                                        <span class="text-content">Build in dev server mode for instant gratification. Imagine it. Ship it.</span>
+                                    </p>
+                            
+                            <a href="https://github.com/yourusername/sssstatic" class="sss-button sss-button-primary sss-button-medium align-left sss-button-variant-link"><span class="sss-button-text">View Examples</span></a>
+                        </div>
+                
+            </div>
+        </div>
+    </section>
 
+    
     <footer class="site-footer">
         <div class="footer-content">
-            <span class="footer-text">Built with ❤️ by <code><a href="https://github.com/oldmill1" target="_blank" rel="noopener noreferrer">Ankur Taxali</a></code> | <code><a href="https://github.com/oldmill1/sssstatic" target="_blank" rel="noopener noreferrer">Star on GitHub</a></code></span>
+            <span class="footer-text">Made with <code><a href="http://sssstatic.com/" target="_blank" rel="noopener noreferrer">SSSStatic</a></code></span>
         </div>
     </footer>
 </body>

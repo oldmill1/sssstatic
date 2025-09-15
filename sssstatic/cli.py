@@ -9,6 +9,7 @@ from .dev_server import start_dev_server
 from .dev_server_enhanced import start_enhanced_dev_server
 from .site_builder import build_site
 from .deploy import deploy_site
+from .export import export_site
 from .display import show_main_header
 
 
@@ -40,6 +41,11 @@ def main():
     deploy_parser.add_argument("target_dir", help="Target directory to deploy to")
     deploy_parser.add_argument("--skip-build", action="store_true", help="Skip building and only copy existing _site")
 
+    # Export command (build + copy to specified path)
+    export_parser = subparsers.add_parser("export", help="Build site and export to specified directory")
+    export_parser.add_argument("--path", "-p", required=True, help="Full path where to export the site")
+    export_parser.add_argument("--skip-build", action="store_true", help="Skip building and only copy existing _site")
+
     # Parse arguments
     args = parser.parse_args()
 
@@ -60,6 +66,8 @@ def main():
             start_enhanced_dev_server(args.port)
     elif args.command == "deploy":
         deploy_site(args.target_dir, args.skip_build)
+    elif args.command == "export":
+        export_site(args.path, args.skip_build)
     elif args.command is None:
         show_main_header()
     else:
