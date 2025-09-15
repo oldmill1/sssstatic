@@ -82,8 +82,8 @@ def get_sinema_styles():
         }
         
         .sinema-terminal-content {
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 16px;
             line-height: 1.4;
             color: #4ade80;
             position: relative;
@@ -189,7 +189,7 @@ def get_sinema_styles():
             }
             
             .sinema-terminal-content {
-                font-size: 12px;
+                font-size: 14px;
             }
         }
         
@@ -208,7 +208,7 @@ def get_sinema_styles():
             }
             
             .sinema-terminal-content {
-                font-size: 11px;
+                font-size: 13px;
             }
         }
     """
