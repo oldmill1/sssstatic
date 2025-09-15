@@ -163,12 +163,11 @@ def get_sinema_styles():
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.15) 0%,
-                rgba(255, 255, 255, 0.05) 25%,
-                transparent 50%,
-                rgba(255, 255, 255, 0.02) 75%,
+            background: radial-gradient(
+                ellipse 300px 200px at 30% 20%,
+                rgba(255, 255, 255, 0.08) 0%,
+                rgba(255, 255, 255, 0.04) 40%,
+                rgba(255, 255, 255, 0.02) 70%,
                 transparent 100%
             );
             border-radius: 8px;
