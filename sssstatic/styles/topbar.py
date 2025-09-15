@@ -55,21 +55,21 @@ def get_topbar_styles(config=None):
         container_height = '90px'
         brand_font_size = 'var(--font-size-3xl)'
         brand_letter_spacing = '1px'
-        cta_padding = '1rem 2rem'
+        cta_padding = '0.5rem 1rem'
         cta_font_size = 'var(--font-size-lg)'
         container_padding = '0 2.5rem'
     elif topbar_size == 'medium':
         container_height = '80px'
         brand_font_size = 'var(--font-size-2xl)'
         brand_letter_spacing = '0.75px'
-        cta_padding = '0.875rem 1.75rem'
+        cta_padding = '0.5rem 0.875rem'
         cta_font_size = 'var(--font-size-base)'
         container_padding = '0 2rem'
     else:  # small (default)
         container_height = '70px'
         brand_font_size = 'var(--font-size-xl)'
         brand_letter_spacing = '0.5px'
-        cta_padding = '0.75rem 1.5rem'
+        cta_padding = '0.5rem 0.75rem'
         cta_font_size = 'var(--font-size-base)'
         container_padding = '0 2rem'
     
@@ -229,7 +229,7 @@ def get_topbar_styles(config=None):
             }}
             
             .topbar-cta {{
-                padding: {cta_padding if topbar_size == 'small' else '0.5rem 1rem'};
+                padding: {cta_padding if topbar_size == 'small' else '0.375rem 0.75rem'};
                 font-size: {cta_font_size if topbar_size == 'small' else 'var(--font-size-sm)'};
             }}
             
