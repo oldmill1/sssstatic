@@ -11,9 +11,9 @@ def get_column_css():
 .column {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 100%;
-    padding: 1rem; /* Add padding to prevent text from touching edges */
+    padding: 0.5rem; /* Add padding to prevent text from touching edges */
     box-sizing: border-box; /* Include padding and border in width calculation */
     word-wrap: break-word; /* Break long words */
     word-break: break-word; /* Break words if necessary */
@@ -23,15 +23,15 @@ def get_column_css():
 /* Responsive column behavior */
 @media (min-width: 768px) {
     .column {
-        gap: 1.5rem;
-        padding: 1.5rem; /* Increase padding on larger screens */
+        gap: 0.75rem;
+        padding: 0.75rem; /* Increase padding on larger screens */
     }
 }
 
 @media (min-width: 1024px) {
     .column {
-        gap: 2rem;
-        padding: 2rem; /* More padding on desktop */
+        gap: 1rem;
+        padding: 1rem; /* More padding on desktop */
     }
 }
 
@@ -45,7 +45,7 @@ def get_column_css():
 .columns-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 100%;
     box-sizing: border-box; /* Include padding and border in width calculation */
 }
@@ -53,7 +53,7 @@ def get_column_css():
 @media (min-width: 768px) {
     .columns-container {
         flex-direction: row;
-        gap: 2rem;
+        gap: 1rem;
     }
 }
 
