@@ -70,94 +70,125 @@ def get_button_styles():
         
         /* Button sizes */
         .sss-button-small {
-            font-size: 1.5rem;
-            height: 1.75em;
-            padding: 0 1.5em;
+            font-size: 0.875rem;
+            padding: 0.5rem 1.5rem;
             min-width: 4em;
         }
         
         .sss-button-medium {
-            font-size: 2rem;
-            height: 1.75em;
-            padding: 0 2em;
+            font-size: 1rem;
+            padding: 0.875rem 2rem;
             min-width: 6em;
         }
         
         .sss-button-large {
-            font-size: 3rem;
-            height: 1.75em;
-            padding: 0 2em;
+            font-size: 1.125rem;
+            padding: 1rem 2.5rem;
             min-width: 6em;
         }
         
-        /* Primary button - Sophisticated gradient with shine effects */
+        /* Override primary button sizes to use custom padding */
+        .sss-button-primary.sss-button-small {
+            padding: 0.375rem 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .sss-button-primary.sss-button-medium {
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .sss-button-primary.sss-button-large {
+            padding: 0.625rem 2rem;
+            font-size: 1.125rem;
+        }
+        
+        /* Primary button - Custom button-7 design */
         .sss-button-primary {
-            background: linear-gradient(rgba(0, 65, 184, 0.625), rgba(45, 115, 199, 0.625), rgba(33, 160, 196, 0.625));
-            color: #ffffff;
-            border: none;
+            touch-action: manipulation;
+            cursor: pointer;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 0.375em 0.5em rgba(0, 0, 0, 0.3), 
-                        0 0.125em 0.125em rgba(0, 78, 187, 0.5), 
-                        inset 0 0.25em 0.5em rgba(0, 17, 49, 0.8),
-                        inset 0 0.375em 0.5em 0.25em rgba(0, 78, 187, 0.75);
+            padding: 0.5rem 1.5rem;
+            border-radius: 1.87rem;
+            line-height: 1;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 150ms ease-in-out;
+            white-space: nowrap;
+            
+            border: 1px solid #012880;
+            background-image: linear-gradient(-180deg, #4FC3F7 0%, #2E7D32 100%);
+            box-shadow: 0 0.5rem 0.625rem 0 rgba(0,0,0,0.2),
+                        0 -0.125rem 0.75rem rgba(25, 118, 210, 1) inset,
+                        0 0.375rem 0.125rem rgba(255,255,255, 0.4) inset,
+                        0 0.125rem 0.25rem 0 rgba(76, 175, 80, 1) inset;
         }
         
         .sss-button-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 0.5em 0.6em rgba(0, 0, 0, 0.35), 
-                        0 0.15em 0.15em rgba(0, 78, 187, 0.6), 
-                        inset 0 0.25em 0.5em rgba(0, 17, 49, 0.8),
-                        inset 0 0.375em 0.5em 0.25em rgba(0, 78, 187, 0.75);
+            filter: brightness(1.1);
         }
         
-        .sss-button-primary:focus,
         .sss-button-primary:active {
-            box-shadow: 0 0.375em 0.5em rgba(0, 0, 0, 0.3), 
-                        0 0.125em 0.125em rgba(0, 78, 187, 0.5), 
-                        inset 0 0.25em 0.5em rgba(0, 17, 49, 0.8),
-                        inset 0 0.375em 0.5em 0.25em rgba(0, 78, 187, 0.75),
-                        0 0 0.5em rgba(52, 106, 227, 0.5);
+            transform: scale(.96);
+        }
+        
+        .sss-button-primary:focus {
+            outline: none;
+        }
+        
+        /* Text styling for primary button with gradient text */
+        .sss-button-primary .sss-button-text {
+            color: transparent;
+            background-image: linear-gradient(0deg, #81C784 -10%, #FEFAFD 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter: drop-shadow(0 2px 2px hsla(120, 100%, 20%, 1));
         }
         
         /* Top shine effect for primary button */
         .sss-button-primary::before {
-            content: '';
+            content: "";
+            display: block;
+            height: 0.125rem;
             position: absolute;
+            top: 0.25rem;
             left: 50%;
             transform: translateX(-50%);
-            height: 33%;
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
-            width: calc(100% - 0.875em);
-            border-radius: 2em 2em 0.5em 0.5em;
-            top: 5%;
-            filter: blur(1px);
-            z-index: 2;
+            width: calc(100% - 1.5rem);
+            background: #fff;
+            border-radius: 100%;
+            
+            opacity: 0.7;
+            background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
         }
         
         /* Bottom glow effect for primary button */
         .sss-button-primary::after {
-            content: '';
+            content: "";
+            display: block;
+            height: 0.125rem;
             position: absolute;
+            bottom: 0.375rem;
             left: 50%;
             transform: translateX(-50%);
-            height: 33%;
-            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5));
-            width: calc(100% - 1.25em);
-            border-radius: 0.75em;
-            bottom: 10%;
-            filter: blur(3px);
+            width: calc(100% - 1.5rem);
+            background: #fff;
+            border-radius: 100%;
+            
+            filter: blur(1px);
+            opacity: 0.05;
+            background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
         }
         
-        /* Text styling for primary button */
-        .sss-button-primary .sss-button-text {
-            position: relative;
-            top: -1px;
-            z-index: 1;
-            letter-spacing: 0.0375em;
-            -webkit-text-stroke-width: 0.025em;
-            -webkit-text-stroke-color: #000000;
-            text-shadow: 0 0.25em 0.2em rgba(30, 77, 161, 0.5);
+        /* Adjust shine effects for different button sizes */
+        .sss-button-primary.sss-button-small::before,
+        .sss-button-primary.sss-button-small::after {
+            width: calc(100% - 1rem);
+        }
+        
+        .sss-button-primary.sss-button-large::before,
+        .sss-button-primary.sss-button-large::after {
+            width: calc(100% - 2rem);
         }
         
         /* Secondary button - Sophisticated gradient with shine effects */

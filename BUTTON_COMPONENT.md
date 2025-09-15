@@ -9,10 +9,10 @@ The button component consolidates all existing button implementations into a sin
 ## Available Button Styles
 
 ### 1. Primary (`primary`)
-- **Description**: Blue background button (Apple-style)
+- **Description**: Custom gradient button with blue-to-green gradient and sophisticated shine effects
 - **Use Case**: Main call-to-action buttons
-- **Color**: #007AFF background, white text
-- **Hover**: Darker blue (#0056CC) with subtle lift effect
+- **Color**: Blue-to-green gradient (#4FC3F7 to #2E7D32) with gradient text effect
+- **Hover**: Brightness increase (1.1x) with scale animation on click
 
 ### 2. Secondary (`secondary`)
 - **Description**: Transparent button with border
