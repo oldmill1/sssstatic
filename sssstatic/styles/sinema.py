@@ -83,7 +83,7 @@ def get_sinema_styles():
         
         .sinema-terminal-content {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 16px;
+            font-size: 19px;
             line-height: 1.4;
             color: #4ade80;
             position: relative;
