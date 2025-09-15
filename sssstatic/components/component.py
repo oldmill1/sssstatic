@@ -60,7 +60,9 @@ def generate_component_html(config):
             
             if content_htmls:
                 # Build the component HTML with proper wrapper
-                component_html = '        <div class="component-container">\n'
+                bg_color = component_data.get('bgColor', '')
+                style_attr = f' style="background-color: {bg_color};"' if bg_color else ''
+                component_html = f'        <div class="component-container"{style_attr}>\n'
                 for content_html in content_htmls:
                     # Add each content component with proper indentation
                     indented_html = '\n'.join('            ' + line for line in content_html.split('\n'))
@@ -71,7 +73,9 @@ def generate_component_html(config):
         # Fall back to HTML content if no content array
         if html_content:
             # Wrap HTML content in component container
-            component_html = '        <div class="component-container">\n'
+            bg_color = component_data.get('bgColor', '')
+            style_attr = f' style="background-color: {bg_color};"' if bg_color else ''
+            component_html = f'        <div class="component-container"{style_attr}>\n'
             component_html += f'            {html_content}\n'
             component_html += '        </div>\n'
             return component_html
@@ -79,7 +83,7 @@ def generate_component_html(config):
         # If it's just a string, treat it as HTML
         html_content = str(component_data)
         if html_content:
-            # Wrap HTML content in component container
+            # Wrap HTML content in component container (no bgColor support for string components)
             component_html = '        <div class="component-container">\n'
             component_html += f'            {html_content}\n'
             component_html += '        </div>\n'

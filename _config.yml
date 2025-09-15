@@ -56,6 +56,7 @@ _row:
               size: "medium"
               # icon: "star"
     - _component:
+        bgColor: "#1B1F23"
         content:
           - _sticker:
               name: "rocket"
@@ -63,7 +64,7 @@ _row:
               position: "center"
               animation: "bounce"
           - _text:
-              content: "People don't appreciate the value of a good sticker. They don't understand the effort that goes into making them."
+              content: "People don't appreciate the value of a good sticker."
               type: "p"
               size: "medium"
               weight: "light"
