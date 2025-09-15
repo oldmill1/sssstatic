@@ -55,8 +55,8 @@ def get_sinema_styles():
         /* OS X Tiger Traffic Light Buttons */
         .sinema-traffic-lights {
             position: absolute;
-            top: 1rem;
-            left: 1rem;
+            top: 0.75rem;
+            left: 0.75rem;
             display: flex;
             gap: 8px;
             z-index: 10;
@@ -148,10 +148,32 @@ def get_sinema_styles():
             background: #1a1a1a;
             border-radius: 8px;
             padding: 1.5rem;
+            padding-top: 2.5rem;
             min-height: 400px;
             position: relative;
             overflow: hidden;
             border: 1px solid #333;
+        }
+        
+        /* Glassmorphic glare effect */
+        .sinema-terminal-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.05) 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.02) 75%,
+                transparent 100%
+            );
+            border-radius: 8px;
+            pointer-events: none;
+            z-index: 1;
         }
         
         .sinema-terminal-content {
@@ -160,6 +182,7 @@ def get_sinema_styles():
             line-height: 1.4;
             color: #4ade80;
             position: relative;
+            z-index: 2;
         }
         
         .sinema-terminal-line {
