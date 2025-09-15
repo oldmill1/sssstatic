@@ -139,6 +139,13 @@ def get_sinema_styles():
                     transparent 2px,
                     rgba(0, 0, 0, 0.02) 2px,
                     rgba(0, 0, 0, 0.02) 4px
+                ),
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    transparent 30%,
+                    rgba(255, 255, 255, 0.05) 60%,
+                    transparent 100%
                 );
             pointer-events: none;
             border-radius: 12px;
@@ -153,6 +160,12 @@ def get_sinema_styles():
             position: relative;
             overflow: hidden;
             border: 1px solid #333;
+            /* Vintage CRT curved glass effect */
+            transform: perspective(800px) rotateX(2deg);
+            box-shadow: 
+                inset 0 0 20px rgba(0, 0, 0, 0.3),
+                inset 0 0 40px rgba(0, 0, 0, 0.1),
+                0 0 30px rgba(0, 0, 0, 0.2);
         }
         
         /* Glassmorphic glare effect */
@@ -182,6 +195,11 @@ def get_sinema_styles():
             color: #4ade80;
             position: relative;
             z-index: 2;
+            /* Vintage CRT text glow */
+            text-shadow: 
+                0 0 3px #4ade80,
+                0 0 6px rgba(74, 222, 128, 0.3),
+                0 0 9px rgba(74, 222, 128, 0.1);
         }
         
         .sinema-terminal-line {
@@ -224,7 +242,7 @@ def get_sinema_styles():
             }
         }
         
-        /* Scanlines effect */
+        /* Vintage CRT scanlines and curved glass effect */
         .sinema-terminal-screen::after {
             content: '';
             position: absolute;
@@ -239,9 +257,16 @@ def get_sinema_styles():
                     transparent 1px,
                     rgba(74, 222, 128, 0.03) 1px,
                     rgba(74, 222, 128, 0.03) 2px
+                ),
+                radial-gradient(
+                    ellipse at center,
+                    transparent 0%,
+                    rgba(0, 0, 0, 0.1) 70%,
+                    rgba(0, 0, 0, 0.2) 100%
                 );
             pointer-events: none;
             animation: sinema-scanlines 0.1s linear infinite;
+            border-radius: 8px;
         }
         
         @keyframes sinema-scanlines {
