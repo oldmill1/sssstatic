@@ -34,7 +34,14 @@ def generate_spotlight_html(config):
     
     # Image container (starts from top)
     spotlight_html += '        <div class="spotlight-image-container">\n'
-    spotlight_html += f'            <img src="assets/{image_path}" alt="{title or "Spotlight image"}" class="spotlight-image">\n'
+    
+    # Handle external URLs vs local assets
+    if image_path.startswith(('http://', 'https://')):
+        image_src = image_path
+    else:
+        image_src = f"assets/{image_path}"
+    
+    spotlight_html += f'            <img src="{image_src}" alt="{title or "Spotlight image"}" class="spotlight-image">\n'
     
     # Text content overlaid on image (only if provided)
     if title or subtitle or description:

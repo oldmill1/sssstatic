@@ -14,8 +14,11 @@ _topbar:
 
 # Row component containing sinema
 _row:
-  - _sinema:
-      title: "SINEMA TERMINAL"
-      subtitle: "Vintage Computing Experience"
-      terminal_text: "Nice to meet you"
-      boot_delay: 2000
+  - _column:
+    - _sinema:
+        title: "SINEMA TERMINAL"
+        subtitle: "Vintage Computing Experience"
+        terminal_text: "Nice to meet you"
+        boot_delay: 2000
+    - _component:
+        html: "<h1>Hello</h1>"

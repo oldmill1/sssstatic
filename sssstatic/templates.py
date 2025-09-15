@@ -47,6 +47,7 @@ def generate_site_html(config, content_html, dev_mode=False):
     from .components.image import generate_image_html
     from .components.topbar import generate_topbar_html
     from .components.row import generate_row_html
+    from .components.column import generate_column_html
     from .components.cards import generate_cards_html
     from .components.spotlight import generate_spotlight_html
     from .components.widescreen_spotlight import generate_widescreen_spotlight_html
@@ -57,6 +58,7 @@ def generate_site_html(config, content_html, dev_mode=False):
     from .components.sly import generate_sly_html
     from .components.sinema import generate_sinema_html
     from .components.map import generate_map_html
+    from .components.component import generate_component_html
     from .styles.footer import generate_footer_html
     from .styles.type import get_google_fonts_imports
     
@@ -87,6 +89,7 @@ def generate_site_html(config, content_html, dev_mode=False):
     # Component mapping for dynamic generation
     component_generators = {
         '_row': generate_row_html,
+        '_column': generate_column_html,
         '_card': generate_cards_html,
         '_spotlight': generate_spotlight_html,
         '_widescreen_spotlight': generate_widescreen_spotlight_html,
@@ -97,6 +100,7 @@ def generate_site_html(config, content_html, dev_mode=False):
         '_sly': generate_sly_html,
         '_sinema': generate_sinema_html,
         '_map': generate_map_html,
+        '_component': generate_component_html,
     }
     
     # Generate components in the order they appear in the YAML config
