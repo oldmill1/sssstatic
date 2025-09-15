@@ -58,8 +58,8 @@ def get_sinema_styles():
         /* OS X Tiger Traffic Light Buttons */
         .sinema-traffic-lights {
             position: absolute;
-            top: 0.75rem;
-            left: 0.75rem;
+            top: 1rem;
+            left: 1rem;
             display: flex;
             gap: 8px;
             z-index: 10;
