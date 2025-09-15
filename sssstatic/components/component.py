@@ -14,6 +14,7 @@ def generate_component_html(config):
     # Import component generators
     from .text import generate_text_html
     from .button import generate_button_html
+    from .stickers import generate_sticker_html
     
     # Check if it's a dict with content array or html property
     if isinstance(component_data, dict):
@@ -49,6 +50,13 @@ def generate_component_html(config):
                             button_html = generate_button_html(text, url, style, variant, size, icon, anchor_link)
                             if button_html:
                                 content_htmls.append(button_html)
+                    
+                    # Handle _sticker components
+                    elif '_sticker' in content_config:
+                        temp_config = content_config
+                        sticker_html = generate_sticker_html(temp_config)
+                        if sticker_html:
+                            content_htmls.append(sticker_html)
             
             if content_htmls:
                 # Build the component HTML with mixed content (no extra wrapper needed)

@@ -25,18 +25,43 @@ def load_config(config_path):
 
 
 def copy_assets():
-    """Copy assets folder to _site if it exists."""
+    """Copy assets folder to _site if it exists, and copy stickers from sssstatic/stickers."""
     import shutil
 
+    # Create assets directory in _site
+    assets_dest = Path("_site") / "assets"
+    assets_dest.mkdir(exist_ok=True)
+    
+    # Copy assets folder if it exists
     assets_src = Path("assets")
     if assets_src.exists() and assets_src.is_dir():
-        assets_dest = Path("_site") / "assets"
-        if assets_dest.exists():
-            shutil.rmtree(assets_dest)
-        shutil.copytree(assets_src, assets_dest)
+        # Copy all files from assets to _site/assets
+        for item in assets_src.iterdir():
+            if item.is_file():
+                shutil.copy2(item, assets_dest / item.name)
+            elif item.is_dir():
+                dest_dir = assets_dest / item.name
+                if dest_dir.exists():
+                    shutil.rmtree(dest_dir)
+                shutil.copytree(item, dest_dir)
         console.print("[bright_blue]>>> Copied assets folder[/bright_blue]")
-        return True
-    return False
+    
+    # Copy stickers from sssstatic/stickers to assets/stickers
+    stickers_src = Path("sssstatic") / "stickers"
+    stickers_dest = assets_dest / "stickers"
+    
+    if stickers_src.exists() and stickers_src.is_dir():
+        stickers_dest.mkdir(exist_ok=True)
+        
+        # Copy all PNG files from stickers source to assets/stickers
+        for sticker_file in stickers_src.glob("*.png"):
+            # Use the filename without extension as the sticker name
+            sticker_name = sticker_file.stem
+            dest_file = stickers_dest / f"{sticker_name}.png"
+            shutil.copy2(sticker_file, dest_file)
+            console.print(f"[bright_blue]>>> Copied sticker: {sticker_name}.png[/bright_blue]")
+    
+    return True
 
 
 def generate_css_file(config, dev_mode=False):
@@ -84,6 +109,8 @@ def generate_css_file(config, dev_mode=False):
             'sssstatic.components.page_header',
             'sssstatic.components.image',
             'sssstatic.components.topbar',
+            'sssstatic.components.stickers',
+            'sssstatic.styles.stickers',
             'sssstatic.templates'
         ]
         

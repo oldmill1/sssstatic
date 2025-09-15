@@ -57,12 +57,23 @@ _row:
               # icon: "star"
     - _component:
         content:
+          - _sticker:
+              name: "rocket"
+              size: "large"
+              position: "center"
+              animation: "bounce"
           - _text:
-              content: "Doing more, using less. We’re using more recycled content in our products than ever before. And we’re recovering crucial materials from end-of-life devices to use again in new ones."
+              content: "People don't appreciate the value of a good sticker. They don't understand the effort that goes into making them."
               type: "p"
-              size: "small"
+              size: "medium"
               weight: "light"
-              lineHeight: "small"
+              lineHeight: "medium"
+          - _button:
+              text: "View Sticker Gallary"
+              url: "https://github.com/yourusername/sssstatic"
+              style: "primary"
+              variant: "link"
+              size: "medium"
     - _component:
         html: "<h1>Column 3</h1>"
     - _component:
