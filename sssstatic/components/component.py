@@ -62,9 +62,9 @@ def generate_component_html(config):
                 # Build the component HTML with proper wrapper
                 bg_color = component_data.get('bgColor', '')
                 if bg_color:
-                    style_attr = f' style="background-color: {bg_color}; padding: 1rem; border-radius: 12px;"'
+                    style_attr = f' style="background-color: {bg_color}; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 0.5rem; padding: 1rem; min-height: 200px;"'
                 else:
-                    style_attr = ''
+                    style_attr = ' style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 0.5rem;"'
                 component_html = f'        <div class="component-container"{style_attr}>\n'
                 for content_html in content_htmls:
                     # Add each content component with proper indentation
@@ -78,9 +78,9 @@ def generate_component_html(config):
             # Wrap HTML content in component container
             bg_color = component_data.get('bgColor', '')
             if bg_color:
-                style_attr = f' style="background-color: {bg_color}; padding: 1rem; border-radius: 12px;"'
+                style_attr = f' style="background-color: {bg_color}; border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; padding: 1rem; min-height: 200px;"'
             else:
-                style_attr = ''
+                style_attr = ' style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem;"'
             component_html = f'        <div class="component-container"{style_attr}>\n'
             component_html += f'            {html_content}\n'
             component_html += '        </div>\n'
