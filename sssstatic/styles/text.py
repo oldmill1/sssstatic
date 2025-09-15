@@ -23,6 +23,12 @@ def get_text_css():
     align-items: flex-start;
     width: 100%;
     padding: 1rem;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Remove padding when text component is inside a column to avoid double padding */
+.column .text-component {
+    padding: 0; /* Remove padding when inside column */
 }
 
 /* Responsive text component padding */
@@ -30,11 +36,19 @@ def get_text_css():
     .text-component {
         padding: 1.5rem;
     }
+    
+    .column .text-component {
+        padding: 0; /* Remove padding when inside column */
+    }
 }
 
 @media (min-width: 1024px) {
     .text-component {
         padding: 2rem;
+    }
+    
+    .column .text-component {
+        padding: 0; /* Remove padding when inside column */
     }
 }
 

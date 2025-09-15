@@ -83,13 +83,11 @@ def generate_showcase_html(config):
             showcase_html += '                </div>\n'
         
         # Call-to-action button
-        # Check if button URL is an anchor link
-        if button_url.startswith('#'):
-            scroll_to = button_url[1:]  # Remove the # symbol
-            showcase_html += f'                <a href="{button_url}" class="showcase-button anchor-link" data-scroll-to="{scroll_to}">{button_text}</a>\n'
-        else:
-            showcase_html += f'                <a href="{button_url}" class="showcase-button">{button_text}</a>\n'
-        showcase_html += '            </div>\n'
+        from .button import generate_button_html
+        anchor_link = button_url.startswith('#')
+        showcase_html += '                '
+        showcase_html += generate_button_html(button_text, button_url, 'gradient', 'medium', None, anchor_link)
+        showcase_html += '\n            </div>\n'
     else:
         # Default: Image first (left side)
         showcase_html += '            <div class="showcase-image">\n'
@@ -127,13 +125,11 @@ def generate_showcase_html(config):
             showcase_html += '                </div>\n'
         
         # Call-to-action button
-        # Check if button URL is an anchor link
-        if button_url.startswith('#'):
-            scroll_to = button_url[1:]  # Remove the # symbol
-            showcase_html += f'                <a href="{button_url}" class="showcase-button anchor-link" data-scroll-to="{scroll_to}">{button_text}</a>\n'
-        else:
-            showcase_html += f'                <a href="{button_url}" class="showcase-button">{button_text}</a>\n'
-        showcase_html += '            </div>\n'
+        from .button import generate_button_html
+        anchor_link = button_url.startswith('#')
+        showcase_html += '                '
+        showcase_html += generate_button_html(button_text, button_url, 'gradient', 'medium', None, anchor_link)
+        showcase_html += '\n            </div>\n'
     showcase_html += '        </div>\n'
     showcase_html += '    </section>\n'
     

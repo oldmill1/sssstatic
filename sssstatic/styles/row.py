@@ -19,6 +19,7 @@ def get_row_styles():
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            box-sizing: border-box; /* Include padding and border in width calculation */
         }
         
         /* Responsive row behavior */
@@ -45,6 +46,9 @@ def get_row_styles():
             margin: 0;
             flex: 1;
             min-width: 0; /* Prevents flex items from overflowing */
+            box-sizing: border-box; /* Include padding and border in width calculation */
+            word-wrap: break-word; /* Break long words */
+            word-break: break-word; /* Break words if necessary */
         }
         
         /* Ensure proper spacing between components in a row */

@@ -52,17 +52,12 @@ def generate_topbar_html(config):
         topbar_html += '            </nav>\n'
     
     # Add CTA button on the right
+    from .button import generate_button_html
+    anchor_link = cta_link.startswith('#')
     topbar_html += '            <div class="topbar-cta-wrapper">\n'
-    # Check if CTA link is an anchor link
-    if cta_link.startswith('#'):
-        scroll_to = cta_link[1:]  # Remove the # symbol
-        topbar_html += f'                <a href="{cta_link}" class="topbar-cta anchor-link" data-scroll-to="{scroll_to}">\n'
-    else:
-        topbar_html += f'                <a href="{cta_link}" class="topbar-cta">\n'
-    topbar_html += '                    <span class="topbar-cta-icon">⚡</span>\n'
-    topbar_html += f'                    <span class="topbar-cta-text">{cta_text}</span>\n'
-    topbar_html += '                </a>\n'
-    topbar_html += '            </div>\n'
+    topbar_html += '                '
+    topbar_html += generate_button_html(cta_text, cta_link, 'cta', 'small', 'lightning', anchor_link)
+    topbar_html += '\n            </div>\n'
     
     topbar_html += '        </div>\n'
     topbar_html += '    </div>\n'

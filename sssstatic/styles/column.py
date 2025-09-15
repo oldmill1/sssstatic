@@ -13,18 +13,25 @@ def get_column_css():
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    padding: 1rem; /* Add padding to prevent text from touching edges */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    word-wrap: break-word; /* Break long words */
+    word-break: break-word; /* Break words if necessary */
+    hyphens: auto; /* Add hyphens for better text breaking */
 }
 
 /* Responsive column behavior */
 @media (min-width: 768px) {
     .column {
         gap: 1.5rem;
+        padding: 1.5rem; /* Increase padding on larger screens */
     }
 }
 
 @media (min-width: 1024px) {
     .column {
         gap: 2rem;
+        padding: 2rem; /* More padding on desktop */
     }
 }
 
@@ -40,6 +47,7 @@ def get_column_css():
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
 @media (min-width: 768px) {
@@ -53,6 +61,10 @@ def get_column_css():
 .columns-container .column {
     flex: 1;
     min-width: 0; /* Prevents flex items from overflowing */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    word-wrap: break-word; /* Break long words */
+    word-break: break-word; /* Break words if necessary */
+    hyphens: auto; /* Add hyphens for better text breaking */
 }
 
 /* Multiple columns in a row - handled by row styles */

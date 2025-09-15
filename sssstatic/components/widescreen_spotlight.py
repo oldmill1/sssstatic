@@ -58,22 +58,10 @@ def generate_widescreen_spotlight_html(config):
     
     # Add buttons if provided
     if buttons:
-        spotlight_html += '                <div class="widescreen-actions">\n'
-        for button in buttons:
-            if isinstance(button, dict):
-                text = button.get('text', 'Button')
-                url = button.get('url', '#')
-                style = button.get('style', 'primary')
-                # Check if URL is an anchor link
-                if url.startswith('#'):
-                    scroll_to = url[1:]  # Remove the # symbol
-                    spotlight_html += f'                    <a href="{url}" class="widescreen-button widescreen-button-{style} anchor-link" data-scroll-to="{scroll_to}">{text}</a>\n'
-                else:
-                    spotlight_html += f'                    <a href="{url}" class="widescreen-button widescreen-button-{style}">{text}</a>\n'
-            else:
-                # If it's just a string, treat it as button text
-                spotlight_html += f'                    <a href="#" class="widescreen-button widescreen-button-primary">{button}</a>\n'
-        spotlight_html += '                </div>\n'
+        from .button import generate_button_group_html
+        spotlight_html += '                '
+        spotlight_html += generate_button_group_html(buttons, 'center', 'medium')
+        spotlight_html += '\n'
     
     spotlight_html += '            </div>\n'
     spotlight_html += '        </div>\n'
