@@ -62,6 +62,11 @@ def generate_site_html(config, content_html, dev_mode=False):
     # Use _title for both title and h1, fall back to site name if _title not available
     page_title = config.get('_title', config.get('site', {}).get('name', 'My Site'))
 
+    # Extract custom fonts from config
+    custom_fonts = []
+    if '_topbar' in config and config['_topbar'].get('titleFont'):
+        custom_fonts.append(config['_topbar']['titleFont'])
+
     # Generate header HTML - use TopBar if configured, otherwise no header
     has_topbar = '_topbar' in config
     if has_topbar:
@@ -118,7 +123,7 @@ def generate_site_html(config, content_html, dev_mode=False):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{page_title}</title>
-{get_google_fonts_imports()}
+{get_google_fonts_imports(custom_fonts)}
     <link rel="stylesheet" href="{css_link}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>

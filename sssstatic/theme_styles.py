@@ -81,7 +81,7 @@ def get_global_css(config=None):
             padding-top: 70px;
         }
         
-        """ + get_topbar_styles() + """
+        """ + get_topbar_styles(config) + """
         
         /* Minimal typography-focused header */
         .movie-header {

@@ -4,86 +4,133 @@ TopBar styles module for SSSStatic - contains CSS styles for dark mode topbar
 """
 
 
-def get_topbar_styles():
-    """Return CSS styles for TopBar component."""
+def get_topbar_styles(config=None):
+    """Return CSS styles for TopBar component with responsive colors."""
     from .type import get_font_styles
-    return get_font_styles() + """
-        /* TopBar Styles - Dark Mode Navigation */
-        .topbar {
-            background: #1a1a1a;
-            border-bottom: 1px solid #333;
+    
+    # Get custom font from topbar config
+    custom_font = None
+    if config and '_topbar' in config:
+        custom_font = config['_topbar'].get('titleFont', None)
+    
+    # Determine colors based on color mode
+    if config and 'site' in config:
+        color_mode = config['site'].get('colorMode', 'dark')
+        if color_mode == 'light':
+            topbar_bg = '#f8f9fa'  # Light mode background
+            topbar_border = '#e1e8ed'  # Light mode border
+            topbar_text = '#24292f'  # Light mode text
+            topbar_text_hover = '#1a1a1a'  # Light mode text hover
+            topbar_link = '#656d76'  # Light mode link
+            topbar_link_hover = '#24292f'  # Light mode link hover
+            topbar_cta_bg = '#24292f'  # Light mode CTA background
+            topbar_cta_bg_hover = '#1a1a1a'  # Light mode CTA hover
+            topbar_cta_border = '#656d76'  # Light mode CTA border
+        else:  # dark mode or any other value defaults to dark
+            topbar_bg = 'var(--body-bg-color)'  # Use same background as site
+            topbar_border = '#333'  # Dark mode border
+            topbar_text = '#ffffff'  # Dark mode text
+            topbar_text_hover = '#f0f0f0'  # Dark mode text hover
+            topbar_link = '#cccccc'  # Dark mode link
+            topbar_link_hover = '#ffffff'  # Dark mode link hover
+            topbar_cta_bg = '#1a1a1a'  # Dark mode CTA background
+            topbar_cta_bg_hover = '#333333'  # Dark mode CTA hover
+            topbar_cta_border = '#333'  # Dark mode CTA border
+    else:
+        # Default to dark mode if no config provided
+        topbar_bg = 'var(--body-bg-color)'
+        topbar_border = '#333'
+        topbar_text = '#ffffff'
+        topbar_text_hover = '#f0f0f0'
+        topbar_link = '#cccccc'
+        topbar_link_hover = '#ffffff'
+        topbar_cta_bg = '#1a1a1a'
+        topbar_cta_bg_hover = '#333333'
+        topbar_cta_border = '#333'
+    
+    return get_font_styles() + f"""
+        /* TopBar Styles - Responsive Color Mode Navigation */
+        .topbar {{
+            background: {topbar_bg};
+            border-bottom: 1px solid {topbar_border};
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             width: 100vw;
-        }
+        }}
         
-        .topbar-container {
+        .topbar-container {{
             max-width: 100%;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
             min-height: 70px;
             gap: 2rem;
-        }
+        }}
         
-        .topbar-brand {
-            font-family: var(--font-primary);
+        .topbar-brand {{
+            font-family: {f'"{custom_font}", ' if custom_font else ''}var(--font-primary);
             font-size: var(--font-size-xl);
             font-weight: var(--font-weight-bold);
-            color: #ffffff;
+            color: {topbar_text};
             text-decoration: none;
             letter-spacing: 0.5px;
             margin: 0;
             transition: color 0.2s ease;
             flex-shrink: 0;
-        }
+        }}
         
-        .topbar-brand:hover {
-            color: #f0f0f0;
+        .topbar-brand:hover {{
+            color: {topbar_text_hover};
             text-decoration: none;
-        }
+        }}
         
-        .topbar-nav {
-            margin-left: auto;
+        .topbar-nav {{
             display: flex;
-        }
+            flex: 1;
+            justify-content: center;
+        }}
         
-        .topbar-list {
+        .topbar-cta-wrapper {{
+            display: flex;
+            align-items: center;
+        }}
+        
+        .topbar-list {{
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
             gap: 2rem;
             align-items: center;
-        }
+        }}
         
-        .topbar-item {
+        .topbar-item {{
             margin: 0;
-        }
+        }}
         
-        .topbar-link {
-            color: #cccccc;
+        .topbar-link {{
+            color: {topbar_link};
             text-decoration: none;
             font-family: var(--font-primary);
             font-size: var(--font-size-base);
             font-weight: var(--font-weight-normal);
             transition: color 0.2s ease;
             padding: 0.5rem 0;
-        }
+        }}
         
-        .topbar-link:hover {
-            color: #ffffff;
+        .topbar-link:hover {{
+            color: {topbar_link_hover};
             text-decoration: none;
-        }
+        }}
         
-        .topbar-cta {
-            background: #000000;
-            color: #ffffff;
+        .topbar-cta {{
+            background: {topbar_cta_bg};
+            color: {topbar_text};
             text-decoration: none;
             border-radius: 8px;
             padding: 0.75rem 1.5rem;
@@ -94,101 +141,101 @@ def get_topbar_styles():
             font-size: var(--font-size-base);
             font-weight: var(--font-weight-medium);
             transition: all 0.2s ease;
-            border: 1px solid #333;
+            border: 1px solid {topbar_cta_border};
             flex-shrink: 0;
-        }
+        }}
         
-        .topbar-cta:hover {
-            background: #333333;
-            color: #ffffff;
+        .topbar-cta:hover {{
+            background: {topbar_cta_bg_hover};
+            color: {topbar_text};
             text-decoration: none;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
+        }}
         
-        .topbar-cta-icon {
+        .topbar-cta-icon {{
             font-size: 1.1em;
-        }
+        }}
         
-        .topbar-cta-text {
+        .topbar-cta-text {{
             font-weight: var(--font-weight-medium);
-        }
+        }}
         
         /* Responsive design */
-        @media (max-width: 1024px) {
-            .topbar-container {
+        @media (max-width: 1024px) {{
+            .topbar-container {{
                 padding: 0 1.5rem;
-            }
+            }}
             
-            .topbar-list {
+            .topbar-list {{
                 gap: 1.5rem;
-            }
-        }
+            }}
+        }}
         
-        @media (max-width: 768px) {
-            .topbar-container {
+        @media (max-width: 768px) {{
+            .topbar-container {{
                 padding: 0 1rem;
                 flex-wrap: wrap;
                 gap: 1rem;
                 min-height: auto;
                 padding-top: 1rem;
                 padding-bottom: 1rem;
-            }
+            }}
             
-            .topbar-brand {
+            .topbar-brand {{
                 font-size: var(--font-size-lg);
                 order: 1;
                 flex: 1;
                 text-align: left;
-            }
+            }}
             
-            .topbar-nav {
+            .topbar-nav {{
                 order: 3;
                 width: 100%;
-                margin-left: 0;
                 justify-content: center;
-            }
+            }}
             
-            .topbar-list {
+            .topbar-list {{
                 gap: 1rem;
                 flex-wrap: wrap;
                 justify-content: center;
-            }
+            }}
             
-            .topbar-cta {
+            .topbar-cta-wrapper {{
                 order: 2;
+            }}
+            
+            .topbar-cta {{
                 padding: 0.5rem 1rem;
                 font-size: var(--font-size-sm);
-            }
+            }}
             
-            .topbar-link {
+            .topbar-link {{
                 font-size: var(--font-size-sm);
-            }
-        }
+            }}
+        }}
         
-        @media (max-width: 480px) {
-            .topbar-container {
+        @media (max-width: 480px) {{
+            .topbar-container {{
                 flex-direction: column;
                 gap: 0.75rem;
-            }
+            }}
             
-            .topbar-brand {
+            .topbar-brand {{
                 order: 1;
                 text-align: center;
                 width: 100%;
-            }
+            }}
             
-            .topbar-nav {
+            .topbar-nav {{
                 order: 2;
-            }
+            }}
             
-            .topbar-list {
+            .topbar-list {{
                 gap: 0.75rem;
-            }
+            }}
             
-            .topbar-cta {
+            .topbar-cta-wrapper {{
                 order: 3;
                 align-self: center;
-            }
-        }
+            }}
+        }}
     """

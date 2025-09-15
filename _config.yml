@@ -7,6 +7,7 @@ site:
 # TopBar navigation with CTA button
 _topbar:
   title: "Welcome to Sssstatic"
+  titleFont: "Bitcount Grid Double"
   cta: "Get Started"
   link: "#contact"
 

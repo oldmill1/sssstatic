@@ -3,15 +3,26 @@
 Type module for SSSStatic - centralized font definitions and Google Fonts imports
 """
 
-def get_google_fonts_imports():
+def get_google_fonts_imports(custom_fonts=None):
     """Return HTML link tags for Google Fonts imports."""
-    return """    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    base_imports = """    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Original+Surfer:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">"""
+    
+    if custom_fonts:
+        custom_imports = ""
+        for font in custom_fonts:
+            if font and font.strip():
+                # Format font name for Google Fonts URL (replace spaces with +)
+                formatted_font = font.strip().replace(' ', '+')
+                custom_imports += f'\n    <link href="https://fonts.googleapis.com/css2?family={formatted_font}:wght@100..900&display=swap" rel="stylesheet">'
+        return base_imports + custom_imports
+    
+    return base_imports
 
 
 def get_font_families():
