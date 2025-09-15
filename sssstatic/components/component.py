@@ -61,7 +61,10 @@ def generate_component_html(config):
             if content_htmls:
                 # Build the component HTML with proper wrapper
                 bg_color = component_data.get('bgColor', '')
-                style_attr = f' style="background-color: {bg_color};"' if bg_color else ''
+                if bg_color:
+                    style_attr = f' style="background-color: {bg_color}; padding: 1rem; border-radius: 12px;"'
+                else:
+                    style_attr = ''
                 component_html = f'        <div class="component-container"{style_attr}>\n'
                 for content_html in content_htmls:
                     # Add each content component with proper indentation
@@ -74,7 +77,10 @@ def generate_component_html(config):
         if html_content:
             # Wrap HTML content in component container
             bg_color = component_data.get('bgColor', '')
-            style_attr = f' style="background-color: {bg_color};"' if bg_color else ''
+            if bg_color:
+                style_attr = f' style="background-color: {bg_color}; padding: 1rem; border-radius: 12px;"'
+            else:
+                style_attr = ''
             component_html = f'        <div class="component-container"{style_attr}>\n'
             component_html += f'            {html_content}\n'
             component_html += '        </div>\n'
