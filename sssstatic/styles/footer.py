@@ -12,6 +12,7 @@ def get_footer_styles():
         .site-footer {
             width: 100vw;
             margin-left: calc(-50vw + 50%);
+            margin-top: 2rem;
             padding: 4rem 0 0 0;
             background: black;
             position: relative;
@@ -50,10 +51,22 @@ def get_footer_styles():
             opacity: 0.8;
         }
         
+        /* Responsive footer spacing */
+        @media (min-width: 768px) {
+            .site-footer {
+                margin-top: 3rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .site-footer {
+                margin-top: 4rem;
+            }
+        }
+        
         /* Responsive footer */
         @media (max-width: 768px) {
             .site-footer {
-                margin-top: 3rem;
                 padding: 3rem 0 0 0;
             }
             
