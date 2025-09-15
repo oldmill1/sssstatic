@@ -13,6 +13,7 @@ from .styles.slick import get_slick_styles
 from .styles.sizzle import get_sizzle_styles
 from .styles.sly import get_sly_styles
 from .styles.sinema import get_sinema_styles
+from .styles.sieve import get_sieve_styles
 from .styles.map import get_map_styles
 
 
@@ -450,7 +451,7 @@ def get_global_css(config=None):
         }
         
         
-        """ + get_card_styles() + get_row_styles() + get_column_css() + get_component_css() + get_spotlight_styles() + get_widescreen_spotlight_styles() + get_pinterest_styles() + get_showcase_styles() + get_slick_styles() + get_sizzle_styles() + get_sly_styles() + get_sinema_styles() + get_map_styles() + get_footer_styles()
+        """ + get_card_styles() + get_row_styles() + get_column_css() + get_component_css() + get_spotlight_styles() + get_widescreen_spotlight_styles() + get_pinterest_styles() + get_showcase_styles() + get_slick_styles() + get_sizzle_styles() + get_sly_styles() + get_sinema_styles() + get_sieve_styles() + get_map_styles() + get_footer_styles()
 
 
 
