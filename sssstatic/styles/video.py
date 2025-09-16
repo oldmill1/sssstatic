@@ -19,7 +19,6 @@ def get_video_css():
 .video-container video {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     background-color: #000;
 }
@@ -32,7 +31,7 @@ def get_video_css():
     }
     
     .video-container video {
-        border-radius: 4px;
+        /* border-radius controlled via config */
     }
 }
 

@@ -18,11 +18,12 @@ _row:
     - _video:
         src: "sample.mp4"
         controls: false
-        autoplay: false
+        autoplay: true
         loop: false
-        muted: false
+        muted: true
         width: "800px"
         height: "450px"
+        borderRadius: "20px"
     - _component:
         content:
           - _text:
