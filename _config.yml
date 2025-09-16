@@ -20,11 +20,36 @@ _row:
         subtitle: "Vintage Computing Experience"
         terminal_text: "Nice to meet you"
         boot_delay: 2000
-    - _sslogan:
-        heading: "Build this website with SSSStatic"
-        subheading: "Go live in thirty seconds. 🚀"
-        paragraphs:
-          - "From idea to a beautiful, responsive website in just a few lines of text. Perfect for portfolios, docs, and landing pages."
+    - _component:
+        content:
+          - _text:
+              content: "Build this website with SSSStatic"
+              spacerTop: "4rem"
+              type: "h1"
+              size: "xxlarge"
+              fontWeight: "700"
+              fontFamily: "heading"
+              letterSpacing: "tight"
+              align: "left"
+              lineHeight: "small"
+              marginBottom: "1rem"
+          - _text:
+              content: "Go live in thirty seconds. 🚀"
+              type: "h2"
+              size: "large"
+              fontWeight: "500"
+              fontFamily: "heading"
+              align: "left"
+              lineHeight: "medium"
+              marginBottom: "1rem"
+          - _text:
+              content: "From idea to a beautiful, responsive website in just a few lines of text. Perfect for portfolios, docs, and landing pages."
+              type: "p"
+              size: "medium"
+              fontWeight: "400"
+              fontFamily: "primary"
+              align: "left"
+              lineHeight: "medium"
   - _column:
     - _component:
         content:

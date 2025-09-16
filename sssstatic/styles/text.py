@@ -94,6 +94,44 @@ def get_text_css():
     font-weight: 900;
 }
 
+/* Font Family Variants */
+.font-family-primary {
+    font-family: var(--font-primary);
+}
+
+.font-family-heading {
+    font-family: var(--font-heading);
+}
+
+.font-family-display {
+    font-family: var(--font-display);
+}
+
+.font-family-byline {
+    font-family: var(--font-byline);
+}
+
+.font-family-mono {
+    font-family: var(--font-mono);
+}
+
+.font-family-system {
+    font-family: var(--font-system);
+}
+
+/* Letter Spacing Variants */
+.letter-spacing-tight {
+    letter-spacing: -0.02em;
+}
+
+.letter-spacing-normal {
+    letter-spacing: 0;
+}
+
+.letter-spacing-wide {
+    letter-spacing: 0.05em;
+}
+
 /* Text Line Height Variants */
 .text-line-height-small {
     line-height: 1.2;

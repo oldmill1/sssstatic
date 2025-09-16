@@ -7,8 +7,14 @@ Available Properties:
 - type: (string) HTML element type - "h1", "h2", "h3", "h4", "h5", "h6", "p", "span", "div", etc.
 - size: (string) Text size - "small", "medium", "large", "xlarge", "xxlarge", "huge"
 - weight: (string) Font weight - "thin", "normal", "bold", "black"
+- fontWeight: (string) Specific font weight - "400", "500", "600", "700", etc.
+- fontFamily: (string) Font family - "primary", "heading", "display", "byline", "mono", "system"
+- letterSpacing: (string) Letter spacing - "tight", "normal", "wide", or specific value like "-0.02em"
 - paddingInline: (string) Horizontal margin - "0", "0.5rem", "1rem", "2rem", etc.
 - paddingBlock: (string) Vertical margin - "0", "0.5rem", "1rem", "2rem", etc.
+- marginBottom: (string) Bottom margin - "0", "0.5rem", "1rem", "2rem", etc.
+- spacerTop: (string) Top padding - "0", "0.5rem", "1rem", "2rem", etc.
+- spacerBottom: (string) Bottom padding - "0", "0.5rem", "1rem", "2rem", etc.
 - lineHeight: (string) Line height - "small", "medium", "large"
 - emojiLeft: (string) Optional emoji to display to the left of text
 - emojiRight: (string) Optional emoji to display to the right of text
@@ -21,6 +27,8 @@ _text:
   size: "xlarge"
   weight: "bold"
   paddingBlock: "1rem"
+  spacerTop: "2rem"
+  spacerBottom: "1rem"
   emojiLeft: "👋"
 """
 
@@ -37,9 +45,15 @@ def generate_text_html(config):
     element_type = text_data.get('type', 'p')  # Default to paragraph
     size = text_data.get('size', 'medium')  # small, medium, large, xlarge
     weight = text_data.get('weight', 'normal')  # thin, normal, bold
+    font_weight = text_data.get('fontWeight', '')  # Specific weight like "500", "600"
+    font_family = text_data.get('fontFamily', '')  # primary, heading, display, etc.
+    letter_spacing = text_data.get('letterSpacing', '')  # tight, normal, wide, or specific value
     line_height = text_data.get('lineHeight', 'medium')  # small, medium, large
     padding_inline = text_data.get('paddingInline', '0')
     padding_block = text_data.get('paddingBlock', '0')
+    margin_bottom = text_data.get('marginBottom', '')
+    spacer_top = text_data.get('spacerTop', '')
+    spacer_bottom = text_data.get('spacerBottom', '')
     emoji_left = text_data.get('emojiLeft', '')
     emoji_right = text_data.get('emojiRight', '')
     emoji_top = text_data.get('emojiTop', '')
@@ -55,7 +69,15 @@ def generate_text_html(config):
     css_classes.append(f'text-line-height-{line_height}')
     css_classes.append(f'align-{align}')
     
-    # Build inline styles for padding (use margin instead to avoid bleeding)
+    # Add font family class if specified
+    if font_family:
+        css_classes.append(f'font-family-{font_family}')
+    
+    # Add letter spacing class if specified
+    if letter_spacing:
+        css_classes.append(f'letter-spacing-{letter_spacing}')
+    
+    # Build inline styles for padding and new properties
     inline_styles = []
     if padding_inline != '0':
         inline_styles.append(f'margin-left: {padding_inline};')
@@ -63,6 +85,17 @@ def generate_text_html(config):
     if padding_block != '0':
         inline_styles.append(f'margin-top: {padding_block};')
         inline_styles.append(f'margin-bottom: {padding_block};')
+    if margin_bottom:
+        inline_styles.append(f'margin-bottom: {margin_bottom};')
+    if spacer_top:
+        inline_styles.append(f'padding-top: {spacer_top};')
+    if spacer_bottom:
+        inline_styles.append(f'padding-bottom: {spacer_bottom};')
+    if font_weight:
+        inline_styles.append(f'font-weight: {font_weight};')
+    if letter_spacing and letter_spacing not in ['tight', 'normal', 'wide']:
+        # If it's a specific value like "-0.02em", use it directly
+        inline_styles.append(f'letter-spacing: {letter_spacing};')
     
     style_attr = f' style="{"; ".join(inline_styles)}"' if inline_styles else ''
     
