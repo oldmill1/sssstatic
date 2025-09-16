@@ -1,3 +1,7 @@
+[![GitHub Pages](https://img.shields.io/badge/github%20pages-deployed-blue.svg)](https://sssstatic.com)
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 ## 🚀 Quick Start
 
 Create a `_config.yml` file in your project directory and start building! Here's a complete example showing everything you can create:
