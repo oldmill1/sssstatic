@@ -1,10 +1,3 @@
-# 🐍🐍🐍 SSSStatic 🐍🐍🐍
-
-> *The simplest way to build beautiful websites*
-
-Create web-sites that _sell_ with pre-defined templates. 
-Just fill in your own content. 
-
 ## 🚀 Quick Start
 
 Create a `_config.yml` file in your project directory and start building! Here's a complete example showing everything you can create:
