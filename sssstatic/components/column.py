@@ -1,6 +1,84 @@
 # sssstatic/components/column.py
 """
 Column component for SSSStatic - container for organizing components in columns
+
+COMPONENT PROPERTIES:
+====================
+
+_column: array | object
+    The column configuration. Can be:
+    - Array: List of components to place in separate columns
+    - Object: Single component to place in one column
+
+PROPERTIES (when _column is an array):
+-------------------------------------
+Each array item should be an object containing one component:
+- _text: Text component
+- _image: Image component
+- _button: Button component
+- _showcase: Showcase component
+- _widescreen_spotlight: Widescreen spotlight component
+- _pinterest: Pinterest component
+- _slick: Slick component
+- _sizzle: Sizzle component
+- _sly: Sly component
+- _sinema: Sinema component
+- _sslogan: Slogan component
+- _map: Map component
+- _component: Generic component
+- _video: Video component
+
+PROPERTIES (when _column is an object):
+--------------------------------------
+Same component types as above, but for a single column layout.
+
+USAGE EXAMPLES:
+===============
+
+1. Single component in a column:
+   _column:
+     _text:
+       content: "This is a single text component in a column"
+       style: "heading"
+
+2. Multiple components in separate columns:
+   _column:
+     - _text:
+         content: "First column content"
+         style: "body"
+     - _text:
+         content: "Second column content" 
+         style: "body"
+
+3. Mixed component types in columns:
+   _column:
+     - _text:
+         content: "Welcome to our site"
+         style: "heading"
+     - _image:
+         src: "assets/photo.jpg"
+         alt: "Description"
+     - _button:
+         text: "Click me"
+         link: "/contact"
+
+4. Complex layout with showcase and text:
+   _column:
+     - _showcase:
+         title: "Our Products"
+         items:
+           - title: "Product 1"
+             description: "Amazing product"
+     - _text:
+         content: "Learn more about our offerings"
+         style: "body"
+
+RENDERED OUTPUT:
+===============
+- Single component: Wrapped in <div class="column">
+- Multiple components: Wrapped in <div class="columns-container"> with individual <div class="column column-N"> elements
+- Automatic layout: Flexbox-based responsive column system
+- Component support: All SSSStatic component types are supported
 """
 
 

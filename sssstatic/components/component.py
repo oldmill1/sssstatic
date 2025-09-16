@@ -1,6 +1,82 @@
 # sssstatic/components/component.py
 """
 Generic component for SSSStatic - renders raw HTML from config
+
+COMPONENT PROPERTIES:
+====================
+
+_component: string | object
+    The component configuration. Can be:
+    - String: Raw HTML content (simple usage)
+    - Object: Structured component with properties below
+
+PROPERTIES (when _component is an object):
+------------------------------------------
+
+html: string (optional)
+    Raw HTML content to render inside the component container
+    Example: "<h2>Welcome!</h2><p>This is HTML content</p>"
+
+bgColor: string (optional)
+    Background color for the component container
+    Format: CSS color value (hex, rgb, rgba, named colors)
+    Example: "#f0f0f0", "rgb(240, 240, 240)", "lightblue"
+    Default: No background color
+
+content: array (optional)
+    Array of child components to render inside the component
+    Each item can be one of:
+    - _text: Text component
+    - _button: Button component  
+    - _sticker: Sticker component
+    Example: [{"_text": {"content": "Hello", "style": "heading"}}]
+
+USAGE EXAMPLES:
+===============
+
+1. Simple HTML string:
+   _component: "<p>This is raw HTML content</p>"
+
+2. HTML with background:
+   _component:
+     html: "<h2>Welcome!</h2><p>This is HTML content</p>"
+     bgColor: "#f0f0f0"
+
+3. Content array with text and buttons:
+   _component:
+     content:
+       - _text:
+           content: "Get Started Today"
+           style: "heading"
+       - _text:
+           content: "Join thousands of satisfied customers"
+           style: "body"
+       - _button:
+           text: "Sign Up Now"
+           url: "/signup"
+           style: "primary"
+     bgColor: "#e8f4fd"
+
+4. Mixed content with stickers:
+   _component:
+     content:
+       - _text:
+           content: "Special Offer!"
+           style: "heading"
+       - _sticker:
+           name: "rocket"
+           size: "large"
+       - _button:
+           text: "Claim Offer"
+           url: "/offer"
+           style: "success"
+
+RENDERED OUTPUT:
+===============
+- Single HTML string: Wrapped in <div class="component-container">
+- Object with html: Wrapped in <div class="component-container"> with optional background styling
+- Object with content: Flexbox container with proper spacing and alignment
+- Background colors: Applied with border-radius: 12px and padding: 1rem
 """
 
 
