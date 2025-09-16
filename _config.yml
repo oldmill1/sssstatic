@@ -142,3 +142,4 @@ _row:
               description: "Faster loading times improve search rankings and uptime is nearly 100%"
         button_text: "Get Started Today"
         button_url: "#contact"
+        button_size: "large"

@@ -131,38 +131,93 @@ def get_showcase_styles():
             line-height: 1.4;
         }
         
-        /* Call-to-action button - matching widescreen button style */
+        /* Call-to-action button - matching primary button style */
         .showcase-button {
-            align-items: center;
-            background-color: initial;
-            background-image: linear-gradient(rgba(179, 132, 201, .84), rgba(57, 31, 91, .84) 50%);
-            border-radius: 42px;
-            border-width: 0;
-            box-shadow: rgba(57, 31, 91, 0.24) 0 2px 2px,rgba(179, 132, 201, 0.4) 0 8px 12px;
-            color: #FFFFFF;
+            font-family: "myriad-pro", system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 600;
+            border-radius: 1.87rem;
+            border: 1px solid #012880;
+            background-image: linear-gradient(-180deg, #4FC3F7 0%, #2E7D32 100%);
+            box-shadow: 0 0.5rem 0.625rem 0 rgba(0,0,0,0.2),
+                        0 -0.125rem 0.75rem rgba(25, 118, 210, 1) inset,
+                        0 0.375rem 0.125rem rgba(255,255,255, 0.4) inset,
+                        0 0.125rem 0.25rem 0 rgba(76, 175, 80, 1) inset;
+            color: transparent;
             cursor: pointer;
-            display: flex;
-            font-family: 'Work Sans', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            letter-spacing: .04em;
-            line-height: 16px;
+            font-size: 1rem;
+            letter-spacing: 0.0375em;
+            line-height: 1;
             margin: 0;
-            padding: 18px 34px;
+            padding: 0.625rem 2rem;
             text-align: center;
             text-decoration: none;
-            text-shadow: rgba(255, 255, 255, 0.4) 0 0 4px,rgba(255, 255, 255, 0.2) 0 0 12px,rgba(57, 31, 91, 0.6) 1px 1px 4px,rgba(57, 31, 91, 0.32) 4px 4px 16px;
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
             vertical-align: baseline;
-            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            transition: all 150ms ease-in-out;
+            white-space: nowrap;
         }
         
         .showcase-button:hover {
-            background-image: linear-gradient(#B384C9, #391F5B 50%);
-            transform: translateY(-2px);
+            filter: brightness(1.1);
+            text-decoration: none;
+        }
+        
+        .showcase-button:active {
+            transform: scale(.96);
+            text-decoration: none;
+        }
+        
+        .showcase-button:focus {
+            outline: none;
+        }
+        
+        /* Text styling for showcase button */
+        .showcase-button .showcase-button-text {
+            color: transparent;
+            background-image: linear-gradient(0deg, #81C784 -10%, #FEFAFD 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter: drop-shadow(0 2px 2px hsla(120, 100%, 20%, 1));
+        }
+        
+        /* Shine effects for showcase button */
+        .showcase-button::before {
+            content: "";
+            display: block;
+            height: 0.125rem;
+            position: absolute;
+            top: 0.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 2rem);
+            background: #fff;
+            border-radius: 100%;
+            opacity: 0.7;
+            background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
+        }
+        
+        .showcase-button::after {
+            content: "";
+            display: block;
+            height: 0.125rem;
+            position: absolute;
+            bottom: 0.375rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 2rem);
+            background: #fff;
+            border-radius: 100%;
+            filter: blur(1px);
+            opacity: 0.05;
+            background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
         }
         
         /* Responsive adjustments */
@@ -231,6 +286,8 @@ def get_showcase_styles():
             .showcase-button {
                 width: 100%;
                 max-width: 300px;
+                font-size: 1rem;
+                padding: 0.625rem 2rem;
             }
         }
         
@@ -258,8 +315,8 @@ def get_showcase_styles():
             }
             
             .showcase-button {
-                font-size: 1rem;
-                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+                padding: 0.5rem 1.5rem;
             }
         }
     """

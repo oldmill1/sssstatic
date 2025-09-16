@@ -1,6 +1,16 @@
 # sssstatic/components/showcase.py
 """
 Showcase component for SSSStatic - displays an image with a multi-step process and call-to-action
+
+Configuration options:
+- image: Image file path (required)
+- title: Main heading text
+- subtitle: Subheading text  
+- steps: List of step objects with emoji, text, and description
+- button_text: Call-to-action button text (default: "Get Started Today")
+- button_url: Call-to-action button URL (default: "#")
+- button_size: Button size - "small", "medium", or "large" (default: "medium")
+- direction: Image position - "left" or "right" (default: "left")
 """
 
 
@@ -19,6 +29,7 @@ def generate_showcase_html(config):
         steps = showcase_data.get('steps', [])
         button_text = showcase_data.get('button_text', 'Get Started Today')
         button_url = showcase_data.get('button_url', '#')
+        button_size = showcase_data.get('button_size', 'medium')  # Default to medium
         direction = showcase_data.get('direction', 'left')  # Default to left
     else:
         # If it's just a string, treat it as the image path
@@ -28,10 +39,16 @@ def generate_showcase_html(config):
         steps = []
         button_text = 'Get Started Today'
         button_url = '#'
+        button_size = 'medium'  # Default to medium
         direction = 'left'  # Default to left
     
     if not image_path:
         return ""
+    
+    # Validate button size
+    valid_sizes = ['small', 'medium', 'large']
+    if button_size not in valid_sizes:
+        button_size = 'medium'  # Fallback to medium if invalid size provided
     
     # Default steps if none provided
     if not steps:
@@ -86,7 +103,7 @@ def generate_showcase_html(config):
         from .button import generate_button_html
         anchor_link = button_url.startswith('#')
         showcase_html += '                '
-        showcase_html += generate_button_html(button_text, button_url, 'gradient', 'default', 'medium', None, anchor_link)
+        showcase_html += generate_button_html(button_text, button_url, 'primary', 'default', button_size, None, anchor_link)
         showcase_html += '\n            </div>\n'
     else:
         # Default: Image first (left side)
@@ -128,7 +145,7 @@ def generate_showcase_html(config):
         from .button import generate_button_html
         anchor_link = button_url.startswith('#')
         showcase_html += '                '
-        showcase_html += generate_button_html(button_text, button_url, 'gradient', 'default', 'medium', None, anchor_link)
+        showcase_html += generate_button_html(button_text, button_url, 'primary', 'default', button_size, None, anchor_link)
         showcase_html += '\n            </div>\n'
     showcase_html += '        </div>\n'
     showcase_html += '    </section>\n'
