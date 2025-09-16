@@ -67,12 +67,6 @@ def generate_site_html(config, content_html, dev_mode=False):
     custom_fonts = []
     if '_topbar' in config and config['_topbar'].get('titleFont'):
         custom_fonts.append(config['_topbar']['titleFont'])
-    
-    # Extract widescreen spotlight custom fonts
-    if '_widescreen_spotlight' in config and isinstance(config['_widescreen_spotlight'], dict):
-        widescreen_font = config['_widescreen_spotlight'].get('fontFamily')
-        if widescreen_font and widescreen_font not in ['Original Surfer', 'Work Sans', 'Inter', 'Source Code Pro']:
-            custom_fonts.append(widescreen_font)
 
     # Generate header HTML - use TopBar if configured, otherwise no header
     has_topbar = '_topbar' in config

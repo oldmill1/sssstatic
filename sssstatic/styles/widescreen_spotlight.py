@@ -38,11 +38,12 @@ def get_widescreen_spotlight_styles():
             height: 100%;
             object-fit: cover;
             object-position: center;
+            transform: translateX(var(--widescreen-shift, 0));
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .widescreen-background:hover .widescreen-image {
-            transform: scale(1.02);
+            transform: translateX(var(--widescreen-shift, 0)) scale(1.02);
         }
         
         /* Floating content overlay */
@@ -74,9 +75,9 @@ def get_widescreen_spotlight_styles():
             width: 100%;
         }
         
-        /* Widescreen Title - Dynamic font family */
+        /* Widescreen Title - Original Surfer font */
         .widescreen-title {
-            font-family: var(--widescreen-font-family, 'Original Surfer'), -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Original Surfer', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 5rem;
             font-weight: 400;
             margin: 0 0 1rem 0;
@@ -88,7 +89,7 @@ def get_widescreen_spotlight_styles():
         
         /* Widescreen Subtitle */
         .widescreen-subtitle {
-            font-family: var(--widescreen-font-family, -apple-system), BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 1.5rem;
             font-weight: 600;
             margin: 0 0 1.5rem 0;
@@ -97,9 +98,9 @@ def get_widescreen_spotlight_styles():
             text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
         }
         
-        /* Widescreen Description - Dynamic font family */
+        /* Widescreen Description - Gen Z byline style */
         .widescreen-description {
-            font-family: var(--widescreen-font-family, 'Inter'), -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 1.5rem;
             font-weight: 500;
             margin: 0 0 2.5rem 0;
