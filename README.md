@@ -228,7 +228,6 @@ _showcase:
 ### Special Components
 - **`_sinema`** - Retro terminal display for that vintage computing feel
 - **`_showcase`** - Side-by-side image and step-by-step content
-- **`_spotlight`** - Hero image sections with overlaid text
 - **`_pinterest`** - Masonry image galleries
 - **`_cards`** - Project cards with status indicators
 

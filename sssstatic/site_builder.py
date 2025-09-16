@@ -80,7 +80,6 @@ def generate_css_file(config, dev_mode=False):
             # Style modules
             'sssstatic.styles.sinema',
             'sssstatic.styles.cards',
-            'sssstatic.styles.spotlight',
             'sssstatic.styles.widescreen_spotlight',
             'sssstatic.styles.pinterest',
             'sssstatic.styles.showcase',
@@ -94,7 +93,6 @@ def generate_css_file(config, dev_mode=False):
             # Component modules
             'sssstatic.components.sinema',
             'sssstatic.components.cards',
-            'sssstatic.components.spotlight',
             'sssstatic.components.widescreen_spotlight',
             'sssstatic.components.pinterest',
             'sssstatic.components.showcase',

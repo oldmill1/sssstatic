@@ -5,7 +5,6 @@ Styles module for SSSStatic - contains CSS styles for generated sites
 
 from .styles.topbar import get_topbar_styles
 from .styles.cards import get_card_styles
-from .styles.spotlight import get_spotlight_styles
 from .styles.widescreen_spotlight import get_widescreen_spotlight_styles
 from .styles.pinterest import get_pinterest_styles
 from .styles.showcase import get_showcase_styles
@@ -47,7 +46,6 @@ def get_global_css(config=None):
     from .styles.row import get_row_styles
     from .styles.column import get_column_css
     from .styles.component import get_component_css
-    from .styles.spotlight import get_spotlight_styles
     from .styles.widescreen_spotlight import get_widescreen_spotlight_styles
     from .styles.pinterest import get_pinterest_styles
     from .styles.showcase import get_showcase_styles
@@ -453,7 +451,7 @@ def get_global_css(config=None):
         }
         
         
-        """ + get_card_styles() + get_row_styles() + get_column_css() + get_component_css() + get_text_css() + get_spotlight_styles() + get_widescreen_spotlight_styles() + get_pinterest_styles() + get_showcase_styles() + get_slick_styles() + get_sizzle_styles() + get_sly_styles() + get_sinema_styles() + get_sslogan_styles() + get_map_styles() + get_button_styles() + get_sticker_styles()
+        """ + get_card_styles() + get_row_styles() + get_column_css() + get_component_css() + get_text_css() + get_widescreen_spotlight_styles() + get_pinterest_styles() + get_showcase_styles() + get_slick_styles() + get_sizzle_styles() + get_sly_styles() + get_sinema_styles() + get_sslogan_styles() + get_map_styles() + get_button_styles() + get_sticker_styles()
 
 
 
