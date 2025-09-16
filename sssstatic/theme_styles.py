@@ -90,8 +90,8 @@ def get_global_css(config=None):
             line-height: 1.6;
             color: #f8f9fa;
             background-color: var(--body-bg-color);
-            max-width: 1200px;
-            margin: 0 auto;
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
             overflow-x: hidden;
         }

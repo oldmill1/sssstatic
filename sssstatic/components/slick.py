@@ -1,6 +1,19 @@
 # sssstatic/components/slick.py
 """
 Slick component for SSSStatic - displays benefits with icons and an image
+
+Configuration options:
+- title: Main heading text (required)
+- subtitle: Subheading text (optional)
+- highlightText or highlight_text: Text to highlight in the title (optional)
+- image: Image file path (optional)
+- benefits: List of benefit objects with icon, title, and description (required)
+- bgColor: Background color for the section - stretches full width (optional, default: #f8f9fa)
+- color: Text color for the section (optional, default: #000)
+- highlightColor: Color for highlighted text (optional)
+
+Note: The background color (bgColor) will stretch edge-to-edge across the full viewport width,
+while the content is constrained to 1200px max-width and centered.
 """
 
 

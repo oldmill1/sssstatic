@@ -90,8 +90,8 @@ def get_topbar_styles(config=None):
             max-width: 100%;
             margin: 0 auto;
             padding: {container_padding};
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
             min-height: {container_height};
             gap: 2rem;
@@ -107,6 +107,8 @@ def get_topbar_styles(config=None):
             margin: 0;
             transition: color 0.2s ease;
             flex-shrink: 0;
+            grid-column: 1;
+            justify-self: start;
         }}
         
         .topbar-brand:hover {{
@@ -116,13 +118,15 @@ def get_topbar_styles(config=None):
         
         .topbar-nav {{
             display: flex;
-            flex: 1;
             justify-content: center;
+            grid-column: 2;
         }}
         
         .topbar-cta-wrapper {{
             display: flex;
             align-items: center;
+            grid-column: 3;
+            justify-self: end;
         }}
         
         .topbar-list {{
@@ -198,6 +202,7 @@ def get_topbar_styles(config=None):
         @media (max-width: 768px) {{
             .topbar-container {{
                 padding: 0 1rem;
+                display: flex;
                 flex-wrap: wrap;
                 gap: 1rem;
                 min-height: auto;
@@ -210,12 +215,15 @@ def get_topbar_styles(config=None):
                 order: 1;
                 flex: 1;
                 text-align: left;
+                grid-column: unset;
+                justify-self: unset;
             }}
             
             .topbar-nav {{
                 order: 3;
                 width: 100%;
                 justify-content: center;
+                grid-column: unset;
             }}
             
             .topbar-list {{
@@ -226,6 +234,8 @@ def get_topbar_styles(config=None):
             
             .topbar-cta-wrapper {{
                 order: 2;
+                grid-column: unset;
+                justify-self: unset;
             }}
             
             .topbar-cta {{

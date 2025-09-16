@@ -11,14 +11,16 @@ def get_slick_styles():
         /* Slick Section - Two column layout with benefits and image */
         .slick-section {
             margin: 0; 
-            padding: 2rem 0;
+            padding: 0; /* Remove padding from section - let container handle it */
             background-color: #f8f9fa; /* Default background, can be overridden by bgColor */
             color: #000; /* Default text color, can be overridden by color property */
+            width: 100%; /* Ensure full width background */
         }
         
         .slick-container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 2rem 0; /* Move padding to container so content is constrained but background is full width */
         }
         
         .slick-content-wrapper {
