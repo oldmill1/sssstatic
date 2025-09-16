@@ -122,7 +122,8 @@ _row:
               style: "primary"
               variant: "link"
               size: "medium"
-  - _showcase:
+
+_showcase:
         image: "statie.png"
         direction: "right"
         title: "Why Static Sites Are Awesome"
