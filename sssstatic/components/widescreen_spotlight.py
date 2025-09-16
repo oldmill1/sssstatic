@@ -19,7 +19,9 @@ def generate_widescreen_spotlight_html(config):
         subtitle = widescreen_data.get('subtitle', '')
         description = widescreen_data.get('description', '')
         buttons = widescreen_data.get('buttons', [])
-        text_position = widescreen_data.get('_textPosition', 'right')  # Default to right
+        text_position = widescreen_data.get('textPosition', 'right')  # Default to right
+        font_family = widescreen_data.get('fontFamily', 'Original Surfer')  # Default to Original Surfer
+        text_color = widescreen_data.get('textColor', '#ffffff')  # Default to white
     else:
         # If it's just a string, treat it as the image path
         image_path = widescreen_data
@@ -28,6 +30,8 @@ def generate_widescreen_spotlight_html(config):
         description = ''
         buttons = []
         text_position = 'right'
+        font_family = 'Original Surfer'
+        text_color = '#ffffff'
     
     if not image_path:
         return ""
@@ -36,7 +40,7 @@ def generate_widescreen_spotlight_html(config):
     layout_class = f"widescreen-layout-{text_position}"
     
     # Build the widescreen spotlight HTML - full-bleed background with floating text
-    spotlight_html = f'    <section class="widescreen-spotlight-section {layout_class}">\n'
+    spotlight_html = f'    <section class="widescreen-spotlight-section {layout_class}" style="--widescreen-font-family: \'{font_family}\', -apple-system, BlinkMacSystemFont, sans-serif; --widescreen-text-color: {text_color};">\n'
     
     # Full-bleed background image
     spotlight_html += '        <div class="widescreen-background">\n'

@@ -74,13 +74,13 @@ def get_widescreen_spotlight_styles():
             width: 100%;
         }
         
-        /* Widescreen Title - Original Surfer font */
+        /* Widescreen Title - Dynamic font family */
         .widescreen-title {
-            font-family: 'Original Surfer', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: var(--widescreen-font-family, 'Original Surfer'), -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 5rem;
             font-weight: 400;
             margin: 0 0 1rem 0;
-            color: #ffffff;
+            color: var(--widescreen-text-color, #ffffff);
             letter-spacing: -0.02em;
             line-height: 0.9;
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
@@ -88,33 +88,46 @@ def get_widescreen_spotlight_styles():
         
         /* Widescreen Subtitle */
         .widescreen-subtitle {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: var(--widescreen-font-family, -apple-system), BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 1.5rem;
             font-weight: 600;
             margin: 0 0 1.5rem 0;
-            color: #ffffff;
+            color: var(--widescreen-text-color, #ffffff);
             letter-spacing: -0.01em;
             text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
         }
         
-        /* Widescreen Description - Gen Z byline style */
+        /* Widescreen Description - Dynamic font family */
         .widescreen-description {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: var(--widescreen-font-family, 'Inter'), -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 1.5rem;
             font-weight: 500;
             margin: 0 0 2.5rem 0;
-            color: #ffffff;
+            color: var(--widescreen-text-color, #ffffff);
             line-height: 1.4;
             text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
             max-width: 500px;
             letter-spacing: -0.01em;
         }
         
-        /* Call-to-action buttons - Gradient button-72 style */
-        .widescreen-actions {
+        /* Call-to-action buttons - Integrated with widescreen content */
+        .widescreen-content .sss-button-group {
+            margin-top: 2rem;
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+        }
+        
+        .widescreen-content .sss-button-group-center {
+            justify-content: flex-start;
+        }
+        
+        .widescreen-content .sss-button-group-left {
+            justify-content: flex-start;
+        }
+        
+        .widescreen-content .sss-button-group-right {
+            justify-content: flex-start;
         }
         
         .widescreen-button {
@@ -228,9 +241,10 @@ def get_widescreen_spotlight_styles():
                 font-size: 1.25rem;
             }
             
-            .widescreen-actions {
+            .widescreen-content .sss-button-group {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 0.75rem;
             }
             
             .widescreen-button {

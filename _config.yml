@@ -170,3 +170,13 @@ _showcase:
   button_text: "Get Started Today"
   button_url: "#contact"
   button_size: "large"
+
+_widescreen_spotlight:
+  image: "beetle.png"
+  title: "Make your business blossom."
+  description: "Grow your business with SSSStatic. It's easy to use and free to get started."
+  textPosition: "left"
+  buttons:
+    - text: "Meet Juily"
+      url: "#meet_juily"
+      style: "primary"
