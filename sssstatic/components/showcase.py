@@ -11,6 +11,8 @@ Configuration options:
 - button_url: Call-to-action button URL (default: "#")
 - button_size: Button size - "small", "medium", or "large" (default: "medium")
 - direction: Image position - "left" or "right" (default: "left")
+- spacerTop: CSS value for top margin (e.g., "1rem", "2em", "20px")
+- spacerBottom: CSS value for bottom margin (e.g., "1rem", "2em", "20px")
 """
 
 
@@ -31,6 +33,8 @@ def generate_showcase_html(config):
         button_url = showcase_data.get('button_url', '#')
         button_size = showcase_data.get('button_size', 'medium')  # Default to medium
         direction = showcase_data.get('direction', 'left')  # Default to left
+        spacer_top = showcase_data.get('spacerTop', '')
+        spacer_bottom = showcase_data.get('spacerBottom', '')
     else:
         # If it's just a string, treat it as the image path
         image_path = showcase_data
@@ -41,6 +45,8 @@ def generate_showcase_html(config):
         button_url = '#'
         button_size = 'medium'  # Default to medium
         direction = 'left'  # Default to left
+        spacer_top = ''
+        spacer_bottom = ''
     
     if not image_path:
         return ""
@@ -58,8 +64,15 @@ def generate_showcase_html(config):
             {'emoji': '✨', 'text': 'You get high quality results'}
         ]
     
-    # Build the showcase HTML
-    showcase_html = '    <section class="showcase-section">\n'
+    # Build the showcase HTML with spacer styles
+    spacer_styles = []
+    if spacer_top:
+        spacer_styles.append(f'margin-top: {spacer_top}')
+    if spacer_bottom:
+        spacer_styles.append(f'margin-bottom: {spacer_bottom}')
+    
+    style_attr = f' style="{"; ".join(spacer_styles)}"' if spacer_styles else ''
+    showcase_html = f'    <section class="showcase-section"{style_attr}>\n'
     showcase_html += f'        <div class="showcase-container showcase-{direction}">\n'
     
     # Generate image and content based on position

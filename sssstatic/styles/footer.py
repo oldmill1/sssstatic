@@ -12,7 +12,6 @@ def get_footer_styles():
         .site-footer {
             width: 100vw;
             margin-left: calc(-50vw + 50%);
-            margin-top: 2rem;
             padding: 4rem 0 0 0;
             background: black;
             position: relative;

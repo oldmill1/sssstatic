@@ -18,6 +18,7 @@ def get_showcase_styles():
             margin-right: calc(-50vw + 50%);
         }
         
+        
         .showcase-container {
             display: flex;
             align-items: center;
