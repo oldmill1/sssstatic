@@ -21,6 +21,8 @@ def get_video_css():
     height: auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     background-color: #000;
+    display: block;
+    object-fit: cover;
 }
 
 /* Responsive video sizing */

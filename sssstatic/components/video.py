@@ -33,21 +33,26 @@ def generate_video_html(config):
                 if muted:
                     attributes.append('muted')
                 
-                # Build style attributes for width/height/border-radius/zoom
-                style_parts = []
+                # Build style attributes for width/height/zoom
+                video_style_parts = []
                 if width:
-                    style_parts.append(f'width: {width}')
+                    video_style_parts.append(f'width: {width}')
                 if height:
-                    style_parts.append(f'height: {height}')
-                if border_radius:
-                    style_parts.append(f'border-radius: {border_radius}')
+                    video_style_parts.append(f'height: {height}')
                 if zoom:
-                    style_parts.append(f'transform: scale({zoom})')
+                    video_style_parts.append(f'transform: scale({zoom})')
                 
-                style_attr = f' style="{"; ".join(style_parts)}"' if style_parts else ''
+                # Build container style attributes for border-radius
+                container_style_parts = []
+                if border_radius:
+                    container_style_parts.append(f'border-radius: {border_radius}')
+                    container_style_parts.append('overflow: hidden')
+                
+                video_style_attr = f' style="{"; ".join(video_style_parts)}"' if video_style_parts else ''
+                container_style_attr = f' style="{"; ".join(container_style_parts)}"' if container_style_parts else ''
                 attributes_str = ' '.join(attributes)
                 
-                video_html = f'<div class="video-container"><video src="assets/{src}" alt="{alt}" {attributes_str}{style_attr}></video></div>'
+                video_html = f'<div class="video-container"{container_style_attr}><video src="assets/{src}" alt="{alt}" {attributes_str}{video_style_attr}></video></div>'
         elif isinstance(video_config, str):
             # Simple string format: just the filename
             video_html = f'<div class="video-container"><video src="assets/{video_config}" controls></video></div>'

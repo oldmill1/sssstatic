@@ -4151,3 +4151,39 @@
             }
         }
     
+/* Video Component Styles */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    padding: 1rem;
+}
+
+.video-container video {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #000;
+    display: block;
+    object-fit: cover;
+}
+
+/* Responsive video sizing */
+@media (max-width: 768px) {
+    .video-container {
+        margin: 1rem 0;
+        padding: 0.5rem;
+    }
+    
+    .video-container video {
+        /* border-radius controlled via config */
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .video-container video {
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+}
