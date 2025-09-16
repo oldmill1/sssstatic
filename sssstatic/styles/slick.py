@@ -12,7 +12,8 @@ def get_slick_styles():
         .slick-section {
             margin: 0; 
             padding: 2rem 0;
-            background-color: #f8f9fa;
+            background-color: #f8f9fa; /* Default background, can be overridden by bgColor */
+            color: #000; /* Default text color, can be overridden by color property */
         }
         
         .slick-container {
@@ -38,7 +39,7 @@ def get_slick_styles():
         }
         
         .slick-subtitle {
-            color: #3b82f6;
+            color: #3b82f6; /* Keep blue for subtitle, can be overridden if needed */
             font-size: 16px;
             font-weight: 500;
             margin-bottom: 10px;
@@ -49,7 +50,7 @@ def get_slick_styles():
             font-family: var(--font-display);
             font-size: var(--font-size-5xl);
             font-weight: 700;
-            color: #000;
+            color: inherit; /* Inherit color from parent section */
             line-height: 1.2;
             margin-bottom: 0;
         }
@@ -58,6 +59,7 @@ def get_slick_styles():
             background-color: #fef08a;
             padding: 2px 6px;
             border-radius: 3px;
+            /* Text color can be overridden by highlightColor property */
         }
         
         /* Benefits grid - 2 columns, 3 rows */
@@ -115,14 +117,14 @@ def get_slick_styles():
         .slick-benefit-title {
             font-size: 24px;
             font-weight: 700;
-            color: #000;
+            color: inherit; /* Inherit color from parent section */
             margin-bottom: 8px;
             line-height: 1.3;
         }
         
         .slick-benefit-description {
             font-size: 18px;
-            color: #374151;
+            color: inherit; /* Inherit color from parent section */
             line-height: 1.4;
         }
         

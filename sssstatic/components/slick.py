@@ -14,15 +14,30 @@ def generate_slick_html(config):
     # Extract slick configuration
     subtitle = slick_data.get('subtitle', '')
     title = slick_data.get('title', '')
-    highlight_text = slick_data.get('highlight_text', '')
+    highlight_text = slick_data.get('highlightText', '')  # Support both old and new naming
+    if not highlight_text:  # Fallback to old naming for backward compatibility
+        highlight_text = slick_data.get('highlight_text', '')
     benefits = slick_data.get('benefits', [])
     image_path = slick_data.get('image', '')
+    bg_color = slick_data.get('bgColor', '')
+    text_color = slick_data.get('color', '')
+    highlight_color = slick_data.get('highlightColor', '')
     
     if not benefits:
         return ""
     
-    # Build the slick HTML
-    slick_html = '    <section class="slick-section">\n'
+    # Build the slick HTML with optional background and text colors
+    style_parts = []
+    if bg_color:
+        style_parts.append(f'background-color: {bg_color}')
+    if text_color:
+        style_parts.append(f'color: {text_color}')
+    
+    if style_parts:
+        style_attr = f' style="{"; ".join(style_parts)};"'
+        slick_html = f'    <section class="slick-section"{style_attr}>\n'
+    else:
+        slick_html = '    <section class="slick-section">\n'
     slick_html += '        <div class="slick-container">\n'
     slick_html += '            <div class="slick-content-wrapper">\n'
     
@@ -39,7 +54,10 @@ def generate_slick_html(config):
             # Split title and replace highlight_text with highlighted version
             title_parts = title.split(highlight_text)
             if len(title_parts) == 2:
-                highlighted_title = f'{title_parts[0]}<span class="slick-highlight">{highlight_text}</span>{title_parts[1]}'
+                if highlight_color:
+                    highlighted_title = f'{title_parts[0]}<span class="slick-highlight" style="color: {highlight_color};">{highlight_text}</span>{title_parts[1]}'
+                else:
+                    highlighted_title = f'{title_parts[0]}<span class="slick-highlight">{highlight_text}</span>{title_parts[1]}'
             else:
                 highlighted_title = title
         else:
