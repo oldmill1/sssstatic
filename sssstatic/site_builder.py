@@ -192,9 +192,8 @@ def generate_page_html(page_config, base_config):
     page_merged_config.update(page_config)
     
     # Generate content from page data (excluding system tags)
-    content_data = {k: v for k, v in page_config.items()
-                    if not k.startswith('_') and k not in ['site']}
-    content_html = convert_to_html(content_data)
+    # Skip content generation for pages too - only process underscore components
+    content_html = ""
     
     # Generate the complete HTML for this page
     return generate_site_html(page_merged_config, content_html)
@@ -219,9 +218,13 @@ def build_site(dev_mode=False):
     pages = extract_pages(config)
     
     # Generate content from all data except system tags, reserved fields, and _page
+    # Only process known content components - ignore any non-standard components
     content_data = {k: v for k, v in config.items()
                     if not k.startswith('_') and k not in ['site'] and k != '_page'}
-    content_html = convert_to_html(content_data)
+    
+    # For now, we'll skip content generation entirely since we only want underscore components
+    # This ensures non-standard components are completely ignored
+    content_html = ""
 
     # Create output directory
     output_dir = Path("_site")

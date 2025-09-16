@@ -103,9 +103,10 @@ def generate_site_html(config, content_html, dev_mode=False):
     }
     
     # Generate components in the order they appear in the YAML config
+    # Only process components that start with underscore (known components)
     components_html = ""
     for key, value in config.items():
-        if key in component_generators:
+        if key.startswith('_') and key in component_generators:
             component_html = component_generators[key](config)
             if component_html:
                 components_html += component_html
