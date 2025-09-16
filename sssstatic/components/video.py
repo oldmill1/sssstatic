@@ -19,6 +19,7 @@ def generate_video_html(config):
             width = video_config.get('width', '')
             height = video_config.get('height', '')
             border_radius = video_config.get('borderRadius', '')
+            zoom = video_config.get('zoom', '')
             
             if src:
                 # Build video attributes
@@ -32,7 +33,7 @@ def generate_video_html(config):
                 if muted:
                     attributes.append('muted')
                 
-                # Build style attributes for width/height/border-radius
+                # Build style attributes for width/height/border-radius/zoom
                 style_parts = []
                 if width:
                     style_parts.append(f'width: {width}')
@@ -40,6 +41,8 @@ def generate_video_html(config):
                     style_parts.append(f'height: {height}')
                 if border_radius:
                     style_parts.append(f'border-radius: {border_radius}')
+                if zoom:
+                    style_parts.append(f'transform: scale({zoom})')
                 
                 style_attr = f' style="{"; ".join(style_parts)}"' if style_parts else ''
                 attributes_str = ' '.join(attributes)

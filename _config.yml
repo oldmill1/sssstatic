@@ -24,6 +24,7 @@ _row:
         width: "800px"
         height: "450px"
         borderRadius: "20px"
+        zoom: "1.2"
     - _component:
         content:
           - _text:
