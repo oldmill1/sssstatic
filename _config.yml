@@ -23,7 +23,7 @@ _row:
     - _component:
         content:
           - _text:
-              content: "Build this website with SSSStatic"
+              content: "Publish at the speed of static."
               spacerTop: "4rem"
               type: "h1"
               size: "xxlarge"
@@ -34,7 +34,7 @@ _row:
               lineHeight: "small"
               marginBottom: "1rem"
           - _text:
-              content: "Go live in thirty seconds. 🚀"
+              content: "Code less. Deploy more. 🚀"
               type: "h2"
               size: "large"
               fontWeight: "500"
