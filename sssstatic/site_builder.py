@@ -103,9 +103,11 @@ def generate_css_file(config, dev_mode=False):
             'sssstatic.components.component',
             'sssstatic.components.page_header',
             'sssstatic.components.image',
+            'sssstatic.components.video',
             'sssstatic.components.topbar',
             'sssstatic.components.stickers',
             'sssstatic.styles.stickers',
+            'sssstatic.styles.video',
             'sssstatic.templates'
         ]
         

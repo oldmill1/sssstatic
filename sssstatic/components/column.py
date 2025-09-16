@@ -23,6 +23,7 @@ def generate_column_html(config):
     from .map import generate_map_html
     from .component import generate_component_html
     from .text import generate_text_html
+    from .video import generate_video_html
     
     # Component mapping for dynamic generation
     component_generators = {
@@ -37,6 +38,7 @@ def generate_column_html(config):
         '_map': generate_map_html,
         '_component': generate_component_html,
         '_text': generate_text_html,
+        '_video': generate_video_html,
     }
     
     # Collect all components first to determine layout

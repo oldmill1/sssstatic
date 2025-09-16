@@ -16,6 +16,7 @@ from .styles.map import get_map_styles
 from .styles.text import get_text_css
 from .styles.button import get_button_styles
 from .styles.stickers import get_sticker_styles
+from .styles.video import get_video_css
 
 
 
@@ -449,7 +450,7 @@ def get_global_css(config=None):
         }
         
         
-        """ + get_row_styles() + get_column_css() + get_component_css() + get_text_css() + get_widescreen_spotlight_styles() + get_pinterest_styles() + get_showcase_styles() + get_slick_styles() + get_sizzle_styles() + get_sly_styles() + get_sinema_styles() + get_sslogan_styles() + get_map_styles() + get_button_styles() + get_sticker_styles()
+        """ + get_row_styles() + get_column_css() + get_component_css() + get_text_css() + get_widescreen_spotlight_styles() + get_pinterest_styles() + get_showcase_styles() + get_slick_styles() + get_sizzle_styles() + get_sly_styles() + get_sinema_styles() + get_sslogan_styles() + get_map_styles() + get_button_styles() + get_sticker_styles() + get_video_css()
 
 
 

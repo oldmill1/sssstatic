@@ -24,6 +24,7 @@ def generate_row_html(config):
     from .map import generate_map_html
     from .column import generate_column_html
     from .component import generate_component_html
+    from .video import generate_video_html
     
     # Component mapping for dynamic generation
     component_generators = {
@@ -38,6 +39,7 @@ def generate_row_html(config):
         '_map': generate_map_html,
         '_column': generate_column_html,
         '_component': generate_component_html,
+        '_video': generate_video_html,
     }
     
     # Handle multiple rows (vertical stacking)

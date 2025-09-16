@@ -45,6 +45,7 @@ def generate_site_html(config, content_html, dev_mode=False):
     """Generate complete HTML page from config and content HTML."""
     from .components.page_header import generate_page_header_html
     from .components.image import generate_image_html
+    from .components.video import generate_video_html
     from .components.topbar import generate_topbar_html
     from .components.row import generate_row_html
     from .components.column import generate_column_html
@@ -80,6 +81,9 @@ def generate_site_html(config, content_html, dev_mode=False):
 
     # Generate image HTML if _image is present
     image_html = generate_image_html(config)
+    
+    # Generate video HTML if _video is present
+    video_html = generate_video_html(config)
     
 
     # Component mapping for dynamic generation
@@ -131,6 +135,7 @@ def generate_site_html(config, content_html, dev_mode=False):
 </head>
 <body class="{body_class}">
 {header_html}{page_header_html}    {image_html}
+    {video_html}
     {components_html}
     {content_html}
 {get_smooth_scroll_script() if has_anchor_links else ''}</body>
