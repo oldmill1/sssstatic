@@ -37,10 +37,10 @@ _row:
               # paddingBlock: "1rem"
               lineHeight: "small"
           - _text:
-              content: "The project is open source and free to use. Who knows what you'll build with it."
+              content: "MIT Licensed and free to use. Who knows what you'll build with it."
               type: "p"
               size: "medium"
-              weight: "thin"
+              weight: "normal"
               lineHeight: "medium"
               paddingBlock: "0.5rem"
           - _button:
@@ -52,7 +52,7 @@ _row:
               icon: "star"
           - _button:
               align: "left"
-              text: "View on GitHub"
+              text: "Report an issue"
               url: "https://github.com/yourusername/sssstatic"
               style: "primary"
               variant: "link"
@@ -66,7 +66,7 @@ _row:
               name: "rocket"
               size: "large"
               position: "center"
-              animation: "bounce"
+            #   animation: "bounce"
           - _text:
               content: "People don't appreciate the value of a good sticker."
               type: "p"

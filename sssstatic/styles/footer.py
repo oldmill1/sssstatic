@@ -53,13 +53,13 @@ def get_footer_styles():
         /* Responsive footer spacing */
         @media (min-width: 768px) {
             .site-footer {
-                margin-top: 3rem;
+                /* margin-top removed */
             }
         }
         
         @media (min-width: 1024px) {
             .site-footer {
-                margin-top: 4rem;
+                /* margin-top removed */
             }
         }
         
