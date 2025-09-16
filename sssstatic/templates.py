@@ -48,7 +48,6 @@ def generate_site_html(config, content_html, dev_mode=False):
     from .components.topbar import generate_topbar_html
     from .components.row import generate_row_html
     from .components.column import generate_column_html
-    from .components.cards import generate_cards_html
     from .components.widescreen_spotlight import generate_widescreen_spotlight_html
     from .components.pinterest import generate_pinterest_html
     from .components.showcase import generate_showcase_html
@@ -87,7 +86,6 @@ def generate_site_html(config, content_html, dev_mode=False):
     component_generators = {
         '_row': generate_row_html,
         '_column': generate_column_html,
-        '_card': generate_cards_html,
         '_widescreen_spotlight': generate_widescreen_spotlight_html,
         '_pinterest': generate_pinterest_html,
         '_showcase': generate_showcase_html,

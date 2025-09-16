@@ -79,7 +79,6 @@ def generate_css_file(config, dev_mode=False):
         modules_to_reload = [
             # Style modules
             'sssstatic.styles.sinema',
-            'sssstatic.styles.cards',
             'sssstatic.styles.widescreen_spotlight',
             'sssstatic.styles.pinterest',
             'sssstatic.styles.showcase',
@@ -92,7 +91,6 @@ def generate_css_file(config, dev_mode=False):
             'sssstatic.theme_styles',
             # Component modules
             'sssstatic.components.sinema',
-            'sssstatic.components.cards',
             'sssstatic.components.widescreen_spotlight',
             'sssstatic.components.pinterest',
             'sssstatic.components.showcase',

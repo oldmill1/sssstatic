@@ -12,7 +12,6 @@ def generate_column_html(config):
         return ""
     
     # Import all component generators
-    from .cards import generate_cards_html
     from .widescreen_spotlight import generate_widescreen_spotlight_html
     from .pinterest import generate_pinterest_html
     from .showcase import generate_showcase_html
@@ -27,7 +26,6 @@ def generate_column_html(config):
     
     # Component mapping for dynamic generation
     component_generators = {
-        '_card': generate_cards_html,
         '_widescreen_spotlight': generate_widescreen_spotlight_html,
         '_pinterest': generate_pinterest_html,
         '_showcase': generate_showcase_html,
