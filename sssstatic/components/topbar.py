@@ -1,6 +1,52 @@
 # sssstatic/components/topbar.py
 """
 TopBar component for SSSStatic - dark mode navigation bar
+
+CONFIGURATION OPTIONS:
+The TopBar component can be configured using the '_topbar' key in your _config.yml file.
+
+Available options:
+- title: (string) The brand name displayed on the left side of the topbar
+  Default: Uses site.name from config, or "My Site" if not specified
+  Example: "My Company"
+
+- titleFont: (string) Custom Google Font name for the brand title
+  Default: Uses the primary font family
+  Example: "Original Surfer", "Roboto", "Open Sans"
+
+- cta: (string) Text for the call-to-action button on the right side
+  Default: "Contact"
+  Example: "Get Started", "Sign Up", "Learn More"
+
+- link: (string) URL or anchor link for the CTA button
+  Default: "#"
+  Example: "#contact", "/signup", "https://example.com"
+
+- size: (string) Size of the topbar and its elements
+  Options: "small" (default), "medium", "large"
+  - small: 70px height, compact design
+  - medium: 80px height, balanced design  
+  - large: 90px height, prominent design
+
+NAVIGATION BEHAVIOR:
+- If '_anchorLinks' are defined in config, they take priority and create smooth-scrolling navigation
+- If '_page' entries exist (without anchor links), they create page-to-page navigation
+- Navigation links appear in the center of the topbar
+- Brand title links to index.html
+- CTA button appears on the right side
+
+RESPONSIVE DESIGN:
+- Automatically adapts to different screen sizes
+- On mobile devices, elements reorder for better usability
+- Colors automatically adapt based on site.colorMode (light/dark)
+
+Example configuration:
+_topbar:
+  title: "My Brand"
+  titleFont: "Roboto"
+  cta: "Get Started"
+  link: "#contact"
+  size: "large"
 """
 
 

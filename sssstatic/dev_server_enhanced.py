@@ -103,13 +103,14 @@ class DevBuildHandler(FileSystemEventHandler):
         try:
             # Change to the directory containing the config
             original_dir = os.getcwd()
-            config_dir = self.config_path.parent
+            config_dir = self.config_path.parent.absolute()
             os.chdir(config_dir)
             
             # Check if _site directory exists before build
             site_dir = config_dir / "_site"
             console.print(f"[dim]>>> Building from: {config_dir}[/dim]")
             console.print(f"[dim]>>> Site directory: {site_dir}[/dim]")
+            console.print(f"[dim]>>> Config file: {self.config_path.absolute()}[/dim]")
             
             # Build the site in dev mode
             success = build_site(dev_mode=True)
@@ -176,11 +177,10 @@ def show_dev_server_shutdown():
     console.print("")
 
 
-def find_config_in_sssstatic_root():
-    """Find _config.yml in the sssstatic root directory."""
-    # Get the sssstatic package directory
-    sssstatic_root = Path(__file__).parent.parent  # Go up from sssstatic/sssstatic to sssstatic/
-    config_path = sssstatic_root / "_config.yml"
+def find_config_in_current_directory():
+    """Find _config.yml in the current working directory."""
+    # Look for _config.yml in the current working directory
+    config_path = Path("_config.yml").absolute()
     
     if config_path.exists():
         return config_path
@@ -191,13 +191,13 @@ def find_config_in_sssstatic_root():
 def start_enhanced_dev_server(port=8000):
     """Start the enhanced development server with file watching."""
     
-    # First, try to find config in sssstatic root directory
-    config_path = find_config_in_sssstatic_root()
+    # First, try to find config in current working directory
+    config_path = find_config_in_current_directory()
     
     if not config_path:
         show_critical_error(
             "No config found", 
-            "No _config.yml found in sssstatic root directory. Please create one for development."
+            "No _config.yml found in current directory. Please run this command from a project directory with _config.yml."
         )
         return False
     
@@ -208,7 +208,7 @@ def start_enhanced_dev_server(port=8000):
     
     # Change to config directory for building
     original_dir = os.getcwd()
-    config_dir = config_path.parent
+    config_dir = config_path.parent.absolute()
     os.chdir(config_dir)
     
     try:
