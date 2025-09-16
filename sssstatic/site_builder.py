@@ -88,7 +88,6 @@ def generate_css_file(config, dev_mode=False):
             'sssstatic.styles.sizzle',
             'sssstatic.styles.sly',
             'sssstatic.styles.map',
-            'sssstatic.styles.footer',
             'sssstatic.styles.topbar',
             'sssstatic.styles.type',
             'sssstatic.theme_styles',

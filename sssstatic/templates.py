@@ -60,7 +60,6 @@ def generate_site_html(config, content_html, dev_mode=False):
     from .components.sslogan import generate_sslogan_html
     from .components.map import generate_map_html
     from .components.component import generate_component_html
-    from .styles.footer import generate_footer_html
     from .styles.type import get_google_fonts_imports
     
     # Use _title for both title and h1, fall back to site name if _title not available
@@ -84,8 +83,6 @@ def generate_site_html(config, content_html, dev_mode=False):
     # Generate image HTML if _image is present
     image_html = generate_image_html(config)
     
-    # Generate footer HTML
-    footer_html = generate_footer_html(config)
 
     # Component mapping for dynamic generation
     component_generators = {
@@ -139,7 +136,7 @@ def generate_site_html(config, content_html, dev_mode=False):
 {header_html}{page_header_html}    {image_html}
     {components_html}
     {content_html}
-{footer_html}{get_smooth_scroll_script() if has_anchor_links else ''}</body>
+{get_smooth_scroll_script() if has_anchor_links else ''}</body>
 </html>"""
 
     return html
