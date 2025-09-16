@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Original+Surfer:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Original+Surfer:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles.css?v=1757988867">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body class="has-topbar">
@@ -54,15 +54,20 @@
                 
             </div>
             <div class="column column-2">
-                    <section class="sslogan-section">
-                        <div class="sslogan-container">
-                            <div class="sslogan-content">
-                                <h1 class="sslogan-heading">Build this website with SSSStatic</h1>
-                                <h2 class="sslogan-subheading">Go live in thirty seconds. 🚀</h2>
-                                <p class="sslogan-paragraph">From idea to a beautiful, responsive website in just a few lines of text. Perfect for portfolios, docs, and landing pages.</p>
-                            </div>
+                        <div class="component-container" style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 0.5rem;">
+                                    <h1 class="text-component text-size-xxlarge text-weight-normal text-line-height-small align-left font-family-heading letter-spacing-tight" style="margin-bottom: 1rem;; padding-top: 4rem;; font-weight: 700;">
+                                        <span class="text-content">Build this website with SSSStatic</span>
+                                    </h1>
+                            
+                                    <h2 class="text-component text-size-large text-weight-normal text-line-height-medium align-left font-family-heading" style="margin-bottom: 1rem;; font-weight: 500;">
+                                        <span class="text-content">Go live in thirty seconds. 🚀</span>
+                                    </h2>
+                            
+                                    <p class="text-component text-size-medium text-weight-normal text-line-height-medium align-left font-family-primary" style="font-weight: 400;">
+                                        <span class="text-content">From idea to a beautiful, responsive website in just a few lines of text. Perfect for portfolios, docs, and landing pages.</span>
+                                    </p>
+                            
                         </div>
-                    </section>
                 
             </div>
         </div>
@@ -75,18 +80,18 @@
                                         <span class="text-content">Open Source</span>
                                     </h1>
                             
-                                    <p class="text-component text-size-medium text-weight-thin text-line-height-medium align-center" style="margin-top: 0.5rem;; margin-bottom: 0.5rem;">
-                                        <span class="text-content">The project is open source and free to use. Who knows what you'll build with it.</span>
+                                    <p class="text-component text-size-medium text-weight-normal text-line-height-medium align-center" style="margin-top: 0.5rem;; margin-bottom: 0.5rem;">
+                                        <span class="text-content">MIT Licensed and free to use. Who knows what you'll build with it.</span>
                                     </p>
                             
                             <a href="https://github.com/yourusername/sssstatic" class="sss-button sss-button-primary sss-button-medium align-left sss-button-variant-default sss-button-icon-star"><span class="sss-button-text">View on GitHub</span></a>
-                            <a href="https://github.com/yourusername/sssstatic" class="sss-button sss-button-primary sss-button-medium align-left sss-button-variant-link"><span class="sss-button-text">View on GitHub</span></a>
+                            <a href="https://github.com/yourusername/sssstatic" class="sss-button sss-button-primary sss-button-medium align-left sss-button-variant-link"><span class="sss-button-text">Report an issue</span></a>
                         </div>
                 
             </div>
             <div class="column column-2">
                         <div class="component-container" style="background-color: #1B1F23; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 0.5rem; padding: 1rem; min-height: 200px;">
-                                    <div class="sticker-component sticker-size-large sticker-position-center align-center sticker-animation-bounce" style="background-image: url(/assets/stickers/rocket.png);"></div>
+                                    <div class="sticker-component sticker-size-large sticker-position-center align-center" style="background-image: url(/assets/stickers/rocket.png);"></div>
                             
                                     <p class="text-component text-size-medium text-weight-light text-line-height-medium align-center">
                                         <span class="text-content">People don't appreciate the value of a good sticker.</span>
@@ -122,12 +127,63 @@
             </div>
         </div>
     </section>
+    <section class="showcase-section" style="margin-top: 4rem">
+        <div class="showcase-container showcase-right">
+            <div class="showcase-image">
+                <img src="assets/statie.png" alt="Why Static Sites Are Awesome" class="showcase-img">
+            </div>
+            <div class="showcase-content">
+                <h2 class="showcase-title">Why Static Sites Are Awesome</h2>
+                <h3 class="showcase-subtitle">Fast, secure, and reliable</h3>
+                <div class="showcase-steps">
+                    <div class="showcase-step">
+                        <span class="step-emoji">⚡</span>
+                        <div class="step-content">
+                            <span class="step-text">Lightning Fast Performance</span>
+                            <span class="step-description">No server-side processing means instant page loads and better user experience</span>
+                        </div>
+                    </div>
+                    <div class="showcase-step">
+                        <span class="step-emoji">🔒</span>
+                        <div class="step-content">
+                            <span class="step-text">Enhanced Security</span>
+                            <span class="step-description">No database or server-side code means fewer attack vectors and vulnerabilities</span>
+                        </div>
+                    </div>
+                    <div class="showcase-step">
+                        <span class="step-emoji">💰</span>
+                        <div class="step-content">
+                            <span class="step-text">Cost Effective Hosting</span>
+                            <span class="step-description">Host anywhere for free or pennies - CDNs, GitHub Pages, Netlify, Vercel</span>
+                        </div>
+                    </div>
+                    <div class="showcase-step">
+                        <span class="step-emoji">📈</span>
+                        <div class="step-content">
+                            <span class="step-text">Better SEO & Reliability</span>
+                            <span class="step-description">Faster loading times improve search rankings and uptime is nearly 100%</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#contact" class="sss-button sss-button-primary sss-button-large align-center sss-button-variant-default anchor-link" data-scroll-to="contact"><span class="sss-button-text">Get Started Today</span></a>
+            </div>
+        </div>
+    </section>
+    <section class="widescreen-spotlight-section widescreen-layout-left" style="--widescreen-text-color: #ffffff; --widescreen-shift: 0;">
+        <div class="widescreen-background">
+            <img src="assets/beetle.png" alt="Blossom" class="widescreen-image">
+        </div>
+        <div class="widescreen-content-overlay">
+            <div class="widescreen-content">
+                <h2 class="widescreen-title">Blossom</h2>
+                <p class="widescreen-description"><em>Your</em> creative agency.</p>
+                <div class="sss-button-group sss-button-group-center sss-button-group-medium">
+    <a href="#meet_juily" class="sss-button sss-button-primary sss-button-medium align-center sss-button-variant-default"><span class="sss-button-text">Get In Touch</span></a>
+</div>
+            </div>
+        </div>
+    </section>
 
     
-    <footer class="site-footer">
-        <div class="footer-content">
-            <span class="footer-text">Made with <code><a href="http://sssstatic.com/" target="_blank" rel="noopener noreferrer">SSSStatic</a></code></span>
-        </div>
-    </footer>
 </body>
 </html>
