@@ -145,6 +145,22 @@ def get_text_css():
     line-height: 2.0;
 }
 
+/* Text Alignment Variants */
+.align-left {
+    text-align: left;
+    align-items: flex-start;
+}
+
+.align-center {
+    text-align: center;
+    align-items: center;
+}
+
+.align-right {
+    text-align: right;
+    align-items: flex-end;
+}
+
 /* Emoji Positioning */
 .emoji-top {
     font-size: 1.2em;

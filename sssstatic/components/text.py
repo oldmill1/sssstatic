@@ -16,6 +16,7 @@ Available Properties:
 - spacerTop: (string) Top padding - "0", "0.5rem", "1rem", "2rem", etc.
 - spacerBottom: (string) Bottom padding - "0", "0.5rem", "1rem", "2rem", etc.
 - lineHeight: (string) Line height - "small", "medium", "large"
+- color: (string) Text color - CSS color value (hex, rgb, rgba, named colors)
 - emojiLeft: (string) Optional emoji to display to the left of text
 - emojiRight: (string) Optional emoji to display to the right of text
 - emojiTop: (string) Optional emoji to display above the text
@@ -58,6 +59,7 @@ def generate_text_html(config):
     emoji_right = text_data.get('emojiRight', '')
     emoji_top = text_data.get('emojiTop', '')
     align = text_data.get('align', 'center')  # left, center, right
+    color = text_data.get('color', '')  # Custom color for text
     
     if not text_content:
         return ""
@@ -96,6 +98,8 @@ def generate_text_html(config):
     if letter_spacing and letter_spacing not in ['tight', 'normal', 'wide']:
         # If it's a specific value like "-0.02em", use it directly
         inline_styles.append(f'letter-spacing: {letter_spacing};')
+    if color:
+        inline_styles.append(f'color: {color};')
     
     style_attr = f' style="{"; ".join(inline_styles)}"' if inline_styles else ''
     
